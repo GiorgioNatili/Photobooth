@@ -85,7 +85,7 @@
 			containerPortal = 8B9F50E51944A5AB00894629 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 8B9F50ED1944A5AB00894629;
-			remoteInfo = SwifteriOS;
+			remoteInfo = Photobooth;
 		};
 		8B300C5B1944AECB00993175 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -224,7 +224,7 @@
 				CAF1D6BB1AD75EA8005CCD89 /* Fabric.framework */,
 			);
 			name = Photobooth;
-			path = SwifterDemoiOS;
+			path = PhotoboothiOS;
 			sourceTree = "<group>";
 		};
 		8B300C211944AA1A00993175 /* Supporting Files */ = {
@@ -403,7 +403,7 @@
 			dependencies = (
 			);
 			name = PhotoboothiOS;
-			productName = SwifteriOS;
+			productName = Photobooth;
 			productReference = 8B9F50EE1944A5AB00894629 /* PhotoboothiOS.framework */;
 			productType = "com.apple.product-type.framework";
 		};
@@ -662,7 +662,7 @@
 					"DEBUG=1",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = SwifterDemoiOS/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/PhotoboothiOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				METAL_ENABLE_DEBUG_INFO = YES;
 				PRODUCT_NAME = PhotoboothDemoiOS;
@@ -681,7 +681,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 				);
-				INFOPLIST_FILE = SwifterDemoiOS/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/PhotoboothiOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				METAL_ENABLE_DEBUG_INFO = NO;
 				PRODUCT_NAME = PhotoboothDemoiOS;
