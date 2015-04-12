@@ -69,7 +69,7 @@ UINavigationControllerDelegate, UIImagePickerControllerDelegate /*, UITextViewDe
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
         
-        if beenHereBefore{
+        if beenHereBefore {
             /* Only display the picker once as the viewDidAppear: method gets
             called whenever the view of our view controller gets displayed */
             return;
@@ -89,6 +89,7 @@ UINavigationControllerDelegate, UIImagePickerControllerDelegate /*, UITextViewDe
                 
             if isCameraAvailable() && doesCameraSupportTakingPhotos(){
                 theController.sourceType = .Camera
+                theController.cameraDevice = .Front
             } else {
                 theController.sourceType = .PhotoLibrary
             }
@@ -189,12 +190,7 @@ UINavigationControllerDelegate, UIImagePickerControllerDelegate /*, UITextViewDe
             appDelegate.swifter.postStatusUpdate(self.statusTextField.text, media:imageData, inReplyToStatusID: nil, lat: nil, long: nil, placeID: nil, displayCoordinates: nil, trimUser: nil, success: {
                 (status: Dictionary<String, JSONValue>?) in
                 
-                dispatch_async(dispatch_get_main_queue(), {
-
-                    let controller = TweetViewController()
-                    self.presentViewController(controller, animated: true, completion: nil)
-
-                });
+                self.showTweets();
 
                 }, failure: failureHandler)
 
@@ -209,30 +205,10 @@ UINavigationControllerDelegate, UIImagePickerControllerDelegate /*, UITextViewDe
         dispatch_async(dispatch_get_main_queue(), {
             
             let controller = TweetViewController()
-
-            // trying to do the following to maintain the navigation bar:
-            // 1. create a new container that is a UIViewController
-            // 2. inside that have a view
-            // 3. set that view to be my TweetViewController
-            let container = self.storyboard!.instantiateViewControllerWithIdentifier("ContainerController") as ContainerController
-            
-            self.presentViewController(controller, animated: true, completion: nil)
+            self.showViewController(controller, sender: self)
 
         });
-
         
-    }
-    
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        println("Found \(segue.identifier) to \(segue.destinationViewController)")
-        if segue.identifier == "ViewTweets"
-        {
-            if let destinationVC = segue.destinationViewController as? UIViewController {
-                println("Targeted")
-                
-            }
-        }
-
     }
     
     func alertWithTitle(title: String, message: String) {
