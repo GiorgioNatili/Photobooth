@@ -165,13 +165,22 @@ UINavigationControllerDelegate, UIImagePickerControllerDelegate /*, UITextViewDe
             appDelegate.swifter.postStatusUpdate(self.statusTextField.text, media:imageData, inReplyToStatusID: nil, lat: nil, long: nil, placeID: nil, displayCoordinates: nil, trimUser: nil, success: {
                 (status: Dictionary<String, JSONValue>?) in
                 
-                self.showTweets();
+                    self.showTweets();
 
                 }, failure: failureHandler)
 
         }
 
         println("didTouchUpInsideTweetButton")
+
+    }
+    
+    @IBAction func didTouchUpInsideSettingsButton(sender: AnyObject) {
+
+        let controller = self.storyboard!.instantiateViewControllerWithIdentifier("SettingsViewController") as UINavigationController
+        self.showViewController(controller, sender: self)
+        
+        println("didTouchUpInsideSettingsButton")
 
     }
     

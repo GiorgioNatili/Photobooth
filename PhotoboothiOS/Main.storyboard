@@ -139,6 +139,11 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="09G-yV-LMr">
+                        <barButtonItem key="leftBarButtonItem" title="Settings" id="fCU-tV-HVj">
+                            <connections>
+                                <action selector="didTouchUpInsideSettingsButton:" destination="NXV-X1-aZg" id="nqZ-ne-bWc"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="View Tweets" id="VXf-ek-cVJ">
                             <connections>
                                 <action selector="showTweets" destination="NXV-X1-aZg" id="iqq-Q5-0OG"/>
@@ -156,23 +161,32 @@
             </objects>
             <point key="canvasLocation" x="464" y="766"/>
         </scene>
-        <!--View Controller-->
-        <scene sceneID="TXX-ya-OLZ">
+        <!--Settings View Controller-->
+        <scene sceneID="sCv-MR-FFW">
             <objects>
-                <viewController automaticallyAdjustsScrollViewInsets="NO" id="OoA-ME-uyX" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SettingsViewController" id="LUg-LH-mCQ" customClass="SettingsViewController" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="R5J-2f-GjN"/>
-                        <viewControllerLayoutGuide type="bottom" id="5fs-xB-jgx"/>
+                        <viewControllerLayoutGuide type="top" id="tfk-vC-nK7"/>
+                        <viewControllerLayoutGuide type="bottom" id="heQ-2B-0mH"/>
                     </layoutGuides>
-                    <view key="view" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="hX8-ng-UZq">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                    <view key="view" contentMode="scaleToFill" id="t7M-Aa-VwJ">
+                        <rect key="frame" x="0.0" y="0.0" width="480" height="320"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6bZ-MH-StL">
+                                <rect key="frame" x="219" y="43" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <toolbarItems/>
+                    <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="2QH-tW-Dpy" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pY7-ao-slC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="464" y="1175"/>
         </scene>
     </scenes>
     <resources>
