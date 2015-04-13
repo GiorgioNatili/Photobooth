@@ -93,19 +93,21 @@
                             <view alpha="0.59999999999999998" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yKp-wy-ngJ">
                                 <rect key="frame" x="34" y="82" width="453" height="105"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qmr-ae-Ue8">
-                                        <rect key="frame" x="0.0" y="-9" width="109" height="128"/>
-                                    </imageView>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" text="@ryankicks @romainhuet and @andypiper Having a great time with @TwitterDev from #bitcamp!" translatesAutoresizingMaskIntoConstraints="NO" id="zbw-Tx-Gyx">
                                         <rect key="frame" x="122" y="8" width="318" height="89"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="TwitterLogo" translatesAutoresizingMaskIntoConstraints="NO" id="554-Fx-tfs">
+                                        <rect key="frame" x="0.0" y="8" width="114" height="89"/>
+                                    </imageView>
                                 </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstItem="zbw-Tx-Gyx" firstAttribute="leading" secondItem="qmr-ae-Ue8" secondAttribute="trailing" constant="4" id="L6U-BB-5OK"/>
+                                    <constraint firstAttribute="bottom" secondItem="zbw-Tx-Gyx" secondAttribute="bottom" constant="8" id="S3N-XS-zyL"/>
+                                    <constraint firstItem="zbw-Tx-Gyx" firstAttribute="top" secondItem="yKp-wy-ngJ" secondAttribute="top" constant="8" id="eDn-r4-wTf"/>
+                                    <constraint firstAttribute="height" constant="140" id="gfb-mx-SZa"/>
                                     <constraint firstAttribute="trailing" secondItem="zbw-Tx-Gyx" secondAttribute="trailing" id="jVU-Ym-poc"/>
                                 </constraints>
                             </view>
@@ -159,6 +161,9 @@
             </objects>
         </scene>
     </scenes>
+    <resources>
+        <image name="TwitterLogo" width="1139" height="926"/>
+    </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
