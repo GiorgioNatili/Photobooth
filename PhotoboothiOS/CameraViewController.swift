@@ -86,41 +86,38 @@ UINavigationControllerDelegate, UIImagePickerControllerDelegate /*, UITextViewDe
             
             println("Picker returned successfully")
             
-            let mediaType:AnyObject? = info[UIImagePickerControllerMediaType]
-            
-            if let type:AnyObject = mediaType{
+            picker.dismissViewControllerAnimated(true, completion: {
                 
-                if type is String{
-                    let stringType = type as String
+                let mediaType:AnyObject? = info[UIImagePickerControllerMediaType]
+                
+                if let type:AnyObject = mediaType {
                     
-                    if stringType == kUTTypeMovie as String{
-                        let urlOfVideo = info[UIImagePickerControllerMediaURL] as NSURL
+                    if type is String {
+                        let stringType = type as String
+                        
+                        //                    if stringType == kUTTypeMovie as String {
+                        //                        let urlOfVideo = info[UIImagePickerControllerMediaURL] as NSURL
                         //                        if let url = urlOfVideo {
                         //                            println("Video URL = \(url)")
                         //                        }
-                    }
+                        //                    }
                         
-                    else if stringType == kUTTypeImage as String{
-                        /* Let's get the metadata. This is only for images. Not videos */
-                        let metadata = info[UIImagePickerControllerMediaMetadata]
-                            as? NSDictionary
-                        if let theMetaData = metadata{
-                            let image = info[UIImagePickerControllerOriginalImage]
-                                as? UIImage
-                            if let theImage = image{
-                                println("Image Metadata = \(theMetaData)")
+                        if stringType == kUTTypeImage as String {
+                            /* Let's get the metadata. This is only for images. Not videos */
+                            let metadata = info[UIImagePickerControllerMediaMetadata] as? NSDictionary
+                            let image = info[UIImagePickerControllerOriginalImage] as? UIImage
+                            
+                            if let theImage = image {
+                                self.imageView.image = image
                                 println("Image = \(theImage)")
-                                
-                                imageView.image = image
-                                picker.dismissViewControllerAnimated(true, completion: nil)
                             }
                         }
+                        
                     }
-                    
                 }
-            }
+                
+            })
             
-            picker.dismissViewControllerAnimated(true, completion: nil)
     }
     
     func imagePickerControllerDidCancel(picker: UIImagePickerController) {
@@ -129,9 +126,9 @@ UINavigationControllerDelegate, UIImagePickerControllerDelegate /*, UITextViewDe
     }
 
     @IBAction func didTouchUpInsidePhotoButton(sender: AnyObject) {
+
         let failureHandler: ((NSError) -> Void) = {
             error in
-            
             self.alertWithTitle("Error", message: error.localizedDescription)
         }
         
@@ -148,18 +145,15 @@ UINavigationControllerDelegate, UIImagePickerControllerDelegate /*, UITextViewDe
     }
     
     @IBAction func didTouchUpInsideTweetButton(sender: AnyObject) {
+
         let failureHandler: ((NSError) -> Void) = {
             error in
-            
             self.alertWithTitle("Error", message: error.localizedDescription)
         }
 
-        let uiImage = self.imageView.image
-        println("Image = \(uiImage)")
-
-        let imageData = UIImageJPEGRepresentation(uiImage, 0.5)
-
         let status = self.statusTextField.text
+        let uiImage = self.imageView.image
+        let imageData = UIImageJPEGRepresentation(uiImage, 0.5)
         
         if status != nil && imageData != nil {
 

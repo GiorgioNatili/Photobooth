@@ -24,43 +24,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "PhotoboothiOS/CameraViewController.swift"
-            timestampString = "450508026.909732"
+            timestampString = "450579766.883001"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "190"
-            endingLineNumber = "190"
+            startingLineNumber = "189"
+            endingLineNumber = "189"
             landmarkName = "CameraViewController"
             landmarkType = "3">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "SwifterDemoiOS.CameraViewController.(didTouchUpInsideTweetButton (SwifterDemoiOS.CameraViewController) -&gt; (Swift.AnyObject) -&gt; ()).(closure #2)"
-                  moduleName = "SwifterDemoiOS"
-                  urlString = "file:///Users/rchoi/Documents/xcode-6.3/SwifterDemoiOS/CameraViewController.swift"
-                  timestampString = "450388487.335028"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "192"
-                  endingLineNumber = "192"
-                  offsetFromSymbolStart = "27">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "reabstraction thunk helper from @callee_owned (@owned Swift.Optional&lt;Swift.Dictionary&lt;Swift.String, SwifteriOS.JSON&gt;&gt;) -&gt; (@unowned ()) to @callee_owned (@in (status : Swift.Optional&lt;Swift.Dictionary&lt;Swift.String, SwifteriOS.JSON&gt;&gt;)) -&gt; (@out ())"
-                  moduleName = "SwifterDemoiOS"
-                  urlString = "file:///Users/rchoi/Documents/xcode-6.3/SwifterDemoiOS/CameraViewController.swift"
-                  timestampString = "450388487.335272"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "189"
-                  endingLineNumber = "189"
-                  offsetFromSymbolStart = "4">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
