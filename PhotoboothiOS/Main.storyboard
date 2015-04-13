@@ -53,12 +53,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="480" height="320"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5Rw-WM-lEJ">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5Rw-WM-lEJ">
                                 <rect key="frame" x="0.0" y="72" width="480" height="136"/>
                                 <color key="tintColor" red="1" green="1" blue="1" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
                             </imageView>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="H1Q-Eo-1vY">
-                                <rect key="frame" x="-3" y="276" width="483" height="44"/>
+                                <rect key="frame" x="-3" y="276" width="483" height="53"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="Bp8-RW-aSj"/>
                                 </constraints>
@@ -90,19 +90,35 @@
                                     </barButtonItem>
                                 </items>
                             </toolbar>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="This is some dummy text." translatesAutoresizingMaskIntoConstraints="NO" id="zbw-Tx-Gyx">
-                                <rect key="frame" x="0.0" y="223" width="230" height="42"/>
+                            <view alpha="0.59999999999999998" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yKp-wy-ngJ">
+                                <rect key="frame" x="34" y="82" width="453" height="105"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qmr-ae-Ue8">
+                                        <rect key="frame" x="0.0" y="-9" width="109" height="128"/>
+                                    </imageView>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" text="@ryankicks @romainhuet and @andypiper Having a great time with @TwitterDev from #bitcamp!" translatesAutoresizingMaskIntoConstraints="NO" id="zbw-Tx-Gyx">
+                                        <rect key="frame" x="122" y="8" width="318" height="89"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
+                                <constraints>
+                                    <constraint firstItem="zbw-Tx-Gyx" firstAttribute="leading" secondItem="qmr-ae-Ue8" secondAttribute="trailing" constant="4" id="L6U-BB-5OK"/>
+                                    <constraint firstAttribute="trailing" secondItem="zbw-Tx-Gyx" secondAttribute="trailing" id="jVU-Ym-poc"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="yKp-wy-ngJ" secondAttribute="trailing" id="5rS-Cb-z4U"/>
                             <constraint firstAttribute="trailingMargin" secondItem="H1Q-Eo-1vY" secondAttribute="trailing" id="7JW-d1-Mdo"/>
+                            <constraint firstItem="5Rw-WM-lEJ" firstAttribute="top" secondItem="9PR-gp-LcG" secondAttribute="bottom" id="EtS-Zc-xCb"/>
                             <constraint firstItem="5Rw-WM-lEJ" firstAttribute="leading" secondItem="cIB-eO-lfb" secondAttribute="leadingMargin" id="M9S-jP-Xlk"/>
                             <constraint firstItem="Qgw-E4-vKf" firstAttribute="top" secondItem="H1Q-Eo-1vY" secondAttribute="bottom" id="N06-z7-WQ0"/>
                             <constraint firstItem="H1Q-Eo-1vY" firstAttribute="leading" secondItem="cIB-eO-lfb" secondAttribute="leadingMargin" id="R6o-dR-fvY"/>
+                            <constraint firstItem="H1Q-Eo-1vY" firstAttribute="top" secondItem="yKp-wy-ngJ" secondAttribute="bottom" constant="80" id="gvg-k7-E8w"/>
                             <constraint firstAttribute="trailingMargin" secondItem="5Rw-WM-lEJ" secondAttribute="trailing" id="vGf-lD-zbP"/>
                         </constraints>
                     </view>
@@ -123,6 +139,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3BD-mH-QbI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="464" y="766"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="TXX-ya-OLZ">
+            <objects>
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="OoA-ME-uyX" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="R5J-2f-GjN"/>
+                        <viewControllerLayoutGuide type="bottom" id="5fs-xB-jgx"/>
+                    </layoutGuides>
+                    <view key="view" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="hX8-ng-UZq">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <toolbarItems/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2QH-tW-Dpy" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
         </scene>
     </scenes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
