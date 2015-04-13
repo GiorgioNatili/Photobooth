@@ -3,6 +3,7 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <scenes>
         <!--Auth View Controller-->
@@ -90,8 +91,8 @@
                                     </barButtonItem>
                                 </items>
                             </toolbar>
-                            <view alpha="0.80000000000000004" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yKp-wy-ngJ">
-                                <rect key="frame" x="16" y="86" width="444" height="140"/>
+                            <view alpha="0.59999999999999998" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yKp-wy-ngJ">
+                                <rect key="frame" x="16" y="194" width="444" height="140"/>
                                 <subviews>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" text="@ryankicks @romainhuet and @andypiper Having a great time with @TwitterDev from #bitcamp!" translatesAutoresizingMaskIntoConstraints="NO" id="zbw-Tx-Gyx">
                                         <rect key="frame" x="152" y="8" width="302" height="89"/>
@@ -132,7 +133,7 @@
                             <constraint firstItem="5Rw-WM-lEJ" firstAttribute="leading" secondItem="cIB-eO-lfb" secondAttribute="leadingMargin" id="M9S-jP-Xlk"/>
                             <constraint firstItem="Qgw-E4-vKf" firstAttribute="top" secondItem="H1Q-Eo-1vY" secondAttribute="bottom" id="N06-z7-WQ0"/>
                             <constraint firstItem="H1Q-Eo-1vY" firstAttribute="leading" secondItem="cIB-eO-lfb" secondAttribute="leadingMargin" id="R6o-dR-fvY"/>
-                            <constraint firstItem="H1Q-Eo-1vY" firstAttribute="top" secondItem="yKp-wy-ngJ" secondAttribute="bottom" constant="50" id="gvg-k7-E8w"/>
+                            <constraint firstAttribute="centerY" secondItem="yKp-wy-ngJ" secondAttribute="centerY" multiplier="0.606061" id="diS-TL-m5B"/>
                             <constraint firstAttribute="trailingMargin" secondItem="5Rw-WM-lEJ" secondAttribute="trailing" id="vGf-lD-zbP"/>
                         </constraints>
                     </view>
