@@ -24,7 +24,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "PhotoboothiOS/CameraViewController.swift"
-            timestampString = "450641618.994827"
+            timestampString = "450642915.858191"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "197"
@@ -39,13 +39,29 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
+            filePath = "PhotoboothiOS/SettingsViewController.swift"
+            timestampString = "450642407.809868"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "10"
+            endingLineNumber = "10"
+            landmarkName = "viewDidAppear(_:)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
             filePath = "PhotoboothiOS/CameraViewController.swift"
-            timestampString = "450641739.444345"
+            timestampString = "450642915.858191"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "180"
             endingLineNumber = "180"
-            landmarkName = "didTouchUpInsideSettingsButton(_:)"
+            landmarkName = "showSettings(_:)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

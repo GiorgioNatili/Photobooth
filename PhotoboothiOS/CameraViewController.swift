@@ -175,12 +175,12 @@ UINavigationControllerDelegate, UIImagePickerControllerDelegate /*, UITextViewDe
 
     }
     
-    @IBAction func didTouchUpInsideSettingsButton(sender: AnyObject) {
+    @IBAction func showSettings(sender: AnyObject) {
 
-        let controller = self.storyboard!.instantiateViewControllerWithIdentifier("SettingsViewController") as UINavigationController
-        self.showViewController(controller, sender: self)
-        
-        println("didTouchUpInsideSettingsButton")
+        dispatch_async(dispatch_get_main_queue(), {
+            let controller = self.storyboard!.instantiateViewControllerWithIdentifier("SettingsViewController") as UIViewController
+            self.showViewController(controller, sender: self)
+        });
 
     }
     
