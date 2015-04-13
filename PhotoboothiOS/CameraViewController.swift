@@ -110,7 +110,7 @@ UINavigationControllerDelegate, UIImagePickerControllerDelegate /*, UITextViewDe
                             
                             if let theImage = image {
                                 
-                                UIImageWriteToSavedPhotosAlbum(image, self, nil, nil)
+                                // UIImageWriteToSavedPhotosAlbum(image, self, nil, nil)
                                 self.imageView.image = image
                                 
                                 println("Image = \(theImage)")
