@@ -103,12 +103,16 @@ UINavigationControllerDelegate, UIImagePickerControllerDelegate /*, UITextViewDe
                         //                    }
                         
                         if stringType == kUTTypeImage as String {
+                            
                             /* Let's get the metadata. This is only for images. Not videos */
                             let metadata = info[UIImagePickerControllerMediaMetadata] as? NSDictionary
                             let image = info[UIImagePickerControllerOriginalImage] as? UIImage
                             
                             if let theImage = image {
+                                
+                                UIImageWriteToSavedPhotosAlbum(image, self, nil, nil)
                                 self.imageView.image = image
+                                
                                 println("Image = \(theImage)")
                             }
                         }
