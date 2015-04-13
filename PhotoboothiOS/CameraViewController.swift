@@ -54,7 +54,7 @@ UINavigationControllerDelegate, UIImagePickerControllerDelegate /*, UITextViewDe
             beenHereBefore = true
         }
         
-        self.showPhotoModal();
+//        self.showPhotoModal();
         
     }
     
