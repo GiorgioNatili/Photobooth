@@ -53,7 +53,10 @@ UINavigationControllerDelegate, UIImagePickerControllerDelegate /*, UITextViewDe
 
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
- 
+
+        let controller = self.storyboard!.instantiateViewControllerWithIdentifier("SettingsViewController") as SettingsViewController
+        self.statusTextField.text = controller.getDefaultText()
+        
         if beenHereBefore {
             /* Only display the picker once as the viewDidAppear: method gets
             called whenever the view of our view controller gets displayed */
@@ -69,10 +72,7 @@ UINavigationControllerDelegate, UIImagePickerControllerDelegate /*, UITextViewDe
         let button2 = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Camera, target: self, action: "showPhotoModal")
         self.toolbar.items?[0] = button2
         
-        let controller = self.storyboard!.instantiateViewControllerWithIdentifier("SettingsViewController") as SettingsViewController
-
-//        self.statusTextField.text = controller.defaultTextField.text
-        
+        // make tap of image show photo modal
         var tgr = UITapGestureRecognizer(target:self, action:Selector("showPhotoModal"))
         self.imageView.addGestureRecognizer(tgr)
     
