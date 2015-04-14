@@ -94,8 +94,8 @@
                             <view alpha="0.59999999999999998" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yKp-wy-ngJ">
                                 <rect key="frame" x="16" y="194" width="444" height="140"/>
                                 <subviews>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" text="@ryankicks @romainhuet and @andypiper Having a great time with @TwitterDev from #bitcamp!" translatesAutoresizingMaskIntoConstraints="NO" id="zbw-Tx-Gyx">
-                                        <rect key="frame" x="152" y="8" width="302" height="89"/>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" text="Hanging out with @ryankicks at the  @TwitterDev booth during #bitcamp!" translatesAutoresizingMaskIntoConstraints="NO" id="zbw-Tx-Gyx">
+                                        <rect key="frame" x="152" y="8" width="300" height="131"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="302" id="bpC-Iv-bO3"/>
@@ -172,7 +172,23 @@
                     <view key="view" contentMode="scaleToFill" id="t7M-Aa-VwJ">
                         <rect key="frame" x="0.0" y="0.0" width="480" height="320"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K8t-U4-KQg">
+                                <rect key="frame" x="214" y="210" width="53" height="30"/>
+                                <state key="normal" title="Log out">
+                                    <color key="titleColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="logOut:" destination="LUg-LH-mCQ" eventType="touchUpInside" id="DYF-A2-CIa"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="centerX" secondItem="K8t-U4-KQg" secondAttribute="centerX" id="7IH-lb-LSi"/>
+                            <constraint firstItem="heQ-2B-0mH" firstAttribute="top" secondItem="K8t-U4-KQg" secondAttribute="bottom" constant="80" id="vZL-U6-nSl"/>
+                        </constraints>
                     </view>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                 </viewController>
