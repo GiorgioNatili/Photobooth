@@ -91,10 +91,10 @@
                                     </barButtonItem>
                                 </items>
                             </toolbar>
-                            <view alpha="0.59999999999999998" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yKp-wy-ngJ">
-                                <rect key="frame" x="16" y="194" width="444" height="140"/>
+                            <view alpha="0.59999999999999998" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yKp-wy-ngJ">
+                                <rect key="frame" x="18" y="110" width="444" height="140"/>
                                 <subviews>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" text="Hanging out with @ryankicks at the  @TwitterDev booth during #bitcamp!" translatesAutoresizingMaskIntoConstraints="NO" id="zbw-Tx-Gyx">
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" text="Hanging out with @ryankicks at the @TwitterDev booth during #bitcamp!" translatesAutoresizingMaskIntoConstraints="NO" id="zbw-Tx-Gyx">
                                         <rect key="frame" x="152" y="8" width="300" height="131"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
@@ -152,9 +152,12 @@
                     </navigationItem>
                     <connections>
                         <outlet property="imageView" destination="5Rw-WM-lEJ" id="mXq-ND-7bT"/>
-                        <outlet property="sendTweetButton" destination="OOM-Sk-R36" id="YGk-wB-Iz0"/>
+                        <outlet property="navbar" destination="09G-yV-LMr" id="gkR-VG-IVh"/>
+                        <outlet property="settingsButton" destination="fCU-tV-HVj" id="XKb-rf-V4D"/>
                         <outlet property="statusTextField" destination="zbw-Tx-Gyx" id="lm7-uL-qbf"/>
-                        <outlet property="takePhotoButton" destination="Aht-u0-ZzX" id="0jF-Re-3ai"/>
+                        <outlet property="takePhotoButton" destination="X0B-NY-sBu" id="mFB-Aj-8B5"/>
+                        <outlet property="toolbar" destination="H1Q-Eo-1vY" id="4l6-q1-oC2"/>
+                        <outlet property="tweetPhotoButton" destination="TyQ-7q-Jzy" id="XmP-vf-aoX"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3BD-mH-QbI" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -173,8 +176,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="480" height="320"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K8t-U4-KQg">
-                                <rect key="frame" x="214" y="210" width="53" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K8t-U4-KQg">
+                                <rect key="frame" x="214" y="261" width="53" height="30"/>
                                 <state key="normal" title="Log out">
                                     <color key="titleColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -183,14 +186,41 @@
                                     <action selector="logOut:" destination="LUg-LH-mCQ" eventType="touchUpInside" id="DYF-A2-CIa"/>
                                 </connections>
                             </button>
+                            <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kll-yT-7gr">
+                                <rect key="frame" x="65" y="49" width="382" height="103"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="TwitterLogo" translatesAutoresizingMaskIntoConstraints="NO" id="Tks-yS-cDu">
+                                        <rect key="frame" x="8" y="8" width="90" height="70"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="70" id="7Mk-rm-FBC"/>
+                                            <constraint firstAttribute="width" constant="136" id="z5d-UW-SLY"/>
+                                        </constraints>
+                                    </imageView>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" text="Hanging out at the @TwitterDev booth during #bitcamp!" translatesAutoresizingMaskIntoConstraints="NO" id="r1d-Dj-0RV">
+                                        <rect key="frame" x="134" y="8" width="240" height="128"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="r1d-Dj-0RV" firstAttribute="leading" secondItem="Tks-yS-cDu" secondAttribute="trailing" constant="12" id="aGg-H5-xeP"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="kll-yT-7gr" firstAttribute="top" secondItem="tfk-vC-nK7" secondAttribute="bottom" multiplier="2" constant="20" id="1zI-qM-npb"/>
                             <constraint firstAttribute="centerX" secondItem="K8t-U4-KQg" secondAttribute="centerX" id="7IH-lb-LSi"/>
+                            <constraint firstAttribute="centerX" secondItem="kll-yT-7gr" secondAttribute="centerX" constant="-16" id="kuY-o5-K9F"/>
                             <constraint firstItem="heQ-2B-0mH" firstAttribute="top" secondItem="K8t-U4-KQg" secondAttribute="bottom" constant="80" id="vZL-U6-nSl"/>
                         </constraints>
                     </view>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+                    <connections>
+                        <outlet property="defaultTextField" destination="r1d-Dj-0RV" id="ZXx-4c-Uu3"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pY7-ao-slC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

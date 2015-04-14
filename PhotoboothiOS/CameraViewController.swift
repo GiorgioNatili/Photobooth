@@ -7,15 +7,25 @@ class CameraViewController: UIViewController,
 UINavigationControllerDelegate, UIImagePickerControllerDelegate /*, UITextViewDelegate */ {
     
     @IBOutlet weak var imageView: UIImageView!
-    @IBOutlet weak var takePhotoButton: UIButton!
     @IBOutlet weak var statusTextField: UITextView!
-    @IBOutlet weak var sendTweetButton: UIButton!
+
+    
+    @IBOutlet weak var navbar: UINavigationItem!
+    @IBOutlet weak var settingsButton: UIBarButtonItem!
+    
+    @IBOutlet weak var toolbar: UIToolbar!
+    @IBOutlet weak var takePhotoButton: UIBarButtonItem!
+    @IBOutlet weak var tweetPhotoButton: UIBarButtonItem!
     
     /* We will use this variable to determine if the viewDidAppear:
     method of our view controller is already called or not. If not, we will
     display the camera view */
     var beenHereBefore = false
     var controller: UIImagePickerController?
+    
+    required init(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+    }
     
     func isCameraAvailable() -> Bool{
         return UIImagePickerController.isSourceTypeAvailable(.Camera)
@@ -24,13 +34,11 @@ UINavigationControllerDelegate, UIImagePickerControllerDelegate /*, UITextViewDe
     func cameraSupportsMedia(mediaType: String,
         sourceType: UIImagePickerControllerSourceType) -> Bool{
             
-            let availableMediaTypes =
-            UIImagePickerController.availableMediaTypesForSourceType(sourceType) as
-            [String]?
+            let availableMediaTypes = UIImagePickerController.availableMediaTypesForSourceType(sourceType) as [String]?
             
-            if let types = availableMediaTypes{
-                for type in types{
-                    if type == mediaType{
+            if let types = availableMediaTypes {
+                for type in types {
+                    if type == mediaType {
                         return true
                     }
                 }
@@ -42,10 +50,10 @@ UINavigationControllerDelegate, UIImagePickerControllerDelegate /*, UITextViewDe
     func doesCameraSupportTakingPhotos() -> Bool{
         return cameraSupportsMedia(kUTTypeImage as String, sourceType: .Camera)
     }
-    
+
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
-        
+ 
         if beenHereBefore {
             /* Only display the picker once as the viewDidAppear: method gets
             called whenever the view of our view controller gets displayed */
@@ -54,31 +62,16 @@ UINavigationControllerDelegate, UIImagePickerControllerDelegate /*, UITextViewDe
             beenHereBefore = true
         }
         
+        let twitterLogo = UIImage(named: "TwitterLogoSmall")
+        let button1 = UIBarButtonItem(image: twitterLogo, style: UIBarButtonItemStyle.Plain, target: self, action: "showSettings")
+        self.navbar.setLeftBarButtonItem(button1, animated: false)
+        
+        let button2 = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Camera, target: self, action: "showPhotoModal")
+        self.toolbar.items?[0] = button2
+
+        
 //        self.showPhotoModal();
         
-    }
-    
-    func showPhotoModal() {
-        
-        controller = UIImagePickerController()
-            
-        if let theController = controller{
-                
-            if isCameraAvailable() && doesCameraSupportTakingPhotos(){
-                theController.sourceType = .Camera
-                theController.cameraDevice = .Front
-            } else {
-                theController.sourceType = .PhotoLibrary
-            }
-            
-            theController.mediaTypes = [kUTTypeImage as String]
-            
-            theController.allowsEditing = true
-            theController.delegate = self
-            
-            presentViewController(theController, animated: true, completion: nil)
-        }
-            
     }
     
     func imagePickerController(picker: UIImagePickerController,
@@ -175,15 +168,28 @@ UINavigationControllerDelegate, UIImagePickerControllerDelegate /*, UITextViewDe
 
     }
     
-    @IBAction func showSettings(sender: AnyObject) {
-
-        dispatch_async(dispatch_get_main_queue(), {
-            let controller = self.storyboard!.instantiateViewControllerWithIdentifier("SettingsViewController") as UIViewController
-            self.showViewController(controller, sender: self)
-        });
-
+    func showPhotoModal() {
+        
+        controller = UIImagePickerController()
+        
+        if let theController = controller {
+            
+            if isCameraAvailable() && doesCameraSupportTakingPhotos(){
+                theController.sourceType = .Camera
+                theController.cameraDevice = .Front
+            } else {
+                theController.sourceType = .PhotoLibrary
+            }
+            
+            theController.mediaTypes = [kUTTypeImage as String]
+            theController.allowsEditing = true
+            theController.delegate = self
+            
+            presentViewController(theController, animated: true, completion: nil)
+        }
+        
     }
-    
+
     @IBAction func showTweets(){
         
         dispatch_async(dispatch_get_main_queue(), {
@@ -194,7 +200,16 @@ UINavigationControllerDelegate, UIImagePickerControllerDelegate /*, UITextViewDe
         });
         
     }
-    
+
+    @IBAction func showSettings() {
+        
+        dispatch_async(dispatch_get_main_queue(), {
+            let controller = self.storyboard!.instantiateViewControllerWithIdentifier("SettingsViewController") as UIViewController
+            self.showViewController(controller, sender: self)
+        });
+        
+    }
+
     func alertWithTitle(title: String, message: String) {
         var alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.Alert)
         alert.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))

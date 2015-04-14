@@ -6,6 +6,8 @@ import TwitterKit
 
 class SettingsViewController: UIViewController {
 
+    @IBOutlet weak var defaultTextField: UITextView!
+    
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
     }
