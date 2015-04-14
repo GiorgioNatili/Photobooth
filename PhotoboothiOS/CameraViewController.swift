@@ -6,7 +6,7 @@ import PhotoboothiOS
 class CameraViewController: UIViewController,
 UINavigationControllerDelegate, UIImagePickerControllerDelegate /*, UITextViewDelegate */ {
     
-    @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var imageView: UIButton!
     @IBOutlet weak var statusTextField: UITextView!
 
     
@@ -106,7 +106,8 @@ UINavigationControllerDelegate, UIImagePickerControllerDelegate /*, UITextViewDe
                             if let theImage = image {
                                 
                                 // UIImageWriteToSavedPhotosAlbum(image, self, nil, nil)
-                                self.imageView.image = image
+                                self.imageView.setBackgroundImage(image, forState: UIControlState.Normal)
+                                self.imageView.setTitle("", forState: UIControlState.Normal)
                                 
                                 println("Image = \(theImage)")
                             }
@@ -151,7 +152,7 @@ UINavigationControllerDelegate, UIImagePickerControllerDelegate /*, UITextViewDe
         }
 
         let status = self.statusTextField.text
-        let uiImage = self.imageView.image
+        let uiImage = self.imageView.currentBackgroundImage
         let imageData = UIImageJPEGRepresentation(uiImage, 0.8)
         
         if status != nil && imageData != nil {

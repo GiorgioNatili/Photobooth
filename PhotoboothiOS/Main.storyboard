@@ -54,10 +54,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="480" height="320"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5Rw-WM-lEJ">
-                                <rect key="frame" x="0.0" y="72" width="480" height="136"/>
-                                <color key="tintColor" red="1" green="1" blue="1" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
-                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cLc-Nh-98g">
+                                <rect key="frame" x="174" y="72" width="128" height="30"/>
+                                <state key="normal" title="Tap to take picture">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="H1Q-Eo-1vY">
                                 <rect key="frame" x="-3" y="276" width="483" height="44"/>
                                 <constraints>
@@ -126,16 +128,14 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="5Rw-WM-lEJ" firstAttribute="trailing" secondItem="H1Q-Eo-1vY" secondAttribute="trailing" id="1ew-JF-CDz"/>
                             <constraint firstAttribute="trailingMargin" secondItem="yKp-wy-ngJ" secondAttribute="trailing" constant="4" id="5rS-Cb-z4U"/>
                             <constraint firstAttribute="trailingMargin" secondItem="H1Q-Eo-1vY" secondAttribute="trailing" id="7JW-d1-Mdo"/>
-                            <constraint firstItem="H1Q-Eo-1vY" firstAttribute="top" secondItem="5Rw-WM-lEJ" secondAttribute="bottom" constant="68" id="81l-dn-ik6"/>
                             <constraint firstItem="yKp-wy-ngJ" firstAttribute="leading" secondItem="cIB-eO-lfb" secondAttribute="leadingMargin" id="9F8-AX-eJX"/>
-                            <constraint firstItem="5Rw-WM-lEJ" firstAttribute="top" secondItem="9PR-gp-LcG" secondAttribute="bottom" constant="8" symbolic="YES" id="J9I-J8-DEE"/>
                             <constraint firstItem="Qgw-E4-vKf" firstAttribute="top" secondItem="H1Q-Eo-1vY" secondAttribute="bottom" id="N06-z7-WQ0"/>
                             <constraint firstItem="H1Q-Eo-1vY" firstAttribute="leading" secondItem="cIB-eO-lfb" secondAttribute="leadingMargin" id="R6o-dR-fvY"/>
+                            <constraint firstAttribute="centerY" secondItem="cLc-Nh-98g" secondAttribute="centerY" constant="73" id="SwG-Ic-lqE"/>
                             <constraint firstAttribute="centerY" secondItem="yKp-wy-ngJ" secondAttribute="centerY" multiplier="0.606061" id="diS-TL-m5B"/>
-                            <constraint firstItem="5Rw-WM-lEJ" firstAttribute="leading" secondItem="cIB-eO-lfb" secondAttribute="leading" id="vTc-rC-d4F"/>
+                            <constraint firstAttribute="centerX" secondItem="cLc-Nh-98g" secondAttribute="centerX" constant="2" id="pZh-cf-OeF"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="09G-yV-LMr">
@@ -151,7 +151,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="imageView" destination="5Rw-WM-lEJ" id="mXq-ND-7bT"/>
+                        <outlet property="imageView" destination="cLc-Nh-98g" id="f6B-bo-i0J"/>
                         <outlet property="navbar" destination="09G-yV-LMr" id="gkR-VG-IVh"/>
                         <outlet property="settingsButton" destination="fCU-tV-HVj" id="XKb-rf-V4D"/>
                         <outlet property="statusTextField" destination="zbw-Tx-Gyx" id="lm7-uL-qbf"/>
