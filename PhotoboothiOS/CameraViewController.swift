@@ -68,8 +68,10 @@ UINavigationControllerDelegate, UIImagePickerControllerDelegate /*, UITextViewDe
         
         let button2 = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Camera, target: self, action: "showPhotoModal")
         self.toolbar.items?[0] = button2
-
         
+        var tgr = UITapGestureRecognizer(target:self, action:Selector("showPhotoModal"))
+        self.imageView.addGestureRecognizer(tgr)
+    
 //        self.showPhotoModal();
         
     }
@@ -150,7 +152,7 @@ UINavigationControllerDelegate, UIImagePickerControllerDelegate /*, UITextViewDe
 
         let status = self.statusTextField.text
         let uiImage = self.imageView.image
-        let imageData = UIImageJPEGRepresentation(uiImage, 0.5)
+        let imageData = UIImageJPEGRepresentation(uiImage, 0.8)
         
         if status != nil && imageData != nil {
 
