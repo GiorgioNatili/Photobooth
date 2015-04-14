@@ -8,6 +8,13 @@ class SettingsViewController: UIViewController {
 
     @IBOutlet weak var defaultTextField: UITextView!
     
+    required init(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        
+        self.defaultTextField = UITextView(coder: aDecoder)
+        self.defaultTextField.text = "Hanging out at the @TwitterDev booth during #bitcamp!"
+    }
+
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
     }

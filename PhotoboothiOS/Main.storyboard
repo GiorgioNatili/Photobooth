@@ -55,8 +55,8 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cLc-Nh-98g">
-                                <rect key="frame" x="174" y="72" width="128" height="30"/>
-                                <state key="normal" title="Tap to take picture">
+                                <rect key="frame" x="178" y="72" width="121" height="30"/>
+                                <state key="normal" title="Tap to take photo">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                             </button>
@@ -96,7 +96,7 @@
                             <view alpha="0.59999999999999998" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yKp-wy-ngJ">
                                 <rect key="frame" x="18" y="110" width="444" height="140"/>
                                 <subviews>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" text="Hanging out with @ryankicks at the @TwitterDev booth during #bitcamp!" translatesAutoresizingMaskIntoConstraints="NO" id="zbw-Tx-Gyx">
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" editable="NO" text="This text should be overriden." translatesAutoresizingMaskIntoConstraints="NO" id="zbw-Tx-Gyx">
                                         <rect key="frame" x="152" y="8" width="300" height="131"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
@@ -120,7 +120,7 @@
                                     <constraint firstItem="5aE-uc-mGw" firstAttribute="leading" secondItem="yKp-wy-ngJ" secondAttribute="leadingMargin" id="DKk-eq-bv4"/>
                                     <constraint firstItem="5aE-uc-mGw" firstAttribute="top" secondItem="yKp-wy-ngJ" secondAttribute="topMargin" id="Hkm-6i-BpL"/>
                                     <constraint firstItem="zbw-Tx-Gyx" firstAttribute="trailing" secondItem="yKp-wy-ngJ" secondAttribute="trailingMargin" id="ILG-w1-r1U"/>
-                                    <constraint firstAttribute="height" constant="140" id="gfb-mx-SZa"/>
+                                    <constraint firstAttribute="height" constant="100" id="gfb-mx-SZa"/>
                                     <constraint firstAttribute="bottom" secondItem="5aE-uc-mGw" secondAttribute="bottom" constant="27" id="mrv-w4-Ahj"/>
                                     <constraint firstItem="zbw-Tx-Gyx" firstAttribute="bottom" secondItem="yKp-wy-ngJ" secondAttribute="bottomMargin" id="xZf-fy-Tfi"/>
                                 </constraints>

@@ -69,6 +69,10 @@ UINavigationControllerDelegate, UIImagePickerControllerDelegate /*, UITextViewDe
         let button2 = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Camera, target: self, action: "showPhotoModal")
         self.toolbar.items?[0] = button2
         
+        let controller = self.storyboard!.instantiateViewControllerWithIdentifier("SettingsViewController") as SettingsViewController
+
+//        self.statusTextField.text = controller.defaultTextField.text
+        
         var tgr = UITapGestureRecognizer(target:self, action:Selector("showPhotoModal"))
         self.imageView.addGestureRecognizer(tgr)
     
