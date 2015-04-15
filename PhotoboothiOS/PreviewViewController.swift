@@ -31,30 +31,20 @@ class PreviewViewController: UIViewController, UITextViewDelegate {
     }
     
     func share(){
-        println("share")
-        let status = "Random txt string from Struct"
+        let status =  SettingsViewController.Settings.tweetText
         let uiImage = self.previewImage.image
-        //let imageData = UIImageJPEGRepresentation(uiImage, 0.8)
-        // will fix
-        if status != ""{
-            
-            let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-            // rewrite post request using TwitterKit
-            let composer = TWTRComposer()
-            composer.setText(status)
-            composer.setImage(uiImage)
-            composer.showWithCompletion { (result) -> Void in
-                if (result == TWTRComposerResult.Cancelled) {
-                    //self.beginSession()
-                    self.showCamera()
-                }
-                else {
-                    println("Sending tweet!")
-                    self.showTweets()
-                }
+        let composer = TWTRComposer()
+        composer.setText(status)
+        composer.setImage(uiImage)
+        composer.showWithCompletion { (result) -> Void in
+            if (result == TWTRComposerResult.Cancelled) {
+                self.showCamera()
             }
-            
-        }
+            else {
+                println("Sending tweet!")
+                self.showTweets()
+            }
+    }
         
         println("didTouchUpInsideTweetButton")
         
