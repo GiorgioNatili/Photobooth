@@ -79,16 +79,41 @@ UINavigationControllerDelegate, UIImagePickerControllerDelegate /*, UITextViewDe
             beenHereBefore = true
         }
         
+        // settings
+        self.navigationController?.navigationBar.barTintColor = UIColor.whiteColor()
+        
+
+        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), forBarMetrics: UIBarMetrics.Default)
+        self.navigationController?.navigationBar.shadowImage = UIImage()
+        
+
+        let navHeight = self.navigationController?.navigationBar.frame.height
+        let navWidth = self.navigationController?.navigationBar.frame.width
+        
+        
+        var myView = UIView(frame: CGRectMake(0, navHeight! - 2, navWidth!, 1))
+        myView.backgroundColor = UIColor(rgba: "#5EA9DD")
+        //myView.backgroundColor = UIColor.redColor()
+        self.navigationController?.navigationBar.addSubview(myView)
+        
+        
+        
+
+        // Append image to the navigation bar
         logoView = UIImageView(frame: CGRectMake(0, 0, 30, 30))
-        logoView.image = UIImage(named: "TwitterLogo")
+        logoView.image = UIImage(named: "TwitterLogo")!.imageWithRenderingMode(UIImageRenderingMode.AlwaysTemplate)
+        logoView.tintColor = UIColor(rgba: "#5EA9DD")
         logoView.contentMode = UIViewContentMode.ScaleAspectFit
         logoView.frame.origin.x = 10
         logoView.frame.origin.y = 8
         self.navbar.titleView = logoView
-
+        
+        // Add a tap gesture to the navigation bar image to send the user to settings
         let recognizer = UITapGestureRecognizer(target: self, action: "showSettings")
         self.navbar.titleView!.userInteractionEnabled = true
         self.navbar.titleView!.addGestureRecognizer(recognizer)
+        
+        
         
         let button2 = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Camera, target: self, action: "showPhotoModal")
         self.toolbar.items?[0] = button2

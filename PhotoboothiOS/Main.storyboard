@@ -61,9 +61,9 @@
                                 </state>
                             </button>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="H1Q-Eo-1vY">
-                                <rect key="frame" x="16" y="276" width="448" height="44"/>
+                                <rect key="frame" x="0.0" y="270" width="480" height="50"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="44" id="Bp8-RW-aSj"/>
+                                    <constraint firstAttribute="height" constant="50" id="Bp8-RW-aSj"/>
                                 </constraints>
                                 <items>
                                     <barButtonItem style="plain" id="X0B-NY-sBu">
@@ -93,54 +93,34 @@
                                     </barButtonItem>
                                 </items>
                             </toolbar>
-                            <view alpha="0.59999999999999998" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yKp-wy-ngJ">
-                                <rect key="frame" x="16" y="214" width="444" height="100"/>
-                                <subviews>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="This text should be overriden." translatesAutoresizingMaskIntoConstraints="NO" id="zbw-Tx-Gyx">
-                                        <rect key="frame" x="134" y="15" width="302" height="77"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="302" id="bpC-Iv-bO3"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
-                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                    </textView>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="TwitterLogo" translatesAutoresizingMaskIntoConstraints="NO" id="5aE-uc-mGw">
-                                        <rect key="frame" x="8" y="15" width="136" height="70"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="70" id="QGn-Rc-PTi"/>
-                                            <constraint firstAttribute="width" constant="136" id="yrB-s8-oKZ"/>
-                                        </constraints>
-                                    </imageView>
-                                </subviews>
-                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Hanging out at the @TwtterDev booth during #bitcamp!" translatesAutoresizingMaskIntoConstraints="NO" id="ZWF-rL-d5H">
+                                <rect key="frame" x="26" y="188" width="428" height="80"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstItem="5aE-uc-mGw" firstAttribute="top" secondItem="zbw-Tx-Gyx" secondAttribute="top" id="5JN-ul-S1h"/>
-                                    <constraint firstItem="zbw-Tx-Gyx" firstAttribute="trailing" secondItem="yKp-wy-ngJ" secondAttribute="trailingMargin" id="ILG-w1-r1U"/>
-                                    <constraint firstItem="5aE-uc-mGw" firstAttribute="leading" secondItem="yKp-wy-ngJ" secondAttribute="leading" constant="8" id="XiP-M2-0DV"/>
-                                    <constraint firstAttribute="height" constant="100" id="gfb-mx-SZa"/>
-                                    <constraint firstAttribute="centerY" secondItem="5aE-uc-mGw" secondAttribute="centerY" id="hG9-WO-laa"/>
-                                    <constraint firstItem="zbw-Tx-Gyx" firstAttribute="bottom" secondItem="yKp-wy-ngJ" secondAttribute="bottomMargin" id="xZf-fy-Tfi"/>
+                                    <constraint firstAttribute="height" constant="80" id="3Xu-gG-y3f"/>
                                 </constraints>
-                            </view>
+                                <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="22"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailingMargin" secondItem="yKp-wy-ngJ" secondAttribute="trailing" constant="4" id="5rS-Cb-z4U"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="H1Q-Eo-1vY" secondAttribute="trailing" id="7JW-d1-Mdo"/>
-                            <constraint firstItem="yKp-wy-ngJ" firstAttribute="leading" secondItem="cIB-eO-lfb" secondAttribute="leadingMargin" id="9F8-AX-eJX"/>
+                            <constraint firstItem="H1Q-Eo-1vY" firstAttribute="leading" secondItem="cIB-eO-lfb" secondAttribute="leading" id="3jO-c2-8Pr"/>
                             <constraint firstItem="Qgw-E4-vKf" firstAttribute="top" secondItem="H1Q-Eo-1vY" secondAttribute="bottom" id="N06-z7-WQ0"/>
-                            <constraint firstItem="H1Q-Eo-1vY" firstAttribute="leading" secondItem="cIB-eO-lfb" secondAttribute="leadingMargin" id="R6o-dR-fvY"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="ZWF-rL-d5H" secondAttribute="trailing" constant="10" id="Pge-bs-r2t"/>
                             <constraint firstAttribute="centerY" secondItem="cLc-Nh-98g" secondAttribute="centerY" constant="73" id="SwG-Ic-lqE"/>
-                            <constraint firstAttribute="centerY" secondItem="yKp-wy-ngJ" secondAttribute="centerY" multiplier="0.606061" id="diS-TL-m5B"/>
+                            <constraint firstAttribute="trailing" secondItem="H1Q-Eo-1vY" secondAttribute="trailing" id="fsF-5D-6k0"/>
+                            <constraint firstAttribute="bottom" secondItem="H1Q-Eo-1vY" secondAttribute="bottom" id="hPD-CI-hDY"/>
                             <constraint firstAttribute="centerX" secondItem="cLc-Nh-98g" secondAttribute="centerX" constant="2" id="pZh-cf-OeF"/>
+                            <constraint firstItem="ZWF-rL-d5H" firstAttribute="leading" secondItem="cIB-eO-lfb" secondAttribute="leadingMargin" constant="10" id="sBN-lB-Ye8"/>
+                            <constraint firstItem="H1Q-Eo-1vY" firstAttribute="top" secondItem="ZWF-rL-d5H" secondAttribute="bottom" constant="2" id="wtJ-eb-azp"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="09G-yV-LMr"/>
                     <connections>
                         <outlet property="imageView" destination="cLc-Nh-98g" id="f6B-bo-i0J"/>
                         <outlet property="navbar" destination="09G-yV-LMr" id="gkR-VG-IVh"/>
-                        <outlet property="statusTextField" destination="zbw-Tx-Gyx" id="lm7-uL-qbf"/>
+                        <outlet property="statusTextField" destination="ZWF-rL-d5H" id="m66-54-95f"/>
                         <outlet property="takePhotoButton" destination="X0B-NY-sBu" id="mFB-Aj-8B5"/>
                         <outlet property="toolbar" destination="H1Q-Eo-1vY" id="4l6-q1-oC2"/>
                         <outlet property="tweetPhotoButton" destination="TyQ-7q-Jzy" id="XmP-vf-aoX"/>

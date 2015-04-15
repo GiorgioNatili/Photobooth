@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		7F599B831ADE11FF0020955F /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F599B821ADE11FF0020955F /* CameraViewController.swift */; };
+		7F599B871ADE22C40020955F /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F599B861ADE22C40020955F /* UIColorExtension.swift */; };
 		8B5EFF07195F064400B354F9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B5EFF03195F064400B354F9 /* AppDelegate.swift */; };
 		8B5EFF08195F064400B354F9 /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B5EFF04195F064400B354F9 /* AuthViewController.swift */; };
 		8B5EFF09195F064400B354F9 /* TweetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B5EFF05195F064400B354F9 /* TweetViewController.swift */; };
@@ -39,6 +40,7 @@
 
 /* Begin PBXFileReference section */
 		7F599B821ADE11FF0020955F /* CameraViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
+		7F599B861ADE22C40020955F /* UIColorExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
 		8B300C1F1944AA1A00993175 /* PhotoboothDemoiOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PhotoboothDemoiOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8B300C221944AA1A00993175 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8B300C471944AECB00993175 /* PhotoboothDemoMac.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PhotoboothDemoMac.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -103,6 +105,7 @@
 			children = (
 				8B5EFF03195F064400B354F9 /* AppDelegate.swift */,
 				8B5EFF04195F064400B354F9 /* AuthViewController.swift */,
+				7F599B861ADE22C40020955F /* UIColorExtension.swift */,
 				7F599B821ADE11FF0020955F /* CameraViewController.swift */,
 				8B5EFF05195F064400B354F9 /* TweetViewController.swift */,
 				CA67CF941AD860BB007AD74D /* ContainerController.swift */,
@@ -267,7 +270,7 @@
 				TargetAttributes = {
 					8B300C1E1944AA1A00993175 = {
 						CreatedOnToolsVersion = 6.0;
-						DevelopmentTeam = XD75XYY267;
+						DevelopmentTeam = 53AF9EMAN4;
 					};
 					8B300C461944AECB00993175 = {
 						CreatedOnToolsVersion = 6.0;
@@ -369,6 +372,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8B5EFF08195F064400B354F9 /* AuthViewController.swift in Sources */,
+				7F599B871ADE22C40020955F /* UIColorExtension.swift in Sources */,
 				CA67CF951AD860BB007AD74D /* ContainerController.swift in Sources */,
 				8B5EFF07195F064400B354F9 /* AppDelegate.swift in Sources */,
 				8B5EFF09195F064400B354F9 /* TweetViewController.swift in Sources */,
@@ -427,6 +431,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -436,7 +441,7 @@
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = "$(SRCROOT)/PhotoboothiOS/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				METAL_ENABLE_DEBUG_INFO = YES;
 				PRODUCT_NAME = PhotoboothDemoiOS;
@@ -451,12 +456,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = "$(SRCROOT)/PhotoboothiOS/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				METAL_ENABLE_DEBUG_INFO = NO;
 				PRODUCT_NAME = PhotoboothDemoiOS;
