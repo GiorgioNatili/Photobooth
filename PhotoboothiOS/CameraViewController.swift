@@ -134,6 +134,9 @@ UINavigationControllerDelegate, UIImagePickerControllerDelegate /*, UITextViewDe
         self.performSegueWithIdentifier("preview", sender: self);
     }
     
+
+    
+
     func setupCam() {
         
         captureSession.sessionPreset = AVCaptureSessionPresetHigh
