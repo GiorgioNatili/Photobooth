@@ -22,6 +22,7 @@ import AVFoundation
 class CameraViewController: UIViewController,
 UINavigationControllerDelegate, UIImagePickerControllerDelegate /*, UITextViewDelegate */ {
     
+    @IBOutlet weak var cameraButton: UIButton!
     @IBOutlet weak var canvasImage: UIImageView!
     @IBOutlet weak var navbar: UINavigationItem!
     @IBOutlet weak var countdown: UILabel!
@@ -31,7 +32,7 @@ UINavigationControllerDelegate, UIImagePickerControllerDelegate /*, UITextViewDe
     var stillImageOutput : AVCaptureStillImageOutput?
     var startTime = NSTimeInterval()
     var timer = NSTimer()
-    var snapTime:Double = 5
+    var snapTime:Double = 4
     var logoView: UIImageView!
     var captureDevice : AVCaptureDevice?
 
@@ -46,9 +47,10 @@ UINavigationControllerDelegate, UIImagePickerControllerDelegate /*, UITextViewDe
     func updateTime() {
         var currentTime = NSDate.timeIntervalSinceReferenceDate()
         var elapsedTime = currentTime - startTime
-        var seconds = snapTime-elapsedTime
+        var seconds = snapTime - elapsedTime
         if seconds > 0 {
             elapsedTime -= NSTimeInterval(seconds)
+            self.countdown.alpha = 0.6
             self.countdown.hidden = false
             self.countdown.text = "\(Int(seconds+1))"
             
@@ -87,11 +89,6 @@ UINavigationControllerDelegate, UIImagePickerControllerDelegate /*, UITextViewDe
                             let imageData = AVCaptureStillImageOutput.jpegStillImageNSDataRepresentation(imageSampleBuffer)
                             self.didTakePhoto(imageData)
                             
-                            
-                            
-                            
-                            
-                            
                         }
                     }
                 }
@@ -114,14 +111,17 @@ UINavigationControllerDelegate, UIImagePickerControllerDelegate /*, UITextViewDe
         
         //store photo
         
-        if let recognizers = self.view.gestureRecognizers {
-            for recognizer in recognizers {
-                self.view.removeGestureRecognizer(recognizer as! UIGestureRecognizer)
-            }
-        }
+//        if let recognizers = self.view.gestureRecognizers {
+//            for recognizer in recognizers {
+//                self.view.removeGestureRecognizer(recognizer as! UIGestureRecognizer)
+//            }
+//        }
 
-        var tap = UITapGestureRecognizer(target:self, action:Selector("preview"))
-        self.view.addGestureRecognizer(tap)
+        // after photo, go directly to preview
+        preview()
+        
+//        var tap = UITapGestureRecognizer(target:self, action:Selector("preview"))
+//        self.view.addGestureRecognizer(tap)
         
         
     }
@@ -134,9 +134,6 @@ UINavigationControllerDelegate, UIImagePickerControllerDelegate /*, UITextViewDe
         self.performSegueWithIdentifier("preview", sender: self);
     }
     
-
-    
-
     func setupCam() {
         
         captureSession.sessionPreset = AVCaptureSessionPresetHigh
@@ -197,7 +194,6 @@ UINavigationControllerDelegate, UIImagePickerControllerDelegate /*, UITextViewDe
         navbar.titleView!.userInteractionEnabled = true
         navbar.titleView!.addGestureRecognizer(recognizer)
         self.navigationItem.setHidesBackButton(true, animated: true)
-    
         
     }
     
@@ -232,7 +228,6 @@ UINavigationControllerDelegate, UIImagePickerControllerDelegate /*, UITextViewDe
         if captureSession.canAddOutput(stillImageOutput) {
             captureSession.addOutput(stillImageOutput)
         }
-        
         
         var err : NSError? = nil
         if captureSession.running == false {

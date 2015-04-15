@@ -22,7 +22,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LdL-ES-p0u" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-74" y="350"/>
+            <point key="canvasLocation" x="-3420" y="-2754"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="hTX-kz-sxl">
@@ -40,7 +40,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="al5-bU-6kE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="96" y="653"/>
+            <point key="canvasLocation" x="-3420" y="-2328"/>
         </scene>
         <!--Preview View Controller-->
         <scene sceneID="dJ9-QR-bA2">
@@ -51,14 +51,14 @@
                         <viewControllerLayoutGuide type="bottom" id="gf6-lu-0hS"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="oer-T1-faL">
-                        <rect key="frame" x="0.0" y="0.0" width="480" height="320"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="UGF-9V-MTL">
-                                <rect key="frame" x="0.0" y="64" width="480" height="256"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UGF-9V-MTL">
+                                <rect key="frame" x="0.0" y="64" width="320" height="256"/>
                             </imageView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gT7-Hj-jGK">
-                                <rect key="frame" x="0.0" y="64" width="480" height="95"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gT7-Hj-jGK">
+                                <rect key="frame" x="0.0" y="384" width="320" height="96"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <inset key="scrollIndicatorInsets" minX="40" minY="40" maxX="40" maxY="40"/>
                                 <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="25"/>
@@ -70,8 +70,8 @@
                             <constraint firstItem="UGF-9V-MTL" firstAttribute="leading" secondItem="oer-T1-faL" secondAttribute="leading" id="3TD-LH-fFa"/>
                             <constraint firstItem="UGF-9V-MTL" firstAttribute="top" secondItem="J3t-xi-s7C" secondAttribute="bottom" id="6aY-cH-Kr0"/>
                             <constraint firstAttribute="trailing" secondItem="UGF-9V-MTL" secondAttribute="trailing" id="9ja-pr-09D"/>
-                            <constraint firstItem="gT7-Hj-jGK" firstAttribute="top" secondItem="J3t-xi-s7C" secondAttribute="bottom" id="Jpp-nS-TwP"/>
                             <constraint firstItem="gT7-Hj-jGK" firstAttribute="leading" secondItem="oer-T1-faL" secondAttribute="leading" id="NYf-a8-G0d"/>
+                            <constraint firstItem="gf6-lu-0hS" firstAttribute="top" secondItem="gT7-Hj-jGK" secondAttribute="bottom" id="fFb-sM-G1a"/>
                             <constraint firstAttribute="trailing" secondItem="gT7-Hj-jGK" secondAttribute="trailing" id="gxw-In-z15"/>
                             <constraint firstItem="gf6-lu-0hS" firstAttribute="top" secondItem="UGF-9V-MTL" secondAttribute="bottom" id="nvy-bP-MHO"/>
                         </constraints>
@@ -86,7 +86,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UAg-Xa-B0l" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="700" y="95"/>
+            <point key="canvasLocation" x="-3420" y="-1589"/>
         </scene>
         <!--Camera View Controller-->
         <scene sceneID="005-td-jsF">
@@ -97,31 +97,40 @@
                         <viewControllerLayoutGuide type="bottom" id="Qgw-E4-vKf"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="cIB-eO-lfb">
-                        <rect key="frame" x="0.0" y="0.0" width="480" height="320"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fBE-Uj-Z1I">
-                                <rect key="frame" x="240" y="160" width="0.0" height="0.0"/>
+                                <rect key="frame" x="160" y="240" width="0.0" height="0.0"/>
                                 <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="300"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="3R9-Vb-2HD">
-                                <rect key="frame" x="0.0" y="64" width="480" height="256"/>
+                            <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3R9-Vb-2HD">
+                                <rect key="frame" x="0.0" y="64" width="320" height="256"/>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleAspectFit" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0D9-Iv-J3I" customClass="cameraButton">
+                                <rect key="frame" x="114" y="197" width="92" height="86"/>
+                                <state key="normal" title="Button" image="camera_300_300">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="3R9-Vb-2HD" secondAttribute="trailing" id="1mh-uS-lrd"/>
+                            <constraint firstAttribute="centerX" secondItem="0D9-Iv-J3I" secondAttribute="centerX" id="8ha-j6-gZF"/>
                             <constraint firstAttribute="centerX" secondItem="fBE-Uj-Z1I" secondAttribute="centerX" id="BhN-H4-4RA"/>
                             <constraint firstItem="Qgw-E4-vKf" firstAttribute="top" secondItem="3R9-Vb-2HD" secondAttribute="bottom" id="ekU-zG-Mqb"/>
                             <constraint firstItem="3R9-Vb-2HD" firstAttribute="leading" secondItem="cIB-eO-lfb" secondAttribute="leading" id="g2q-7H-k4q"/>
                             <constraint firstItem="3R9-Vb-2HD" firstAttribute="top" secondItem="9PR-gp-LcG" secondAttribute="bottom" id="jVh-Cq-c7E"/>
                             <constraint firstAttribute="centerY" secondItem="fBE-Uj-Z1I" secondAttribute="centerY" id="klb-YG-j2e"/>
+                            <constraint firstAttribute="centerY" secondItem="0D9-Iv-J3I" secondAttribute="centerY" constant="-8" id="z87-gc-KkT"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="09G-yV-LMr"/>
                     <connections>
+                        <outlet property="cameraButton" destination="0D9-Iv-J3I" id="Ksx-Y4-ESe"/>
                         <outlet property="canvasImage" destination="3R9-Vb-2HD" id="8IY-9a-Km1"/>
                         <outlet property="countdown" destination="fBE-Uj-Z1I" id="FPg-TR-83H"/>
                         <outlet property="navbar" destination="09G-yV-LMr" id="gkR-VG-IVh"/>
@@ -130,7 +139,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3BD-mH-QbI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="700" y="778"/>
+            <point key="canvasLocation" x="-2830" y="-2328"/>
         </scene>
         <!--Settings View Controller-->
         <scene sceneID="sCv-MR-FFW">
@@ -201,11 +210,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pY7-ao-slC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="464" y="1175"/>
+            <point key="canvasLocation" x="-2854" y="-1669"/>
         </scene>
     </scenes>
     <resources>
         <image name="TwitterLogo" width="1139" height="926"/>
+        <image name="camera_300_300" width="300" height="300"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
@@ -213,7 +223,7 @@
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="a0w-kD-yv6"/>
-        <segue reference="fP3-AK-ufO"/>
+        <segue reference="hRs-QT-NAg"/>
+        <segue reference="Pqd-mN-euh"/>
     </inferredMetricsTieBreakers>
 </document>

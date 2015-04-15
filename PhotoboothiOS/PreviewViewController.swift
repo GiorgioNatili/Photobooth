@@ -24,6 +24,9 @@ class PreviewViewController: UIViewController, UITextViewDelegate {
         var tap = UITapGestureRecognizer(target:self, action:Selector("share"))
         self.view.addGestureRecognizer(tap)
         
+        var swipe = UISwipeGestureRecognizer(target: self, action: Selector("reset"))
+        self.view.addGestureRecognizer(swipe)
+        
         tweetTxt.text = SettingsViewController.Settings.tweetText
         tweetTxt.becomeFirstResponder();
         tweetTxt.alpha = 0.6
@@ -49,15 +52,17 @@ class PreviewViewController: UIViewController, UITextViewDelegate {
                 println("Sending tweet!")
                 self.showTweets()
             }
-    }
+        }
         
-        println("didTouchUpInsideTweetButton")
+        println("share")
         
     }
     
+    func reset(){
+        self.showCamera()
+        println("reset")
+    }
   
-    
-    
     func setupNav() {
         // Setup Navigation controller / remove uiBorderbottom to blue
         self.navigationController?.navigationBar.barTintColor = UIColor.whiteColor()
@@ -91,14 +96,10 @@ class PreviewViewController: UIViewController, UITextViewDelegate {
     
     func showCamera() {
         
-        //Twitter.sharedInstance().logOut()
-        self.performSegueWithIdentifier("camera", sender: self);
-        // ensure that presentViewController happens from the main thread/queue
-        //dispatch_async(dispatch_get_main_queue(), {
-        //    let controller = self.storyboard!.instantiateViewControllerWithIdentifier("CameraViewController") as! UIViewController
-            //self.presentViewController(controller, animated: true, completion: nil)
-        //});
-        
+        self.navigationController?.popViewControllerAnimated(true)
+
+        //        self.performSegueWithIdentifier("camera", sender: self);
+
     }
     
     func showTweets(){

@@ -17,3 +17,6 @@ DerivedData
 *.hmap
 *.ipa
 *.xcuserstate
+*Photobooth.xccheckout
+*Breakpoints_v2.xcbkptlist
+
