@@ -1,3 +1,4 @@
+/*
 //
 // Copyright (C) 2015 Twitter, Inc. and other contributors.
 //
@@ -13,17 +14,18 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 //
+*/
 
 import UIKit
 import TwitterKit
 
 class TweetViewController : TWTRTimelineViewController {
-
+    
     convenience init() {
         
-        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         let client = Twitter.sharedInstance().APIClient
-        let dataSource = TWTRUserTimelineDataSource(screenName: appDelegate.username!, APIClient: client)
+        let screenName = Twitter.sharedInstance().session().userName
+        let dataSource = TWTRUserTimelineDataSource(screenName: screenName, APIClient: client)
         
         self.init(dataSource: dataSource)
     }
@@ -39,8 +41,9 @@ class TweetViewController : TWTRTimelineViewController {
     override func viewWillAppear(animated: Bool) {
 
         let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        let screenName = Twitter.sharedInstance().session().userName
         let client = Twitter.sharedInstance().APIClient
-        self.dataSource = TWTRUserTimelineDataSource(screenName: appDelegate.username!, APIClient: client)
+        self.dataSource = TWTRUserTimelineDataSource(screenName: screenName, APIClient: client)
         
         // kick off actual rendering
         super.viewWillAppear(animated)

@@ -22,7 +22,7 @@ Requirements
 Configuration
 ---
 
-As part of installing Fabric, Twitter app tokens will be generated automatically for you. There is no 
+As part of installing Fabric, Twitter app tokens will be generated automatically for you. There is no
 need to go to apps.twitter.com to generate tokens.
 
 Features
@@ -30,7 +30,7 @@ Features
 
 The enclosed sample includes three basic features:
 
-- Login with Twitter (AuthViewController). 
+- Login with Twitter (AuthViewController).
 - Take photo and tweet it. (CameraViewController).
 - Display a timeline of tweets post-photo. (TweetViewController).
 - Settings (SettingsViewController).
@@ -40,5 +40,6 @@ Credits
 
 The following developers and bloggers have aided greatly in the development of this source. I'm  appreciative of contributions and knowledge sharing.
 
-- [@mattdonnelly](https://twitter.com/mattdonnelley) - [https://github.com/mattdonnelly](https://github.com/mattdonnelly)
-
+- [@rchoi](https://twitter.com/rchoi)
+- [@romainhuet](https://twitter.com/romainhuet)
+- [@gpj](https://twitter.com/gpj)
