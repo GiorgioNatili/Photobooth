@@ -1,5 +1,4 @@
 import UIKit 
-import PhotoboothiOS
 import Accounts
 
 import Fabric
@@ -10,11 +9,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                             
     var window: UIWindow?
     var username: String?
-    var swifter: Swifter!
     
     func application(application: UIApplication, openURL url: NSURL, sourceApplication: String?, annotation: AnyObject?) -> Bool {
-
-        Swifter.handleOpenURL(url)
         return true
     }
 

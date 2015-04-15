@@ -7,71 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		8B116AF1194601970019A4DC /* SwifterHTTPRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B116AF0194601970019A4DC /* SwifterHTTPRequest.swift */; };
-		8B116AF2194601970019A4DC /* SwifterHTTPRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B116AF0194601970019A4DC /* SwifterHTTPRequest.swift */; };
-		8B1F259F194A663D004BD304 /* SwifterHelp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B1F259E194A663D004BD304 /* SwifterHelp.swift */; };
-		8B1F25A0194A663D004BD304 /* SwifterHelp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B1F259E194A663D004BD304 /* SwifterHelp.swift */; };
 		8B300C3E1944AA6600993175 /* PhotoboothiOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B9F50EE1944A5AB00894629 /* PhotoboothiOS.framework */; };
 		8B300C3F1944AA6600993175 /* PhotoboothiOS.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8B9F50EE1944A5AB00894629 /* PhotoboothiOS.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
-		8B33CA3F19587C6D00739FCB /* JSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B33CA3E19587C6D00739FCB /* JSON.swift */; };
-		8B33CA4019587C6D00739FCB /* JSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B33CA3E19587C6D00739FCB /* JSON.swift */; };
-		8B548F5619450BDB00EE2927 /* SwifterOAuthClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B548F5519450BDB00EE2927 /* SwifterOAuthClient.swift */; };
-		8B548F5719450BDB00EE2927 /* SwifterOAuthClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B548F5519450BDB00EE2927 /* SwifterOAuthClient.swift */; };
-		8B548F591945325E00EE2927 /* SwifterAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B548F581945325E00EE2927 /* SwifterAuth.swift */; };
-		8B548F5A1945325E00EE2927 /* SwifterAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B548F581945325E00EE2927 /* SwifterAuth.swift */; };
-		8B548F5C1945331D00EE2927 /* SwifterTimelines.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B548F5B1945331D00EE2927 /* SwifterTimelines.swift */; };
-		8B548F5D1945331D00EE2927 /* SwifterTimelines.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B548F5B1945331D00EE2927 /* SwifterTimelines.swift */; };
-		8B552D2A194643CF0052EB86 /* NSURL+Swifter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B552D29194643CF0052EB86 /* NSURL+Swifter.swift */; };
-		8B552D2B194643CF0052EB86 /* NSURL+Swifter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B552D29194643CF0052EB86 /* NSURL+Swifter.swift */; };
-		8B552D2D194695F80052EB86 /* SwifterStreaming.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B552D2C194695F80052EB86 /* SwifterStreaming.swift */; };
-		8B552D2E194695F80052EB86 /* SwifterStreaming.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B552D2C194695F80052EB86 /* SwifterStreaming.swift */; };
 		8B5EFF07195F064400B354F9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B5EFF03195F064400B354F9 /* AppDelegate.swift */; };
 		8B5EFF08195F064400B354F9 /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B5EFF04195F064400B354F9 /* AuthViewController.swift */; };
 		8B5EFF09195F064400B354F9 /* TweetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B5EFF05195F064400B354F9 /* TweetViewController.swift */; };
 		8B5EFF0A195F064400B354F9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8B5EFF06195F064400B354F9 /* Main.storyboard */; };
-		8B5EFF15195F09F600B354F9 /* Swifter.h in Headers */ = {isa = PBXBuildFile; fileRef = 8B5EFF14195F09F600B354F9 /* Swifter.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		8B5EFF16195F09F600B354F9 /* Swifter.h in Headers */ = {isa = PBXBuildFile; fileRef = 8B5EFF14195F09F600B354F9 /* Swifter.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		8B9F514D1944A8DC00894629 /* Dictionary+Swifter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B9F51471944A8DC00894629 /* Dictionary+Swifter.swift */; };
-		8B9F514E1944A8DC00894629 /* Dictionary+Swifter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B9F51471944A8DC00894629 /* Dictionary+Swifter.swift */; };
-		8B9F51531944A8DC00894629 /* String+Swifter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B9F514A1944A8DC00894629 /* String+Swifter.swift */; };
-		8B9F51541944A8DC00894629 /* String+Swifter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B9F514A1944A8DC00894629 /* String+Swifter.swift */; };
-		8B9F51551944A8DC00894629 /* Swifter-Bridging-Header.h in Headers */ = {isa = PBXBuildFile; fileRef = 8B9F514B1944A8DC00894629 /* Swifter-Bridging-Header.h */; };
-		8B9F51561944A8DC00894629 /* Swifter-Bridging-Header.h in Headers */ = {isa = PBXBuildFile; fileRef = 8B9F514B1944A8DC00894629 /* Swifter-Bridging-Header.h */; };
-		8B9F51571944A8DC00894629 /* Swifter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B9F514C1944A8DC00894629 /* Swifter.swift */; };
-		8B9F51581944A8DC00894629 /* Swifter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B9F514C1944A8DC00894629 /* Swifter.swift */; };
-		8BA50EC71953828A00FB1829 /* SwifterAppOnlyClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BA50EC61953828A00FB1829 /* SwifterAppOnlyClient.swift */; };
-		8BA50EC81953828A00FB1829 /* SwifterAppOnlyClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BA50EC61953828A00FB1829 /* SwifterAppOnlyClient.swift */; };
-		8BC32D3D1955EEE100FF75A0 /* SwifterTrends.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC32D3C1955EEE100FF75A0 /* SwifterTrends.swift */; };
-		8BC32D3E1955EEE100FF75A0 /* SwifterTrends.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC32D3C1955EEE100FF75A0 /* SwifterTrends.swift */; };
 		8BCB9329194B2E1200A998EA /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8BCB9328194B2E1200A998EA /* Images.xcassets */; };
-		8BCF43171947450A00E63301 /* SwifterTweets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BCF43161947450A00E63301 /* SwifterTweets.swift */; };
-		8BCF43181947450A00E63301 /* SwifterTweets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BCF43161947450A00E63301 /* SwifterTweets.swift */; };
-		8BCF431A19475D3C00E63301 /* SwifterSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BCF431919475D3C00E63301 /* SwifterSearch.swift */; };
-		8BCF431B19475D3C00E63301 /* SwifterSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BCF431919475D3C00E63301 /* SwifterSearch.swift */; };
-		8BCF431D1947907300E63301 /* SwifterMessages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BCF431C1947907300E63301 /* SwifterMessages.swift */; };
-		8BCF431E1947907300E63301 /* SwifterMessages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BCF431C1947907300E63301 /* SwifterMessages.swift */; };
-		8BCF4320194798FB00E63301 /* SwifterFollowers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BCF431F194798FB00E63301 /* SwifterFollowers.swift */; };
-		8BCF4321194798FB00E63301 /* SwifterFollowers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BCF431F194798FB00E63301 /* SwifterFollowers.swift */; };
-		8BCF43231947A6C800E63301 /* SwifterUsers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BCF43221947A6C800E63301 /* SwifterUsers.swift */; };
-		8BCF43241947A6C800E63301 /* SwifterUsers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BCF43221947A6C800E63301 /* SwifterUsers.swift */; };
-		8BCF43261947CABA00E63301 /* SwifterSuggested.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BCF43251947CABA00E63301 /* SwifterSuggested.swift */; };
-		8BCF43271947CABA00E63301 /* SwifterSuggested.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BCF43251947CABA00E63301 /* SwifterSuggested.swift */; };
-		8BCF43291947CC7A00E63301 /* SwifterFavorites.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BCF43281947CC7A00E63301 /* SwifterFavorites.swift */; };
-		8BCF432A1947CC7A00E63301 /* SwifterFavorites.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BCF43281947CC7A00E63301 /* SwifterFavorites.swift */; };
-		8BCF432C1947CED700E63301 /* SwifterLists.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BCF432B1947CED700E63301 /* SwifterLists.swift */; };
-		8BCF432D1947CED700E63301 /* SwifterLists.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BCF432B1947CED700E63301 /* SwifterLists.swift */; };
-		8BF1D6761948825D00E3AA64 /* SwifterSavedSearches.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF1D6751948825D00E3AA64 /* SwifterSavedSearches.swift */; };
-		8BF1D6771948825D00E3AA64 /* SwifterSavedSearches.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF1D6751948825D00E3AA64 /* SwifterSavedSearches.swift */; };
-		8BF1D6791948839800E3AA64 /* SwifterPlaces.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF1D6781948839800E3AA64 /* SwifterPlaces.swift */; };
-		8BF1D67A1948839800E3AA64 /* SwifterPlaces.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF1D6781948839800E3AA64 /* SwifterPlaces.swift */; };
-		8BF1D67C1948882700E3AA64 /* SwifterSpam.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF1D67B1948882700E3AA64 /* SwifterSpam.swift */; };
-		8BF1D67D1948882700E3AA64 /* SwifterSpam.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF1D67B1948882700E3AA64 /* SwifterSpam.swift */; };
-		8BF1D67F194889B900E3AA64 /* SwifterClientProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF1D67E194889B900E3AA64 /* SwifterClientProtocol.swift */; };
-		8BF1D680194889B900E3AA64 /* SwifterClientProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF1D67E194889B900E3AA64 /* SwifterClientProtocol.swift */; };
-		8BF1D6851948BCC100E3AA64 /* SwifterAccountsClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF1D6841948BCC100E3AA64 /* SwifterAccountsClient.swift */; };
-		8BF1D6861948BCC100E3AA64 /* SwifterAccountsClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF1D6841948BCC100E3AA64 /* SwifterAccountsClient.swift */; };
-		8BF1D6881948C11E00E3AA64 /* SwifterCredential.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF1D6871948C11E00E3AA64 /* SwifterCredential.swift */; };
-		8BF1D6891948C11E00E3AA64 /* SwifterCredential.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF1D6871948C11E00E3AA64 /* SwifterCredential.swift */; };
 		CA67CF951AD860BB007AD74D /* ContainerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA67CF941AD860BB007AD74D /* ContainerController.swift */; };
 		CAEA7E991AD64D4E00750957 /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAEA7E981AD64D4E00750957 /* CameraViewController.swift */; };
 		CAEF8CC61ADC3D9300E80156 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAEF8CC51ADC3D9300E80156 /* SettingsViewController.swift */; };
@@ -119,47 +61,17 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		8B116AF0194601970019A4DC /* SwifterHTTPRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwifterHTTPRequest.swift; sourceTree = "<group>"; };
-		8B1F259E194A663D004BD304 /* SwifterHelp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwifterHelp.swift; sourceTree = "<group>"; };
 		8B300C1F1944AA1A00993175 /* PhotoboothDemoiOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PhotoboothDemoiOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8B300C221944AA1A00993175 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8B300C471944AECB00993175 /* PhotoboothDemoMac.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PhotoboothDemoMac.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8B300C5A1944AECB00993175 /* PhotoboothDemoMacTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PhotoboothDemoMacTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		8B33CA3E19587C6D00739FCB /* JSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSON.swift; sourceTree = "<group>"; };
-		8B548F5519450BDB00EE2927 /* SwifterOAuthClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwifterOAuthClient.swift; sourceTree = "<group>"; };
-		8B548F581945325E00EE2927 /* SwifterAuth.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwifterAuth.swift; sourceTree = "<group>"; };
-		8B548F5B1945331D00EE2927 /* SwifterTimelines.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwifterTimelines.swift; sourceTree = "<group>"; };
-		8B552D29194643CF0052EB86 /* NSURL+Swifter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSURL+Swifter.swift"; sourceTree = "<group>"; };
-		8B552D2C194695F80052EB86 /* SwifterStreaming.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwifterStreaming.swift; sourceTree = "<group>"; };
 		8B5EFF03195F064400B354F9 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8B5EFF04195F064400B354F9 /* AuthViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthViewController.swift; sourceTree = "<group>"; };
 		8B5EFF05195F064400B354F9 /* TweetViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TweetViewController.swift; sourceTree = "<group>"; };
 		8B5EFF06195F064400B354F9 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
-		8B5EFF11195F087000B354F9 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		8B5EFF14195F09F600B354F9 /* Swifter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Swifter.h; sourceTree = "<group>"; };
 		8B9F50EE1944A5AB00894629 /* PhotoboothiOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = PhotoboothiOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8B9F51131944A61D00894629 /* PhotoboothMac.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = PhotoboothMac.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		8B9F51471944A8DC00894629 /* Dictionary+Swifter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Dictionary+Swifter.swift"; sourceTree = "<group>"; };
-		8B9F514A1944A8DC00894629 /* String+Swifter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Swifter.swift"; sourceTree = "<group>"; };
-		8B9F514B1944A8DC00894629 /* Swifter-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Swifter-Bridging-Header.h"; sourceTree = "<group>"; };
-		8B9F514C1944A8DC00894629 /* Swifter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Swifter.swift; sourceTree = "<group>"; };
-		8BA50EC61953828A00FB1829 /* SwifterAppOnlyClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwifterAppOnlyClient.swift; sourceTree = "<group>"; };
-		8BC32D3C1955EEE100FF75A0 /* SwifterTrends.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwifterTrends.swift; sourceTree = "<group>"; };
 		8BCB9328194B2E1200A998EA /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		8BCF43161947450A00E63301 /* SwifterTweets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwifterTweets.swift; sourceTree = "<group>"; };
-		8BCF431919475D3C00E63301 /* SwifterSearch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwifterSearch.swift; sourceTree = "<group>"; };
-		8BCF431C1947907300E63301 /* SwifterMessages.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwifterMessages.swift; sourceTree = "<group>"; };
-		8BCF431F194798FB00E63301 /* SwifterFollowers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwifterFollowers.swift; sourceTree = "<group>"; };
-		8BCF43221947A6C800E63301 /* SwifterUsers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwifterUsers.swift; sourceTree = "<group>"; };
-		8BCF43251947CABA00E63301 /* SwifterSuggested.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwifterSuggested.swift; sourceTree = "<group>"; };
-		8BCF43281947CC7A00E63301 /* SwifterFavorites.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwifterFavorites.swift; sourceTree = "<group>"; };
-		8BCF432B1947CED700E63301 /* SwifterLists.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwifterLists.swift; sourceTree = "<group>"; };
-		8BF1D6751948825D00E3AA64 /* SwifterSavedSearches.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwifterSavedSearches.swift; sourceTree = "<group>"; };
-		8BF1D6781948839800E3AA64 /* SwifterPlaces.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwifterPlaces.swift; sourceTree = "<group>"; };
-		8BF1D67B1948882700E3AA64 /* SwifterSpam.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwifterSpam.swift; sourceTree = "<group>"; };
-		8BF1D67E194889B900E3AA64 /* SwifterClientProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwifterClientProtocol.swift; sourceTree = "<group>"; };
-		8BF1D6841948BCC100E3AA64 /* SwifterAccountsClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwifterAccountsClient.swift; sourceTree = "<group>"; };
-		8BF1D6871948C11E00E3AA64 /* SwifterCredential.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwifterCredential.swift; sourceTree = "<group>"; };
 		CA67CF941AD860BB007AD74D /* ContainerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContainerController.swift; sourceTree = "<group>"; };
 		CAEA7E981AD64D4E00750957 /* CameraViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
 		CAEF8CC51ADC3D9300E80156 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
@@ -238,18 +150,9 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		8B5EFF10195F085B00B354F9 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				8B5EFF11195F087000B354F9 /* Info.plist */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
 		8B9F50E41944A5AB00894629 = {
 			isa = PBXGroup;
 			children = (
-				8B9F51461944A8DC00894629 /* Swifter */,
 				8B300C201944AA1A00993175 /* Photobooth */,
 				8B9F50EF1944A5AB00894629 /* Products */,
 			);
@@ -267,51 +170,6 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		8B9F51461944A8DC00894629 /* Swifter */ = {
-			isa = PBXGroup;
-			children = (
-				8B5EFF14195F09F600B354F9 /* Swifter.h */,
-				8B9F514B1944A8DC00894629 /* Swifter-Bridging-Header.h */,
-				8B9F514C1944A8DC00894629 /* Swifter.swift */,
-				8BF1D6871948C11E00E3AA64 /* SwifterCredential.swift */,
-				8B548F581945325E00EE2927 /* SwifterAuth.swift */,
-				8B548F5B1945331D00EE2927 /* SwifterTimelines.swift */,
-				8BCF43161947450A00E63301 /* SwifterTweets.swift */,
-				8BCF431919475D3C00E63301 /* SwifterSearch.swift */,
-				8B552D2C194695F80052EB86 /* SwifterStreaming.swift */,
-				8BCF431C1947907300E63301 /* SwifterMessages.swift */,
-				8BCF431F194798FB00E63301 /* SwifterFollowers.swift */,
-				8BCF43221947A6C800E63301 /* SwifterUsers.swift */,
-				8BCF43251947CABA00E63301 /* SwifterSuggested.swift */,
-				8BCF43281947CC7A00E63301 /* SwifterFavorites.swift */,
-				8BCF432B1947CED700E63301 /* SwifterLists.swift */,
-				8BF1D6751948825D00E3AA64 /* SwifterSavedSearches.swift */,
-				8BF1D6781948839800E3AA64 /* SwifterPlaces.swift */,
-				8BC32D3C1955EEE100FF75A0 /* SwifterTrends.swift */,
-				8BF1D67B1948882700E3AA64 /* SwifterSpam.swift */,
-				8B1F259E194A663D004BD304 /* SwifterHelp.swift */,
-				8BF1D67E194889B900E3AA64 /* SwifterClientProtocol.swift */,
-				8B548F5519450BDB00EE2927 /* SwifterOAuthClient.swift */,
-				8BF1D6841948BCC100E3AA64 /* SwifterAccountsClient.swift */,
-				8BA50EC61953828A00FB1829 /* SwifterAppOnlyClient.swift */,
-				8B116AF0194601970019A4DC /* SwifterHTTPRequest.swift */,
-				8B33CA3E19587C6D00739FCB /* JSON.swift */,
-				8B9F51591944A8E100894629 /* Extensions */,
-				8B5EFF10195F085B00B354F9 /* Supporting Files */,
-			);
-			path = Swifter;
-			sourceTree = "<group>";
-		};
-		8B9F51591944A8E100894629 /* Extensions */ = {
-			isa = PBXGroup;
-			children = (
-				8B9F51471944A8DC00894629 /* Dictionary+Swifter.swift */,
-				8B552D29194643CF0052EB86 /* NSURL+Swifter.swift */,
-				8B9F514A1944A8DC00894629 /* String+Swifter.swift */,
-			);
-			name = Extensions;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -319,8 +177,6 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8B9F51551944A8DC00894629 /* Swifter-Bridging-Header.h in Headers */,
-				8B5EFF15195F09F600B354F9 /* Swifter.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -328,8 +184,6 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8B9F51561944A8DC00894629 /* Swifter-Bridging-Header.h in Headers */,
-				8B5EFF16195F09F600B354F9 /* Swifter.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -567,33 +421,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8BCF43291947CC7A00E63301 /* SwifterFavorites.swift in Sources */,
-				8BCF43261947CABA00E63301 /* SwifterSuggested.swift in Sources */,
-				8B116AF1194601970019A4DC /* SwifterHTTPRequest.swift in Sources */,
-				8B552D2D194695F80052EB86 /* SwifterStreaming.swift in Sources */,
-				8B548F5619450BDB00EE2927 /* SwifterOAuthClient.swift in Sources */,
-				8B9F51571944A8DC00894629 /* Swifter.swift in Sources */,
-				8BF1D6761948825D00E3AA64 /* SwifterSavedSearches.swift in Sources */,
-				8BCF43171947450A00E63301 /* SwifterTweets.swift in Sources */,
-				8BF1D6851948BCC100E3AA64 /* SwifterAccountsClient.swift in Sources */,
-				8B548F591945325E00EE2927 /* SwifterAuth.swift in Sources */,
-				8BCF431D1947907300E63301 /* SwifterMessages.swift in Sources */,
-				8B9F51531944A8DC00894629 /* String+Swifter.swift in Sources */,
-				8BF1D67C1948882700E3AA64 /* SwifterSpam.swift in Sources */,
-				8BCF431A19475D3C00E63301 /* SwifterSearch.swift in Sources */,
-				8B33CA3F19587C6D00739FCB /* JSON.swift in Sources */,
-				8BCF432C1947CED700E63301 /* SwifterLists.swift in Sources */,
-				8BA50EC71953828A00FB1829 /* SwifterAppOnlyClient.swift in Sources */,
-				8BF1D6881948C11E00E3AA64 /* SwifterCredential.swift in Sources */,
-				8BF1D6791948839800E3AA64 /* SwifterPlaces.swift in Sources */,
-				8BC32D3D1955EEE100FF75A0 /* SwifterTrends.swift in Sources */,
-				8BCF43231947A6C800E63301 /* SwifterUsers.swift in Sources */,
-				8B9F514D1944A8DC00894629 /* Dictionary+Swifter.swift in Sources */,
-				8B552D2A194643CF0052EB86 /* NSURL+Swifter.swift in Sources */,
-				8BCF4320194798FB00E63301 /* SwifterFollowers.swift in Sources */,
-				8B548F5C1945331D00EE2927 /* SwifterTimelines.swift in Sources */,
-				8BF1D67F194889B900E3AA64 /* SwifterClientProtocol.swift in Sources */,
-				8B1F259F194A663D004BD304 /* SwifterHelp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -601,33 +428,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8BCF432A1947CC7A00E63301 /* SwifterFavorites.swift in Sources */,
-				8BCF43271947CABA00E63301 /* SwifterSuggested.swift in Sources */,
-				8B116AF2194601970019A4DC /* SwifterHTTPRequest.swift in Sources */,
-				8B552D2E194695F80052EB86 /* SwifterStreaming.swift in Sources */,
-				8B548F5719450BDB00EE2927 /* SwifterOAuthClient.swift in Sources */,
-				8B9F51581944A8DC00894629 /* Swifter.swift in Sources */,
-				8BF1D6771948825D00E3AA64 /* SwifterSavedSearches.swift in Sources */,
-				8BCF43181947450A00E63301 /* SwifterTweets.swift in Sources */,
-				8BF1D6861948BCC100E3AA64 /* SwifterAccountsClient.swift in Sources */,
-				8B548F5A1945325E00EE2927 /* SwifterAuth.swift in Sources */,
-				8BCF431E1947907300E63301 /* SwifterMessages.swift in Sources */,
-				8B9F51541944A8DC00894629 /* String+Swifter.swift in Sources */,
-				8BF1D67D1948882700E3AA64 /* SwifterSpam.swift in Sources */,
-				8BCF431B19475D3C00E63301 /* SwifterSearch.swift in Sources */,
-				8B33CA4019587C6D00739FCB /* JSON.swift in Sources */,
-				8BCF432D1947CED700E63301 /* SwifterLists.swift in Sources */,
-				8BA50EC81953828A00FB1829 /* SwifterAppOnlyClient.swift in Sources */,
-				8BF1D6891948C11E00E3AA64 /* SwifterCredential.swift in Sources */,
-				8BF1D67A1948839800E3AA64 /* SwifterPlaces.swift in Sources */,
-				8BC32D3E1955EEE100FF75A0 /* SwifterTrends.swift in Sources */,
-				8BCF43241947A6C800E63301 /* SwifterUsers.swift in Sources */,
-				8B9F514E1944A8DC00894629 /* Dictionary+Swifter.swift in Sources */,
-				8B552D2B194643CF0052EB86 /* NSURL+Swifter.swift in Sources */,
-				8BCF4321194798FB00E63301 /* SwifterFollowers.swift in Sources */,
-				8B548F5D1945331D00EE2927 /* SwifterTimelines.swift in Sources */,
-				8BF1D680194889B900E3AA64 /* SwifterClientProtocol.swift in Sources */,
-				8B1F25A0194A663D004BD304 /* SwifterHelp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

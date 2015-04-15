@@ -1,5 +1,4 @@
 import UIKit
-import PhotoboothiOS
 
 import TwitterKit
 
@@ -7,9 +6,9 @@ class TweetViewController : TWTRTimelineViewController {
 
     convenience init() {
         
-        let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
+        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         let client = Twitter.sharedInstance().APIClient
-        let dataSource = TWTRUserTimelineDataSource(screenName: appDelegate.username, APIClient: client)
+        let dataSource = TWTRUserTimelineDataSource(screenName: appDelegate.username!, APIClient: client)
         
         self.init(dataSource: dataSource)
     }
@@ -24,9 +23,9 @@ class TweetViewController : TWTRTimelineViewController {
     
     override func viewWillAppear(animated: Bool) {
 
-        let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
+        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         let client = Twitter.sharedInstance().APIClient
-        self.dataSource = TWTRUserTimelineDataSource(screenName: appDelegate.username, APIClient: client)
+        self.dataSource = TWTRUserTimelineDataSource(screenName: appDelegate.username!, APIClient: client)
         
         // kick off actual rendering
         super.viewWillAppear(animated)

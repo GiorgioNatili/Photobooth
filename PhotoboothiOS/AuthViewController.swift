@@ -1,6 +1,5 @@
 import UIKit
 import Accounts
-import PhotoboothiOS
 import TwitterKit
 
 class AuthViewController: UIViewController {
@@ -18,10 +17,8 @@ class AuthViewController: UIViewController {
 
             let twitter = Twitter.sharedInstance()
             
-            let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
-            appDelegate.username = session.userName
-            appDelegate.swifter = Swifter(consumerKey: twitter.authConfig.consumerKey!, consumerSecret: twitter.authConfig.consumerSecret!, oauthToken: session.authToken!, oauthTokenSecret: session.authTokenSecret!)
-            
+            let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+                       
             self.showPhotoView()
             
         })
@@ -39,7 +36,7 @@ class AuthViewController: UIViewController {
         
         // ensure that presentViewController happens from the main thread/queue
         dispatch_async(dispatch_get_main_queue(), {
-            let controller = self.storyboard!.instantiateViewControllerWithIdentifier("NavigationController") as UINavigationController
+            let controller = self.storyboard!.instantiateViewControllerWithIdentifier("NavigationController") as! UINavigationController
             self.presentViewController(controller, animated: true, completion: nil)
         });
         

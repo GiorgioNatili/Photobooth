@@ -1,7 +1,5 @@
 import UIKit
 import MobileCoreServices
-import PhotoboothiOS
-
 
 class CameraViewController: UIViewController,
 UINavigationControllerDelegate, UIImagePickerControllerDelegate /*, UITextViewDelegate */ {
@@ -34,11 +32,11 @@ UINavigationControllerDelegate, UIImagePickerControllerDelegate /*, UITextViewDe
     func cameraSupportsMedia(mediaType: String,
         sourceType: UIImagePickerControllerSourceType) -> Bool{
             
-            let availableMediaTypes = UIImagePickerController.availableMediaTypesForSourceType(sourceType) as [String]?
+            let availableMediaTypes = UIImagePickerController.availableMediaTypesForSourceType(sourceType) as [AnyObject]?
             
             if let types = availableMediaTypes {
                 for type in types {
-                    if type == mediaType {
+                    if type as! String == mediaType {
                         return true
                     }
                 }
@@ -54,7 +52,7 @@ UINavigationControllerDelegate, UIImagePickerControllerDelegate /*, UITextViewDe
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
 
-        let controller = self.storyboard!.instantiateViewControllerWithIdentifier("SettingsViewController") as SettingsViewController
+        let controller = self.storyboard!.instantiateViewControllerWithIdentifier("SettingsViewController") as! SettingsViewController
         self.statusTextField.text = controller.getDefaultText()
         
         if beenHereBefore {
@@ -92,7 +90,7 @@ UINavigationControllerDelegate, UIImagePickerControllerDelegate /*, UITextViewDe
                 if let type:AnyObject = mediaType {
                     
                     if type is String {
-                        let stringType = type as String
+                        let stringType = type as! String
                         
                         //                    if stringType == kUTTypeMovie as String {
                         //                        let urlOfVideo = info[UIImagePickerControllerMediaURL] as NSURL
@@ -142,12 +140,7 @@ UINavigationControllerDelegate, UIImagePickerControllerDelegate /*, UITextViewDe
         
     }
     
-    // hide keyboard for UITextView
-    override func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
-        view.endEditing(true)
-        super.touchesBegan(touches, withEvent: event)
-    }
-    
+  
     @IBAction func didTouchUpInsideTweetButton(sender: AnyObject) {
 
         let failureHandler: ((NSError) -> Void) = {
@@ -161,14 +154,8 @@ UINavigationControllerDelegate, UIImagePickerControllerDelegate /*, UITextViewDe
         
         if status != nil && imageData != nil {
 
-            let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
-            appDelegate.swifter.postStatusUpdate(self.statusTextField.text, media:imageData, inReplyToStatusID: nil, lat: nil, long: nil, placeID: nil, displayCoordinates: nil, trimUser: nil, success: {
-                (status: Dictionary<String, JSONValue>?) in
-                
-                    self.showTweets();
-
-                }, failure: failureHandler)
-
+            let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+            // rewrite post request using TwitterKit
         }
 
         println("didTouchUpInsideTweetButton")
@@ -211,7 +198,7 @@ UINavigationControllerDelegate, UIImagePickerControllerDelegate /*, UITextViewDe
     @IBAction func showSettings() {
         
         dispatch_async(dispatch_get_main_queue(), {
-            let controller = self.storyboard!.instantiateViewControllerWithIdentifier("SettingsViewController") as UIViewController
+            let controller = self.storyboard!.instantiateViewControllerWithIdentifier("SettingsViewController") as! UIViewController
             self.showViewController(controller, sender: self)
         });
         

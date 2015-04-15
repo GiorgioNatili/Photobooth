@@ -1,6 +1,5 @@
 import UIKit
 import MobileCoreServices
-import PhotoboothiOS
 
 class ContainerController: UIViewController {
     

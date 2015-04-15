@@ -1,6 +1,5 @@
 import UIKit
 import MobileCoreServices
-import PhotoboothiOS
 
 import TwitterKit
 
@@ -43,7 +42,7 @@ class SettingsViewController: UIViewController, UITextViewDelegate {
         
         // ensure that presentViewController happens from the main thread/queue
         dispatch_async(dispatch_get_main_queue(), {
-            let controller = self.storyboard!.instantiateViewControllerWithIdentifier("AuthViewController") as UIViewController
+            let controller = self.storyboard!.instantiateViewControllerWithIdentifier("AuthViewController") as! UIViewController
             self.presentViewController(controller, animated: true, completion: nil)
         });
         
