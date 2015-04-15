@@ -27,7 +27,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
 
-        assert(NSBundle.mainBundle().objectForInfoDictionaryKey("Fabric") != nil, "Welcome to Photbooth. Please remember to onboard using the Fabric Mac app. Check the instructions in the README file.")
+        assert(NSBundle.mainBundle().objectForInfoDictionaryKey("Fabric") != nil, "Welcome to Photobooth. Please remember to onboard using the Fabric Mac app. Check the instructions in the README file.")
         Fabric.with([Twitter()]).debug = true
         
         if Twitter.sharedInstance().session() == nil {
