@@ -69,8 +69,7 @@ UINavigationControllerDelegate, UIImagePickerControllerDelegate /*, UITextViewDe
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
         
-        let controller = self.storyboard!.instantiateViewControllerWithIdentifier("SettingsViewController") as! SettingsViewController
-        self.statusTextField.text = controller.getDefaultText()
+        self.statusTextField.text = SettingsViewController.Settings.tweetText
         
         if beenHereBefore {
             /* Only display the picker once as the viewDidAppear: method gets

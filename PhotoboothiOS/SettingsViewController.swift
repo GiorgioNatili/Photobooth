@@ -20,6 +20,10 @@ import TwitterKit
 
 class SettingsViewController: UIViewController, UITextViewDelegate {
 
+    struct Settings {
+        static var tweetText = "Hanging out at the @TwitterDev booth during #bitcamp!"
+    }
+    
     @IBOutlet weak var defaultTextField: UITextView!
     
     required init(coder aDecoder: NSCoder) {
@@ -35,20 +39,10 @@ class SettingsViewController: UIViewController, UITextViewDelegate {
         super.viewDidAppear(animated)
     }
     
-    func getDefaultText() -> String {
-        if self.defaultTextField == nil {
-            self.defaultTextField = UITextView()
-        }
-        
-        if self.defaultTextField.text == nil || self.defaultTextField.text == "" {
-            self.defaultTextField.text = "Hanging out at the @TwitterDev booth during #bitcamp!"
-        }
-        
-        return self.defaultTextField.text
-    }
-    
     func textViewDidChange(textView: UITextView) { //Handle the text changes here
         print(textView.text); //the textView parameter is the textView where text was changed
+        
+        SettingsViewController.Settings.tweetText = textView.text
     }
     
     @IBAction func logOut(sender: AnyObject) {
