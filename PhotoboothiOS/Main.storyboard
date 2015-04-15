@@ -52,18 +52,28 @@
                         <viewControllerLayoutGuide type="bottom" id="gf6-lu-0hS"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="oer-T1-faL">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <rect key="frame" x="0.0" y="0.0" width="480" height="320"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UGF-9V-MTL">
-                                <rect key="frame" x="0.0" y="64" width="320" height="256"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="UGF-9V-MTL">
+                                <rect key="frame" x="0.0" y="64" width="480" height="256"/>
                             </imageView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gT7-Hj-jGK">
+                                <rect key="frame" x="0.0" y="64" width="480" height="95"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <inset key="scrollIndicatorInsets" minX="40" minY="40" maxX="40" maxY="40"/>
+                                <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="25"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="UGF-9V-MTL" firstAttribute="leading" secondItem="oer-T1-faL" secondAttribute="leading" id="3TD-LH-fFa"/>
                             <constraint firstItem="UGF-9V-MTL" firstAttribute="top" secondItem="J3t-xi-s7C" secondAttribute="bottom" id="6aY-cH-Kr0"/>
                             <constraint firstAttribute="trailing" secondItem="UGF-9V-MTL" secondAttribute="trailing" id="9ja-pr-09D"/>
+                            <constraint firstItem="gT7-Hj-jGK" firstAttribute="top" secondItem="J3t-xi-s7C" secondAttribute="bottom" id="Jpp-nS-TwP"/>
+                            <constraint firstItem="gT7-Hj-jGK" firstAttribute="leading" secondItem="oer-T1-faL" secondAttribute="leading" id="NYf-a8-G0d"/>
+                            <constraint firstAttribute="trailing" secondItem="gT7-Hj-jGK" secondAttribute="trailing" id="gxw-In-z15"/>
                             <constraint firstItem="gf6-lu-0hS" firstAttribute="top" secondItem="UGF-9V-MTL" secondAttribute="bottom" id="nvy-bP-MHO"/>
                         </constraints>
                     </view>
@@ -71,12 +81,13 @@
                     <connections>
                         <outlet property="navbar" destination="bOK-bz-Ilc" id="VcO-Ty-1h8"/>
                         <outlet property="previewImage" destination="UGF-9V-MTL" id="d5k-6u-7a9"/>
+                        <outlet property="tweetTxt" destination="gT7-Hj-jGK" id="4yO-JQ-HOl"/>
                         <segue destination="NXV-X1-aZg" kind="push" identifier="camera" id="Pqd-mN-euh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UAg-Xa-B0l" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="811" y="114"/>
+            <point key="canvasLocation" x="700" y="95"/>
         </scene>
         <!--Camera View Controller-->
         <scene sceneID="005-td-jsF">
@@ -87,17 +98,17 @@
                         <viewControllerLayoutGuide type="bottom" id="Qgw-E4-vKf"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="cIB-eO-lfb">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <rect key="frame" x="0.0" y="0.0" width="480" height="320"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fBE-Uj-Z1I">
-                                <rect key="frame" x="202" y="82" width="76" height="156"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fBE-Uj-Z1I">
+                                <rect key="frame" x="240" y="160" width="0.0" height="0.0"/>
                                 <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="300"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="This text should be overriden." translatesAutoresizingMaskIntoConstraints="NO" id="zbw-Tx-Gyx">
-                                <rect key="frame" x="36" y="380" width="248" height="100"/>
+                                <rect key="frame" x="36" y="220" width="408" height="100"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="100" id="GTr-mx-7aC"/>
@@ -106,7 +117,7 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3R9-Vb-2HD">
-                                <rect key="frame" x="0.0" y="64" width="320" height="256"/>
+                                <rect key="frame" x="0.0" y="64" width="480" height="256"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -215,7 +226,7 @@
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
+        <segue reference="fP3-AK-ufO"/>
         <segue reference="Pqd-mN-euh"/>
-        <segue reference="hRs-QT-NAg"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -9,6 +9,7 @@ class PreviewViewController: UIViewController, UITextViewDelegate {
 
     @IBOutlet weak var navbar: UINavigationItem!
     
+    @IBOutlet weak var tweetTxt: UITextView!
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -23,6 +24,10 @@ class PreviewViewController: UIViewController, UITextViewDelegate {
         var tap = UITapGestureRecognizer(target:self, action:Selector("share"))
         self.view.addGestureRecognizer(tap)
         
+        tweetTxt.text = SettingsViewController.Settings.tweetText
+        tweetTxt.becomeFirstResponder();
+        tweetTxt.alpha = 0.6
+        
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -31,7 +36,7 @@ class PreviewViewController: UIViewController, UITextViewDelegate {
     }
     
     func share(){
-        let status =  SettingsViewController.Settings.tweetText
+        let status = tweetTxt.text
         let uiImage = self.previewImage.image
         let composer = TWTRComposer()
         composer.setText(status)
@@ -49,6 +54,9 @@ class PreviewViewController: UIViewController, UITextViewDelegate {
         println("didTouchUpInsideTweetButton")
         
     }
+    
+  
+    
     
     func setupNav() {
         // Setup Navigation controller / remove uiBorderbottom to blue
