@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7F2AA9EC1ADE495500E809E1 /* PreviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F2AA9EB1ADE495500E809E1 /* PreviewViewController.swift */; };
 		7F599B831ADE11FF0020955F /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F599B821ADE11FF0020955F /* CameraViewController.swift */; };
 		7F599B871ADE22C40020955F /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F599B861ADE22C40020955F /* UIColorExtension.swift */; };
 		8B5EFF07195F064400B354F9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B5EFF03195F064400B354F9 /* AppDelegate.swift */; };
@@ -39,6 +40,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		7F2AA9EB1ADE495500E809E1 /* PreviewViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreviewViewController.swift; sourceTree = "<group>"; };
 		7F599B821ADE11FF0020955F /* CameraViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
 		7F599B861ADE22C40020955F /* UIColorExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
 		8B300C1F1944AA1A00993175 /* PhotoboothDemoiOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PhotoboothDemoiOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -107,6 +109,7 @@
 				8B5EFF04195F064400B354F9 /* AuthViewController.swift */,
 				7F599B861ADE22C40020955F /* UIColorExtension.swift */,
 				7F599B821ADE11FF0020955F /* CameraViewController.swift */,
+				7F2AA9EB1ADE495500E809E1 /* PreviewViewController.swift */,
 				8B5EFF05195F064400B354F9 /* TweetViewController.swift */,
 				CA67CF941AD860BB007AD74D /* ContainerController.swift */,
 				CAEF8CC51ADC3D9300E80156 /* SettingsViewController.swift */,
@@ -378,6 +381,7 @@
 				8B5EFF09195F064400B354F9 /* TweetViewController.swift in Sources */,
 				CAEF8CC61ADC3D9300E80156 /* SettingsViewController.swift in Sources */,
 				7F599B831ADE11FF0020955F /* CameraViewController.swift in Sources */,
+				7F2AA9EC1ADE495500E809E1 /* PreviewViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

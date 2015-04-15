@@ -17,80 +17,173 @@
 import UIKit
 import MobileCoreServices
 import TwitterKit
+import AVFoundation
 
 class CameraViewController: UIViewController,
 UINavigationControllerDelegate, UIImagePickerControllerDelegate /*, UITextViewDelegate */ {
     
     @IBOutlet weak var canvasImage: UIImageView!
-
-    @IBOutlet weak var imageView: UIButton!
     @IBOutlet weak var statusTextField: UITextView!
     @IBOutlet weak var navbar: UINavigationItem!
-    @IBOutlet weak var toolbar: UIToolbar!
-    @IBOutlet weak var takePhotoButton: UIBarButtonItem!
-    @IBOutlet weak var tweetPhotoButton: UIBarButtonItem!
-
+    @IBOutlet weak var countdown: UILabel!
+    
+    let captureSession = AVCaptureSession()
+    var previewLayer : AVCaptureVideoPreviewLayer?
+    var stillImageOutput : AVCaptureStillImageOutput?
+    var startTime = NSTimeInterval()
+    var timer = NSTimer()
+    var snapTime:Double = 5
     var logoView: UIImageView!
-    
-    /* We will use this variable to determine if the viewDidAppear:
-    method of our view controller is already called or not. If not, we will
-    display the camera view */
-    var beenHereBefore = false
-    var controller: UIImagePickerController?
-    
-    required init(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
+    var captureDevice : AVCaptureDevice?
+
+    func startSnap() {
+        
+        let aSelector : Selector = "updateTime"
+        timer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: aSelector, userInfo: nil, repeats: true)
+        startTime = NSDate.timeIntervalSinceReferenceDate()
+        
     }
     
-    func isCameraAvailable() -> Bool{
-        return UIImagePickerController.isSourceTypeAvailable(.Camera)
-    }
-    
-    func cameraSupportsMedia(mediaType: String,
-        sourceType: UIImagePickerControllerSourceType) -> Bool{
+    func updateTime() {
+        var currentTime = NSDate.timeIntervalSinceReferenceDate()
+        var elapsedTime = currentTime - startTime
+        var seconds = snapTime-elapsedTime
+        if seconds > 0 {
+            elapsedTime -= NSTimeInterval(seconds)
+            self.countdown.hidden = false
+            self.countdown.text = "\(Int(seconds+1))"
             
-            let availableMediaTypes = UIImagePickerController.availableMediaTypesForSourceType(sourceType) as [AnyObject]?
+        } else {
+            self.countdown.hidden = true
+            timer.invalidate()
             
-            if let types = availableMediaTypes {
-                for type in types {
-                    if type as! String == mediaType {
-                        return true
+            // wow we are ready to save some photos
+            // setup still OutPut to save
+            if let stillOutput = self.stillImageOutput {
+                
+                // we do this on another thread so we don't hang the UI
+                dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) {
+                    
+                    // find video connection
+                    var videoConnection : AVCaptureConnection?
+                    for connection in stillOutput.connections {
+                        // find a matching input port
+                        for port in connection.inputPorts! {
+                            // and matching type
+                            if port.mediaType == AVMediaTypeVideo {
+                                videoConnection = connection as? AVCaptureConnection
+                                break
+                            }
+                        }
+                        if videoConnection != nil {
+                            break // for connection
+                        }
+                    }
+                    
+                    if videoConnection != nil {
+                        // found the video connection, let's get the image
+                        stillOutput.captureStillImageAsynchronouslyFromConnection(videoConnection) {
+                            (imageSampleBuffer:CMSampleBuffer!, _) in
+                            
+                            let imageData = AVCaptureStillImageOutput.jpegStillImageNSDataRepresentation(imageSampleBuffer)
+                            self.didTakePhoto(imageData)
+                            
+                            
+                            
+                            
+                            
+                            
+                        }
                     }
                 }
             }
-            
-            return false
-    }
-    
-    func doesCameraSupportTakingPhotos() -> Bool{
-        return cameraSupportsMedia(kUTTypeImage as String, sourceType: .Camera)
-    }
-    
-    override func viewDidAppear(animated: Bool) {
-        super.viewDidAppear(animated)
-        
-        self.statusTextField.text = SettingsViewController.Settings.tweetText
-        
-        if beenHereBefore {
-            /* Only display the picker once as the viewDidAppear: method gets
-            called whenever the view of our view controller gets displayed */
-            return;
-        } else {
-            beenHereBefore = true
         }
+    }
+    
+    func didTakePhoto(imageData: NSData) {
+
+        println("did take photo")
+        let image = UIImage(data: imageData)
+        let flippedImage = UIImage(CGImage: image!.CGImage, scale: 1.0, orientation: .LeftMirrored)
+        self.canvasImage.image = flippedImage
+        let documentsPath = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0] as! String
+        let destinationPath = documentsPath.stringByAppendingPathComponent("photobooth.jpg")
+        UIImageJPEGRepresentation(flippedImage,1.0).writeToFile(destinationPath, atomically: true)
+        self.canvasImage.hidden = false
+        //captureSession.stopRunning()
+        self.view.bringSubviewToFront(canvasImage)
+        
+        //store photo
+        
+        if let recognizers = self.view.gestureRecognizers {
+            for recognizer in recognizers {
+                self.view.removeGestureRecognizer(recognizer as! UIGestureRecognizer)
+            }
+        }
+
+        var tap = UITapGestureRecognizer(target:self, action:Selector("preview"))
+        self.view.addGestureRecognizer(tap)
+        
+        
+    }
+    
+    func preview() {
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) {
+            //self.captureSession.stopRunning()
+            self.canvasImage.hidden = true
+        }
+        self.performSegueWithIdentifier("preview", sender: self);
+    }
+    
+
+    
+
+    func setupCam() {
+        
+        captureSession.sessionPreset = AVCaptureSessionPresetHigh
+        let devices = AVCaptureDevice.devices()
+        // Loop through all the capture devices on this phone
+        for device in devices {
+            // Make sure this particular device supports video
+            if (device.hasMediaType(AVMediaTypeVideo)) {
+                // Finally check the position and confirm we've got the back camera
+                if(device.position == AVCaptureDevicePosition.Front) {
+                    captureDevice = device as? AVCaptureDevice
+                    if captureDevice != nil {
+                        println("Capture device found")
+                        beginSession()
+                    }
+                }
+            }
+        }
+    }
+    
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+        self.setupCam()
         
         // Setup Navigation controller / remove uiBorderbottom to blue
         self.navigationController?.navigationBar.barTintColor = UIColor.whiteColor()
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(), forBarMetrics: UIBarMetrics.Default)
         self.navigationController?.navigationBar.shadowImage = UIImage()
+        self.navigationController?.navigationBar.translucent = false
         
         // Change the border to blue
-        let navHeight = self.navigationController?.navigationBar.frame.height
-        let navWidth = self.navigationController?.navigationBar.frame.width
+        var navHeight = self.navigationController?.navigationBar.frame.height
+        var navWidth = self.navigationController?.navigationBar.frame.width
+        if navWidth == nil {
+            navWidth = 600
+        }
+        if navHeight == nil {
+            navHeight = 30
+        }
+        
         var navBorder = UIView(frame: CGRectMake(0, navHeight! - 2, navWidth!, 2))
         navBorder.backgroundColor = UIColor(rgba: "#5EA9DD")
         self.navigationController?.navigationBar.addSubview(navBorder)
-
+        
         // Append image to the navigation bar
         logoView = UIImageView(frame: CGRectMake(0, 0, 30, 30))
         logoView.image = UIImage(named: "TwitterLogo")!.imageWithRenderingMode(UIImageRenderingMode.AlwaysTemplate)
@@ -98,156 +191,79 @@ UINavigationControllerDelegate, UIImagePickerControllerDelegate /*, UITextViewDe
         logoView.contentMode = UIViewContentMode.ScaleAspectFit
         logoView.frame.origin.x = 10
         logoView.frame.origin.y = 8
-        self.navbar.titleView = logoView
+        navbar.titleView = logoView
         
         // Add a tap gesture to the navigation bar image to send the user to settings
         let recognizer = UITapGestureRecognizer(target: self, action: "showSettings")
-        self.navbar.titleView!.userInteractionEnabled = true
-        self.navbar.titleView!.addGestureRecognizer(recognizer)
+        navbar.titleView!.userInteractionEnabled = true
+        navbar.titleView!.addGestureRecognizer(recognizer)
+        self.navigationItem.setHidesBackButton(true, animated: true)
         
-        let button2 = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Camera, target: self, action: "showPhotoModal")
-        self.toolbar.items?[0] = button2
+        self.statusTextField.text = SettingsViewController.Settings.tweetText
         
         // make textview background clear
         self.statusTextField.alpha = 0.7
         
-        // make tap of image show photo modal
-        var tgr = UITapGestureRecognizer(target:self, action:Selector("showPhotoModal"))
-        self.imageView.addGestureRecognizer(tgr)
         
     }
     
-    func imagePickerController(picker: UIImagePickerController,
-        didFinishPickingMediaWithInfo info: [NSObject : AnyObject]){
-            
-            println("Picker returned successfully")
-            
-            picker.dismissViewControllerAnimated(true, completion: {
-                
-                let mediaType:AnyObject? = info[UIImagePickerControllerMediaType]
-                
-                if let type:AnyObject = mediaType {
-                    
-                    if type is String {
-                        let stringType = type as! String
-                        
-                        //                    if stringType == kUTTypeMovie as String {
-                        //                        let urlOfVideo = info[UIImagePickerControllerMediaURL] as NSURL
-                        //                        if let url = urlOfVideo {
-                        //                            println("Video URL = \(url)")
-                        //                        }
-                        //                    }
-                        
-                        if stringType == kUTTypeImage as String {
-                            
-                            /* Let's get the metadata. This is only for images. Not videos */
-                            let metadata = info[UIImagePickerControllerMediaMetadata] as? NSDictionary
-                            let image = info[UIImagePickerControllerOriginalImage] as? UIImage
-                            
-                            if let theImage = image {
-                                
-                                // UIImageWriteToSavedPhotosAlbum(image, self, nil, nil)
-                                self.canvasImage.image = image
-                                self.canvasImage.hidden = false
-                                println("Image = \(theImage)")
-                            }
-                        }
-                        
-                    }
-                }
-                
-            })
-            
-    }
-    
-    func imagePickerControllerDidCancel(picker: UIImagePickerController) {
-        println("Picker was cancelled")
-        picker.dismissViewControllerAnimated(true, completion: nil)
-    }
-    
-    @IBAction func didTouchUpInsidePhotoButton(sender: AnyObject) {
-        
-        let failureHandler: ((NSError) -> Void) = {
-            error in
-            self.alertWithTitle("Error", message: error.localizedDescription)
-        }
-        
-        println("didTouchUpInsidePhotoButton")
-        
-        self.showPhotoModal()
-        
-    }
-    
-    
-    @IBAction func didTouchUpInsideTweetButton(sender: AnyObject) {
-        
-        let failureHandler: ((NSError) -> Void) = {
-            error in
-            self.alertWithTitle("Error", message: error.localizedDescription)
-        }
-        
-        let status = self.statusTextField.text
-        let uiImage = self.imageView.currentBackgroundImage
-        let imageData = UIImageJPEGRepresentation(uiImage, 0.8)
-        
-        if status != nil && imageData != nil {
-            
-            let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-            // rewrite post request using TwitterKit
-            let composer = TWTRComposer()
-            
-            composer.setText(status)
-            composer.setImage(uiImage)
-            
-            composer.showWithCompletion { (result) -> Void in
-                if (result == TWTRComposerResult.Cancelled) {
-                    println("Tweet composition cancelled")
-                }
-                else {
-                    println("Sending tweet!")
-                    self.showTweets()
-                }
+    func focusTo(value : Float) {
+        if let device = captureDevice {
+            if(device.lockForConfiguration(nil)) {
+                device.unlockForConfiguration()
             }
-            
         }
-        
-        println("didTouchUpInsideTweetButton")
-        
     }
     
-    func showPhotoModal() {
-        
-        controller = UIImagePickerController()
-        
-        if let theController = controller {
-            
-            if isCameraAvailable() && doesCameraSupportTakingPhotos(){
-                theController.sourceType = .Camera
-                theController.cameraDevice = .Front
-            } else {
-                theController.sourceType = .PhotoLibrary
-            }
-            
-            theController.mediaTypes = [kUTTypeImage as String]
-            theController.allowsEditing = true
-            theController.delegate = self
-            
-            presentViewController(theController, animated: true, completion: nil)
+    let screenWidth = UIScreen.mainScreen().bounds.size.width
+    
+    
+    func configureDevice() {
+        if let device = captureDevice {
+            device.lockForConfiguration(nil)
+            //device.focusMode = .Locked
+            device.unlockForConfiguration()
         }
         
     }
     
-    func showTweets(){
+    func beginSession() {
         
-        dispatch_async(dispatch_get_main_queue(), {
-            
-            let controller = TweetViewController()
-            self.showViewController(controller, sender: self)
-            
-        });
+        configureDevice()
+        stillImageOutput = AVCaptureStillImageOutput()
+        let outputSettings = [ AVVideoCodecKey : AVVideoCodecJPEG ]
+        stillImageOutput!.outputSettings = outputSettings
         
+        // add output to session
+        if captureSession.canAddOutput(stillImageOutput) {
+            captureSession.addOutput(stillImageOutput)
+        }
+        
+        
+        var err : NSError? = nil
+        if captureSession.running == false {
+            captureSession.addInput(AVCaptureDeviceInput(device: captureDevice, error: &err))
+        }
+        
+        
+        if err != nil {
+            println("error: \(err?.localizedDescription)")
+        }
+        
+        previewLayer = AVCaptureVideoPreviewLayer(session: captureSession)
+        
+        let bounds = self.canvasImage.layer.contentsRect
+        previewLayer?.videoGravity = AVLayerVideoGravityResizeAspectFill
+        previewLayer?.bounds = bounds
+        previewLayer?.position = CGPointMake(CGRectGetMidX(bounds), CGRectGetMidY(bounds))
+        self.view.layer.addSublayer(previewLayer)
+        self.view.bringSubviewToFront(countdown)
+        var tap = UITapGestureRecognizer(target:self, action:Selector("startSnap"))
+        self.view.addGestureRecognizer(tap)
+        previewLayer?.frame = self.view.layer.frame
+        captureSession.startRunning()
     }
-    
+
     func showSettings() {
         
         dispatch_async(dispatch_get_main_queue(), {
@@ -256,11 +272,6 @@ UINavigationControllerDelegate, UIImagePickerControllerDelegate /*, UITextViewDe
         });
         
     }
-    
-    func alertWithTitle(title: String, message: String) {
-        var alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.Alert)
-        alert.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))
-        self.presentViewController(alert, animated: true, completion: nil)
-    }
+
     
 }
