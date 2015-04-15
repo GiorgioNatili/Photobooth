@@ -97,7 +97,7 @@
                                 <rect key="frame" x="16" y="214" width="444" height="100"/>
                                 <subviews>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="This text should be overriden." translatesAutoresizingMaskIntoConstraints="NO" id="zbw-Tx-Gyx">
-                                        <rect key="frame" x="152" y="8" width="302" height="84"/>
+                                        <rect key="frame" x="134" y="3" width="302" height="89"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="302" id="bpC-Iv-bO3"/>
@@ -106,7 +106,7 @@
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="TwitterLogo" translatesAutoresizingMaskIntoConstraints="NO" id="5aE-uc-mGw">
-                                        <rect key="frame" x="8" y="8" width="136" height="70"/>
+                                        <rect key="frame" x="-10" y="3" width="136" height="70"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="70" id="QGn-Rc-PTi"/>
                                             <constraint firstAttribute="width" constant="136" id="yrB-s8-oKZ"/>
@@ -117,8 +117,6 @@
                                 <constraints>
                                     <constraint firstItem="zbw-Tx-Gyx" firstAttribute="leading" secondItem="5aE-uc-mGw" secondAttribute="trailing" constant="8" symbolic="YES" id="2sV-F6-t2J"/>
                                     <constraint firstItem="5aE-uc-mGw" firstAttribute="top" secondItem="zbw-Tx-Gyx" secondAttribute="top" id="5JN-ul-S1h"/>
-                                    <constraint firstItem="5aE-uc-mGw" firstAttribute="leading" secondItem="yKp-wy-ngJ" secondAttribute="leadingMargin" id="DKk-eq-bv4"/>
-                                    <constraint firstItem="5aE-uc-mGw" firstAttribute="top" secondItem="yKp-wy-ngJ" secondAttribute="topMargin" id="Hkm-6i-BpL"/>
                                     <constraint firstItem="zbw-Tx-Gyx" firstAttribute="trailing" secondItem="yKp-wy-ngJ" secondAttribute="trailingMargin" id="ILG-w1-r1U"/>
                                     <constraint firstAttribute="height" constant="100" id="gfb-mx-SZa"/>
                                     <constraint firstAttribute="bottom" secondItem="5aE-uc-mGw" secondAttribute="bottom" constant="27" id="mrv-w4-Ahj"/>
@@ -196,8 +194,8 @@
                                             <constraint firstAttribute="width" constant="136" id="z5d-UW-SLY"/>
                                         </constraints>
                                     </imageView>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" text="Hanging out at the @TwitterDev booth during #bitcamp!" translatesAutoresizingMaskIntoConstraints="NO" id="r1d-Dj-0RV">
-                                        <rect key="frame" x="134" y="8" width="240" height="128"/>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Hanging out at the @TwitterDev booth during #bitcamp!" translatesAutoresizingMaskIntoConstraints="NO" id="r1d-Dj-0RV">
+                                        <rect key="frame" x="156" y="8" width="240" height="128"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="128" id="ZjH-fH-Hh5"/>
