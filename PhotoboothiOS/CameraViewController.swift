@@ -23,13 +23,13 @@ UINavigationControllerDelegate, UIImagePickerControllerDelegate /*, UITextViewDe
     
     @IBOutlet weak var imageView: UIButton!
     @IBOutlet weak var statusTextField: UITextView!
-    
-    
     @IBOutlet weak var navbar: UINavigationItem!
-    
     @IBOutlet weak var toolbar: UIToolbar!
     @IBOutlet weak var takePhotoButton: UIBarButtonItem!
     @IBOutlet weak var tweetPhotoButton: UIBarButtonItem!
+    
+    
+    var logoView: UIImageView!
     
     /* We will use this variable to determine if the viewDidAppear:
     method of our view controller is already called or not. If not, we will
@@ -79,10 +79,13 @@ UINavigationControllerDelegate, UIImagePickerControllerDelegate /*, UITextViewDe
             beenHereBefore = true
         }
         
-        let logo = UIImage(named: "TwitterLogoSmall")
-        let imageView = UIImageView(image:logo)
-        self.navbar.titleView = imageView
-        
+        logoView = UIImageView(frame: CGRectMake(0, 0, 30, 30))
+        logoView.image = UIImage(named: "TwitterLogo")
+        logoView.contentMode = UIViewContentMode.ScaleAspectFit
+        logoView.frame.origin.x = 10
+        logoView.frame.origin.y = 8
+        self.navbar.titleView = logoView
+
         let recognizer = UITapGestureRecognizer(target: self, action: "showSettings")
         self.navbar.titleView!.userInteractionEnabled = true
         self.navbar.titleView!.addGestureRecognizer(recognizer)
