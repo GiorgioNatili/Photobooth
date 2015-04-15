@@ -23,7 +23,6 @@ class CameraViewController: UIViewController,
 UINavigationControllerDelegate, UIImagePickerControllerDelegate /*, UITextViewDelegate */ {
     
     @IBOutlet weak var canvasImage: UIImageView!
-    @IBOutlet weak var statusTextField: UITextView!
     @IBOutlet weak var navbar: UINavigationItem!
     @IBOutlet weak var countdown: UILabel!
     
@@ -198,12 +197,7 @@ UINavigationControllerDelegate, UIImagePickerControllerDelegate /*, UITextViewDe
         navbar.titleView!.userInteractionEnabled = true
         navbar.titleView!.addGestureRecognizer(recognizer)
         self.navigationItem.setHidesBackButton(true, animated: true)
-        
-        self.statusTextField.text = SettingsViewController.Settings.tweetText
-        
-        // make textview background clear
-        self.statusTextField.alpha = 0.7
-        
+    
         
     }
     

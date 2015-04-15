@@ -2,7 +2,6 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7531" systemVersion="14D131" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="Gro-nB-tj9">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <scenes>
@@ -107,16 +106,7 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="This text should be overriden." translatesAutoresizingMaskIntoConstraints="NO" id="zbw-Tx-Gyx">
-                                <rect key="frame" x="36" y="220" width="408" height="100"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="100" id="GTr-mx-7aC"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
-                            <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3R9-Vb-2HD">
+                            <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="3R9-Vb-2HD">
                                 <rect key="frame" x="0.0" y="64" width="480" height="256"/>
                             </imageView>
                         </subviews>
@@ -124,12 +114,10 @@
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="3R9-Vb-2HD" secondAttribute="trailing" id="1mh-uS-lrd"/>
                             <constraint firstAttribute="centerX" secondItem="fBE-Uj-Z1I" secondAttribute="centerX" id="BhN-H4-4RA"/>
-                            <constraint firstItem="zbw-Tx-Gyx" firstAttribute="leading" secondItem="cIB-eO-lfb" secondAttribute="leadingMargin" constant="20" id="JwW-yB-s7O"/>
+                            <constraint firstItem="Qgw-E4-vKf" firstAttribute="top" secondItem="3R9-Vb-2HD" secondAttribute="bottom" id="ekU-zG-Mqb"/>
                             <constraint firstItem="3R9-Vb-2HD" firstAttribute="leading" secondItem="cIB-eO-lfb" secondAttribute="leading" id="g2q-7H-k4q"/>
                             <constraint firstItem="3R9-Vb-2HD" firstAttribute="top" secondItem="9PR-gp-LcG" secondAttribute="bottom" id="jVh-Cq-c7E"/>
-                            <constraint firstItem="Qgw-E4-vKf" firstAttribute="top" secondItem="zbw-Tx-Gyx" secondAttribute="bottom" id="keO-dp-yCg"/>
                             <constraint firstAttribute="centerY" secondItem="fBE-Uj-Z1I" secondAttribute="centerY" id="klb-YG-j2e"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="zbw-Tx-Gyx" secondAttribute="trailing" constant="20" id="ym2-Oo-Fh8"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="09G-yV-LMr"/>
@@ -137,7 +125,6 @@
                         <outlet property="canvasImage" destination="3R9-Vb-2HD" id="8IY-9a-Km1"/>
                         <outlet property="countdown" destination="fBE-Uj-Z1I" id="FPg-TR-83H"/>
                         <outlet property="navbar" destination="09G-yV-LMr" id="gkR-VG-IVh"/>
-                        <outlet property="statusTextField" destination="zbw-Tx-Gyx" id="lm7-uL-qbf"/>
                         <segue destination="E8r-rm-pZn" kind="push" identifier="preview" id="hRs-QT-NAg"/>
                     </connections>
                 </viewController>
@@ -226,7 +213,7 @@
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
+        <segue reference="a0w-kD-yv6"/>
         <segue reference="fP3-AK-ufO"/>
-        <segue reference="Pqd-mN-euh"/>
     </inferredMetricsTieBreakers>
 </document>
