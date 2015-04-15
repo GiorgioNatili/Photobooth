@@ -37,7 +37,9 @@ UINavigationControllerDelegate, UIImagePickerControllerDelegate /*, UITextViewDe
     var captureDevice : AVCaptureDevice?
 
     func startSnap() {
-        
+
+        self.countdown.alpha = 0.6
+
         let aSelector : Selector = "updateTime"
         timer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: aSelector, userInfo: nil, repeats: true)
         startTime = NSDate.timeIntervalSinceReferenceDate()
@@ -50,7 +52,6 @@ UINavigationControllerDelegate, UIImagePickerControllerDelegate /*, UITextViewDe
         var seconds = snapTime - elapsedTime
         if seconds > 0 {
             elapsedTime -= NSTimeInterval(seconds)
-            self.countdown.alpha = 0.6
             self.countdown.hidden = false
             self.countdown.text = "\(Int(seconds+1))"
             

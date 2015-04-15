@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7531" systemVersion="14D131" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="Gro-nB-tj9">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <scenes>
@@ -57,23 +58,51 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UGF-9V-MTL">
                                 <rect key="frame" x="0.0" y="64" width="320" height="256"/>
                             </imageView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gT7-Hj-jGK">
-                                <rect key="frame" x="0.0" y="384" width="320" height="96"/>
+                            <view alpha="0.80000000000000004" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3GS-S8-jpj">
+                                <rect key="frame" x="27" y="376" width="252" height="220"/>
+                                <subviews>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" editable="NO" text="Text" translatesAutoresizingMaskIntoConstraints="NO" id="gT7-Hj-jGK">
+                                        <rect key="frame" x="13" y="10" width="99" height="56"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <inset key="scrollIndicatorInsets" minX="40" minY="40" maxX="40" maxY="40"/>
+                                        <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="25"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                    <button opaque="NO" alpha="0.59999999999999998" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Sp-M9-Noq">
+                                        <rect key="frame" x="99" y="27" width="200" height="30"/>
+                                        <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <inset key="contentEdgeInsets" minX="12" minY="4" maxX="12" maxY="4"/>
+                                        <state key="normal" title="Send Tweet">
+                                            <color key="titleColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="didTouchTweetButton:" destination="E8r-rm-pZn" eventType="touchUpInside" id="5Pe-ml-qzX"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <inset key="scrollIndicatorInsets" minX="40" minY="40" maxX="40" maxY="40"/>
-                                <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="25"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
+                                <constraints>
+                                    <constraint firstItem="2Sp-M9-Noq" firstAttribute="leading" secondItem="gT7-Hj-jGK" secondAttribute="trailing" constant="8" id="4KX-vp-O09"/>
+                                    <constraint firstAttribute="bottom" secondItem="2Sp-M9-Noq" secondAttribute="bottom" id="7DB-0A-s3z"/>
+                                    <constraint firstAttribute="trailing" secondItem="2Sp-M9-Noq" secondAttribute="trailing" id="ALc-Qu-zFJ"/>
+                                    <constraint firstItem="gT7-Hj-jGK" firstAttribute="top" secondItem="3GS-S8-jpj" secondAttribute="top" constant="8" id="Kko-mA-bqw"/>
+                                    <constraint firstAttribute="bottom" secondItem="gT7-Hj-jGK" secondAttribute="bottom" constant="8" id="b62-dV-DA9"/>
+                                    <constraint firstItem="gT7-Hj-jGK" firstAttribute="leading" secondItem="3GS-S8-jpj" secondAttribute="leading" constant="8" id="ngy-ni-gNU"/>
+                                    <constraint firstAttribute="height" constant="100" id="q6U-7v-tNz"/>
+                                    <constraint firstItem="2Sp-M9-Noq" firstAttribute="top" secondItem="3GS-S8-jpj" secondAttribute="top" id="wUJ-EA-Ha5"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="UGF-9V-MTL" firstAttribute="leading" secondItem="oer-T1-faL" secondAttribute="leading" id="3TD-LH-fFa"/>
                             <constraint firstItem="UGF-9V-MTL" firstAttribute="top" secondItem="J3t-xi-s7C" secondAttribute="bottom" id="6aY-cH-Kr0"/>
                             <constraint firstAttribute="trailing" secondItem="UGF-9V-MTL" secondAttribute="trailing" id="9ja-pr-09D"/>
-                            <constraint firstItem="gT7-Hj-jGK" firstAttribute="leading" secondItem="oer-T1-faL" secondAttribute="leading" id="NYf-a8-G0d"/>
-                            <constraint firstItem="gf6-lu-0hS" firstAttribute="top" secondItem="gT7-Hj-jGK" secondAttribute="bottom" id="fFb-sM-G1a"/>
-                            <constraint firstAttribute="trailing" secondItem="gT7-Hj-jGK" secondAttribute="trailing" id="gxw-In-z15"/>
+                            <constraint firstItem="gf6-lu-0hS" firstAttribute="top" secondItem="3GS-S8-jpj" secondAttribute="bottom" constant="12" id="MmT-6x-daR"/>
+                            <constraint firstItem="3GS-S8-jpj" firstAttribute="leading" secondItem="oer-T1-faL" secondAttribute="leadingMargin" id="YSV-1J-331"/>
                             <constraint firstItem="gf6-lu-0hS" firstAttribute="top" secondItem="UGF-9V-MTL" secondAttribute="bottom" id="nvy-bP-MHO"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="3GS-S8-jpj" secondAttribute="trailing" constant="8" id="w2B-e8-qVo"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="bOK-bz-Ilc"/>
@@ -111,6 +140,7 @@
                             </imageView>
                             <button opaque="NO" contentMode="scaleAspectFit" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0D9-Iv-J3I" customClass="cameraButton">
                                 <rect key="frame" x="114" y="197" width="92" height="86"/>
+                                <size key="titleShadowOffset" width="1" height="1"/>
                                 <state key="normal" title="Button" image="camera_300_300">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>

@@ -10,6 +10,7 @@ class PreviewViewController: UIViewController, UITextViewDelegate {
     @IBOutlet weak var navbar: UINavigationItem!
     
     @IBOutlet weak var tweetTxt: UITextView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -36,6 +37,9 @@ class PreviewViewController: UIViewController, UITextViewDelegate {
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
        
+    }
+    @IBAction func didTouchTweetButton(sender: AnyObject) {
+        self.share()
     }
     
     func share(){
