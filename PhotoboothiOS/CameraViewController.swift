@@ -89,15 +89,9 @@ UINavigationControllerDelegate, UIImagePickerControllerDelegate /*, UITextViewDe
 
         let navHeight = self.navigationController?.navigationBar.frame.height
         let navWidth = self.navigationController?.navigationBar.frame.width
-        
-        
-        var myView = UIView(frame: CGRectMake(0, navHeight! - 2, navWidth!, 1))
-        myView.backgroundColor = UIColor(rgba: "#5EA9DD")
-        //myView.backgroundColor = UIColor.redColor()
-        self.navigationController?.navigationBar.addSubview(myView)
-        
-        
-        
+        var navBorder = UIView(frame: CGRectMake(0, navHeight! - 2, navWidth!, 1))
+        navBorder.backgroundColor = UIColor(rgba: "#5EA9DD")
+        self.navigationController?.navigationBar.addSubview(navBorder)
 
         // Append image to the navigation bar
         logoView = UIImageView(frame: CGRectMake(0, 0, 30, 30))
