@@ -23,13 +23,13 @@ UINavigationControllerDelegate, UIImagePickerControllerDelegate /*, UITextViewDe
     
     @IBOutlet weak var imageView: UIButton!
     @IBOutlet weak var statusTextField: UITextView!
-
-    
     @IBOutlet weak var navbar: UINavigationItem!
-    
     @IBOutlet weak var toolbar: UIToolbar!
     @IBOutlet weak var takePhotoButton: UIBarButtonItem!
     @IBOutlet weak var tweetPhotoButton: UIBarButtonItem!
+    
+    
+    var logoView: UIImageView!
     
     /* We will use this variable to determine if the viewDidAppear:
     method of our view controller is already called or not. If not, we will
@@ -64,10 +64,10 @@ UINavigationControllerDelegate, UIImagePickerControllerDelegate /*, UITextViewDe
     func doesCameraSupportTakingPhotos() -> Bool{
         return cameraSupportsMedia(kUTTypeImage as String, sourceType: .Camera)
     }
-
+    
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
-
+        
         let controller = self.storyboard!.instantiateViewControllerWithIdentifier("SettingsViewController") as! SettingsViewController
         self.statusTextField.text = controller.getDefaultText()
         
@@ -79,11 +79,13 @@ UINavigationControllerDelegate, UIImagePickerControllerDelegate /*, UITextViewDe
             beenHereBefore = true
         }
         
-        
-        let logo = UIImage(named: "TwitterLogoSmall")
-        let imageView = UIImageView(image:logo)
-        self.navbar.titleView = imageView
-        
+        logoView = UIImageView(frame: CGRectMake(0, 0, 30, 30))
+        logoView.image = UIImage(named: "TwitterLogo")
+        logoView.contentMode = UIViewContentMode.ScaleAspectFit
+        logoView.frame.origin.x = 10
+        logoView.frame.origin.y = 8
+        self.navbar.titleView = logoView
+
         let recognizer = UITapGestureRecognizer(target: self, action: "showSettings")
         self.navbar.titleView!.userInteractionEnabled = true
         self.navbar.titleView!.addGestureRecognizer(recognizer)
@@ -145,9 +147,9 @@ UINavigationControllerDelegate, UIImagePickerControllerDelegate /*, UITextViewDe
         println("Picker was cancelled")
         picker.dismissViewControllerAnimated(true, completion: nil)
     }
-
+    
     @IBAction func didTouchUpInsidePhotoButton(sender: AnyObject) {
-
+        
         let failureHandler: ((NSError) -> Void) = {
             error in
             self.alertWithTitle("Error", message: error.localizedDescription)
@@ -159,20 +161,20 @@ UINavigationControllerDelegate, UIImagePickerControllerDelegate /*, UITextViewDe
         
     }
     
-  
+    
     @IBAction func didTouchUpInsideTweetButton(sender: AnyObject) {
-
+        
         let failureHandler: ((NSError) -> Void) = {
             error in
             self.alertWithTitle("Error", message: error.localizedDescription)
         }
-
+        
         let status = self.statusTextField.text
         let uiImage = self.imageView.currentBackgroundImage
         let imageData = UIImageJPEGRepresentation(uiImage, 0.8)
         
         if status != nil && imageData != nil {
-
+            
             let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
             // rewrite post request using TwitterKit
             let composer = TWTRComposer()
@@ -191,9 +193,9 @@ UINavigationControllerDelegate, UIImagePickerControllerDelegate /*, UITextViewDe
             }
             
         }
-
+        
         println("didTouchUpInsideTweetButton")
-
+        
     }
     
     func showPhotoModal() {
@@ -217,18 +219,18 @@ UINavigationControllerDelegate, UIImagePickerControllerDelegate /*, UITextViewDe
         }
         
     }
-
+    
     func showTweets(){
         
         dispatch_async(dispatch_get_main_queue(), {
             
             let controller = TweetViewController()
             self.showViewController(controller, sender: self)
-
+            
         });
         
     }
-
+    
     func showSettings() {
         
         dispatch_async(dispatch_get_main_queue(), {
@@ -237,7 +239,7 @@ UINavigationControllerDelegate, UIImagePickerControllerDelegate /*, UITextViewDe
         });
         
     }
-
+    
     func alertWithTitle(title: String, message: String) {
         var alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.Alert)
         alert.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))
