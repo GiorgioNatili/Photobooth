@@ -96,31 +96,32 @@
                             <view alpha="0.59999999999999998" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yKp-wy-ngJ">
                                 <rect key="frame" x="16" y="214" width="444" height="100"/>
                                 <subviews>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="This text should be overriden." translatesAutoresizingMaskIntoConstraints="NO" id="zbw-Tx-Gyx">
-                                        <rect key="frame" x="134" y="15" width="302" height="77"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="302" id="bpC-Iv-bO3"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
-                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                    </textView>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="TwitterLogo" translatesAutoresizingMaskIntoConstraints="NO" id="5aE-uc-mGw">
-                                        <rect key="frame" x="8" y="15" width="136" height="70"/>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="TwitterLogo" translatesAutoresizingMaskIntoConstraints="NO" id="5aE-uc-mGw">
+                                        <rect key="frame" x="8" y="7" width="104" height="85"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="70" id="QGn-Rc-PTi"/>
                                             <constraint firstAttribute="width" constant="136" id="yrB-s8-oKZ"/>
                                         </constraints>
                                     </imageView>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" editable="NO" text="This text should be overriden." translatesAutoresizingMaskIntoConstraints="NO" id="zbw-Tx-Gyx">
+                                        <rect key="frame" x="120" y="8" width="316" height="85"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="316" id="MiJ-b9-PnI"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
                                 </subviews>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstItem="5aE-uc-mGw" firstAttribute="top" secondItem="zbw-Tx-Gyx" secondAttribute="top" id="5JN-ul-S1h"/>
-                                    <constraint firstItem="zbw-Tx-Gyx" firstAttribute="trailing" secondItem="yKp-wy-ngJ" secondAttribute="trailingMargin" id="ILG-w1-r1U"/>
+                                    <constraint firstItem="zbw-Tx-Gyx" firstAttribute="leading" secondItem="5aE-uc-mGw" secondAttribute="trailing" constant="8" symbolic="YES" id="FGx-i8-I19"/>
+                                    <constraint firstItem="zbw-Tx-Gyx" firstAttribute="centerY" secondItem="yKp-wy-ngJ" secondAttribute="centerY" id="GaN-rA-jue"/>
+                                    <constraint firstItem="zbw-Tx-Gyx" firstAttribute="top" secondItem="yKp-wy-ngJ" secondAttribute="topMargin" id="XKP-qn-cPI"/>
                                     <constraint firstItem="5aE-uc-mGw" firstAttribute="leading" secondItem="yKp-wy-ngJ" secondAttribute="leading" constant="8" id="XiP-M2-0DV"/>
+                                    <constraint firstItem="zbw-Tx-Gyx" firstAttribute="trailing" secondItem="yKp-wy-ngJ" secondAttribute="trailingMargin" id="ZTn-8t-dwz"/>
                                     <constraint firstAttribute="height" constant="100" id="gfb-mx-SZa"/>
                                     <constraint firstAttribute="centerY" secondItem="5aE-uc-mGw" secondAttribute="centerY" id="hG9-WO-laa"/>
-                                    <constraint firstItem="zbw-Tx-Gyx" firstAttribute="bottom" secondItem="yKp-wy-ngJ" secondAttribute="bottomMargin" id="xZf-fy-Tfi"/>
                                 </constraints>
                             </view>
                         </subviews>
