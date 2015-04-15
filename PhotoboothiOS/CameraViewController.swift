@@ -10,7 +10,6 @@ UINavigationControllerDelegate, UIImagePickerControllerDelegate /*, UITextViewDe
 
     
     @IBOutlet weak var navbar: UINavigationItem!
-    @IBOutlet weak var settingsButton: UIBarButtonItem!
     
     @IBOutlet weak var toolbar: UIToolbar!
     @IBOutlet weak var takePhotoButton: UIBarButtonItem!
@@ -64,9 +63,14 @@ UINavigationControllerDelegate, UIImagePickerControllerDelegate /*, UITextViewDe
             beenHereBefore = true
         }
         
-        let twitterLogo = UIImage(named: "TwitterLogoSmall")
-        let button1 = UIBarButtonItem(image: twitterLogo, style: UIBarButtonItemStyle.Plain, target: self, action: "showSettings")
-        self.navbar.setLeftBarButtonItem(button1, animated: false)
+        let logo = UIImage(named: "TwitterLogoSmall")
+        let imageView = UIImageView(image:logo)
+        self.navbar.titleView = imageView
+        
+        // Show settings when the logo is tapped
+        let recognizer = UITapGestureRecognizer(target: self, action: "showSettings")
+        self.navbar.titleView!.userInteractionEnabled = true
+        self.navbar.titleView?.addGestureRecognizer(recognizer)
         
         let button2 = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Camera, target: self, action: "showPhotoModal")
         self.toolbar.items?[0] = button2
@@ -199,7 +203,7 @@ UINavigationControllerDelegate, UIImagePickerControllerDelegate /*, UITextViewDe
         
     }
 
-    @IBAction func showTweets(){
+    func showTweets(){
         
         dispatch_async(dispatch_get_main_queue(), {
             
@@ -210,7 +214,7 @@ UINavigationControllerDelegate, UIImagePickerControllerDelegate /*, UITextViewDe
         
     }
 
-    @IBAction func showSettings() {
+    func showSettings() {
         
         dispatch_async(dispatch_get_main_queue(), {
             let controller = self.storyboard!.instantiateViewControllerWithIdentifier("SettingsViewController") as! UIViewController

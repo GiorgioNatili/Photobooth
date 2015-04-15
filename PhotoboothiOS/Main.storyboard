@@ -136,22 +136,10 @@
                             <constraint firstAttribute="centerX" secondItem="cLc-Nh-98g" secondAttribute="centerX" constant="2" id="pZh-cf-OeF"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="09G-yV-LMr">
-                        <barButtonItem key="leftBarButtonItem" title="Settings" id="fCU-tV-HVj">
-                            <connections>
-                                <action selector="showSettings:" destination="NXV-X1-aZg" id="suB-2Q-cTY"/>
-                            </connections>
-                        </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="View Tweets" id="VXf-ek-cVJ">
-                            <connections>
-                                <action selector="showTweets" destination="NXV-X1-aZg" id="iqq-Q5-0OG"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" id="09G-yV-LMr"/>
                     <connections>
                         <outlet property="imageView" destination="cLc-Nh-98g" id="f6B-bo-i0J"/>
                         <outlet property="navbar" destination="09G-yV-LMr" id="gkR-VG-IVh"/>
-                        <outlet property="settingsButton" destination="fCU-tV-HVj" id="XKb-rf-V4D"/>
                         <outlet property="statusTextField" destination="zbw-Tx-Gyx" id="lm7-uL-qbf"/>
                         <outlet property="takePhotoButton" destination="X0B-NY-sBu" id="mFB-Aj-8B5"/>
                         <outlet property="toolbar" destination="H1Q-Eo-1vY" id="4l6-q1-oC2"/>
