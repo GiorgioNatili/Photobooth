@@ -21,14 +21,15 @@ import TwitterKit
 class CameraViewController: UIViewController,
 UINavigationControllerDelegate, UIImagePickerControllerDelegate /*, UITextViewDelegate */ {
     
+    @IBOutlet weak var canvasImage: UIImageView!
+
     @IBOutlet weak var imageView: UIButton!
     @IBOutlet weak var statusTextField: UITextView!
     @IBOutlet weak var navbar: UINavigationItem!
     @IBOutlet weak var toolbar: UIToolbar!
     @IBOutlet weak var takePhotoButton: UIBarButtonItem!
     @IBOutlet weak var tweetPhotoButton: UIBarButtonItem!
-    
-    
+
     var logoView: UIImageView!
     
     /* We will use this variable to determine if the viewDidAppear:
@@ -79,17 +80,15 @@ UINavigationControllerDelegate, UIImagePickerControllerDelegate /*, UITextViewDe
             beenHereBefore = true
         }
         
-        // settings
+        // Setup Navigation controller / remove uiBorderbottom to blue
         self.navigationController?.navigationBar.barTintColor = UIColor.whiteColor()
-        
-
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(), forBarMetrics: UIBarMetrics.Default)
         self.navigationController?.navigationBar.shadowImage = UIImage()
         
-
+        // Change the border to blue
         let navHeight = self.navigationController?.navigationBar.frame.height
         let navWidth = self.navigationController?.navigationBar.frame.width
-        var navBorder = UIView(frame: CGRectMake(0, navHeight! - 2, navWidth!, 1))
+        var navBorder = UIView(frame: CGRectMake(0, navHeight! - 2, navWidth!, 2))
         navBorder.backgroundColor = UIColor(rgba: "#5EA9DD")
         self.navigationController?.navigationBar.addSubview(navBorder)
 
@@ -107,10 +106,11 @@ UINavigationControllerDelegate, UIImagePickerControllerDelegate /*, UITextViewDe
         self.navbar.titleView!.userInteractionEnabled = true
         self.navbar.titleView!.addGestureRecognizer(recognizer)
         
-        
-        
         let button2 = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Camera, target: self, action: "showPhotoModal")
         self.toolbar.items?[0] = button2
+        
+        // make textview background clear
+        self.statusTextField.alpha = 0.7
         
         // make tap of image show photo modal
         var tgr = UITapGestureRecognizer(target:self, action:Selector("showPhotoModal"))
@@ -148,9 +148,8 @@ UINavigationControllerDelegate, UIImagePickerControllerDelegate /*, UITextViewDe
                             if let theImage = image {
                                 
                                 // UIImageWriteToSavedPhotosAlbum(image, self, nil, nil)
-                                self.imageView.setBackgroundImage(image, forState: UIControlState.Normal)
-                                self.imageView.setTitle("", forState: UIControlState.Normal)
-                                
+                                self.canvasImage.image = image
+                                self.canvasImage.hidden = false
                                 println("Image = \(theImage)")
                             }
                         }

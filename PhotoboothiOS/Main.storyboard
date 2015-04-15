@@ -93,6 +93,9 @@
                                     </barButtonItem>
                                 </items>
                             </toolbar>
+                            <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="3R9-Vb-2HD">
+                                <rect key="frame" x="0.0" y="64" width="480" height="212"/>
+                            </imageView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="This text should be overriden." translatesAutoresizingMaskIntoConstraints="NO" id="zbw-Tx-Gyx">
                                 <rect key="frame" x="36" y="171" width="408" height="100"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -105,6 +108,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstAttribute="trailing" secondItem="3R9-Vb-2HD" secondAttribute="trailing" id="1mh-uS-lrd"/>
                             <constraint firstAttribute="trailing" secondItem="H1Q-Eo-1vY" secondAttribute="trailing" id="6xi-hU-gNc"/>
                             <constraint firstItem="H1Q-Eo-1vY" firstAttribute="leading" secondItem="cIB-eO-lfb" secondAttribute="leading" id="DQY-gf-BB2"/>
                             <constraint firstItem="zbw-Tx-Gyx" firstAttribute="leading" secondItem="cIB-eO-lfb" secondAttribute="leadingMargin" constant="20" id="JwW-yB-s7O"/>
@@ -112,14 +116,18 @@
                             <constraint firstItem="Qgw-E4-vKf" firstAttribute="top" secondItem="H1Q-Eo-1vY" secondAttribute="bottom" id="N06-z7-WQ0"/>
                             <constraint firstAttribute="centerY" secondItem="cLc-Nh-98g" secondAttribute="centerY" constant="73" id="SwG-Ic-lqE"/>
                             <constraint firstItem="Qgw-E4-vKf" firstAttribute="top" secondItem="H1Q-Eo-1vY" secondAttribute="bottom" id="T5s-WM-HMa"/>
+                            <constraint firstItem="3R9-Vb-2HD" firstAttribute="leading" secondItem="cIB-eO-lfb" secondAttribute="leading" id="g2q-7H-k4q"/>
+                            <constraint firstItem="3R9-Vb-2HD" firstAttribute="top" secondItem="9PR-gp-LcG" secondAttribute="bottom" id="jVh-Cq-c7E"/>
                             <constraint firstItem="H1Q-Eo-1vY" firstAttribute="top" secondItem="zbw-Tx-Gyx" secondAttribute="bottom" constant="5" id="ljV-Cl-HzB"/>
                             <constraint firstAttribute="centerX" secondItem="cLc-Nh-98g" secondAttribute="centerX" constant="2" id="pZh-cf-OeF"/>
+                            <constraint firstItem="H1Q-Eo-1vY" firstAttribute="top" secondItem="3R9-Vb-2HD" secondAttribute="bottom" id="x4E-8p-6lt"/>
                             <constraint firstAttribute="trailingMargin" secondItem="zbw-Tx-Gyx" secondAttribute="trailing" constant="20" id="ym2-Oo-Fh8"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="09G-yV-LMr"/>
                     <connections>
-                        <outlet property="imageView" destination="cLc-Nh-98g" id="f6B-bo-i0J"/>
+                        <outlet property="canvasImage" destination="3R9-Vb-2HD" id="8IY-9a-Km1"/>
+                        <outlet property="imageView" destination="cLc-Nh-98g" id="nFv-70-qlx"/>
                         <outlet property="navbar" destination="09G-yV-LMr" id="gkR-VG-IVh"/>
                         <outlet property="statusTextField" destination="zbw-Tx-Gyx" id="lm7-uL-qbf"/>
                         <outlet property="takePhotoButton" destination="X0B-NY-sBu" id="mFB-Aj-8B5"/>
