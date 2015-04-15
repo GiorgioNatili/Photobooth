@@ -15,8 +15,13 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "39"
             endingLineNumber = "39"
+<<<<<<< HEAD
             landmarkName = "CameraViewController"
             landmarkType = "3">
+=======
+            landmarkName = "cameraSupportsMedia(_:sourceType:)"
+            landmarkType = "5">
+>>>>>>> 39245925d97bddc12897866ff23b753a31974cca
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
