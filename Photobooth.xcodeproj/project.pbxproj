@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		8B300C3E1944AA6600993175 /* PhotoboothiOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B9F50EE1944A5AB00894629 /* PhotoboothiOS.framework */; };
-		8B300C3F1944AA6600993175 /* PhotoboothiOS.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8B9F50EE1944A5AB00894629 /* PhotoboothiOS.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		8B5EFF07195F064400B354F9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B5EFF03195F064400B354F9 /* AppDelegate.swift */; };
 		8B5EFF08195F064400B354F9 /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B5EFF04195F064400B354F9 /* AuthViewController.swift */; };
 		8B5EFF09195F064400B354F9 /* TweetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B5EFF05195F064400B354F9 /* TweetViewController.swift */; };
@@ -23,13 +21,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		8B300C401944AA6600993175 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 8B9F50E51944A5AB00894629 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 8B9F50ED1944A5AB00894629;
-			remoteInfo = Photobooth;
-		};
 		8B300C5B1944AECB00993175 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 8B9F50E51944A5AB00894629 /* Project object */;
@@ -45,20 +36,6 @@
 			remoteInfo = SwifterDemoMac;
 		};
 /* End PBXContainerItemProxy section */
-
-/* Begin PBXCopyFilesBuildPhase section */
-		8B300C421944AA6600993175 /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				8B300C3F1944AA6600993175 /* PhotoboothiOS.framework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		8B300C1F1944AA1A00993175 /* PhotoboothDemoiOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PhotoboothDemoiOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -85,7 +62,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8B300C3E1944AA6600993175 /* PhotoboothiOS.framework in Frameworks */,
 				CAF1D6BC1AD75EA8005CCD89 /* TwitterKit.framework in Frameworks */,
 				CAF1D6BE1AD75EA8005CCD89 /* Fabric.framework in Frameworks */,
 			);
@@ -197,13 +173,11 @@
 				8B300C1B1944AA1A00993175 /* Sources */,
 				8B300C1C1944AA1A00993175 /* Frameworks */,
 				8B300C1D1944AA1A00993175 /* Resources */,
-				8B300C421944AA6600993175 /* Embed Frameworks */,
 				CAF1D6B81AD75E71005CCD89 /* ShellScript */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				8B300C411944AA6600993175 /* PBXTargetDependency */,
 			);
 			name = PhotoboothDemoiOS;
 			productName = SwifterDemoiOS;
@@ -434,11 +408,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		8B300C411944AA6600993175 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 8B9F50ED1944A5AB00894629 /* PhotoboothiOS */;
-			targetProxy = 8B300C401944AA6600993175 /* PBXContainerItemProxy */;
-		};
 		8B300C5C1944AECB00993175 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 8B300C461944AECB00993175 /* PhotoboothDemoMac */;
@@ -467,11 +436,12 @@
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = "$(SRCROOT)/PhotoboothiOS/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				METAL_ENABLE_DEBUG_INFO = YES;
 				PRODUCT_NAME = PhotoboothDemoiOS;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 2;
 			};
 			name = Debug;
 		};
@@ -486,10 +456,11 @@
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = "$(SRCROOT)/PhotoboothiOS/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				METAL_ENABLE_DEBUG_INFO = NO;
 				PRODUCT_NAME = PhotoboothDemoiOS;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 2;
 			};
 			name = Release;
 		};

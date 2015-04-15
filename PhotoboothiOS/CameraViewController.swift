@@ -1,5 +1,6 @@
 import UIKit
 import MobileCoreServices
+import TwitterKit
 
 class CameraViewController: UIViewController,
 UINavigationControllerDelegate, UIImagePickerControllerDelegate /*, UITextViewDelegate */ {
@@ -156,6 +157,20 @@ UINavigationControllerDelegate, UIImagePickerControllerDelegate /*, UITextViewDe
 
             let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
             // rewrite post request using TwitterKit
+            let composer = TWTRComposer()
+            
+            composer.setText(status)
+            composer.setImage(uiImage)
+            
+            composer.showWithCompletion { (result) -> Void in
+                if (result == TWTRComposerResult.Cancelled) {
+                    println("Tweet composition cancelled")
+                }
+                else {
+                    println("Sending tweet!")
+                }
+            }
+            
         }
 
         println("didTouchUpInsideTweetButton")
