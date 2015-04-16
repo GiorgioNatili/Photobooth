@@ -132,16 +132,16 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fBE-Uj-Z1I">
                                 <rect key="frame" x="160" y="240" width="0.0" height="0.0"/>
                                 <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="300"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3R9-Vb-2HD">
                                 <rect key="frame" x="0.0" y="64" width="320" height="256"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleAspectFit" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0D9-Iv-J3I" customClass="cameraButton">
-                                <rect key="frame" x="114" y="197" width="92" height="86"/>
+                            <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0D9-Iv-J3I" customClass="cameraButton">
+                                <rect key="frame" x="10" y="90" width="300" height="300"/>
                                 <size key="titleShadowOffset" width="1" height="1"/>
-                                <state key="normal" title="Button" image="camera_300_300">
+                                <state key="normal" image="camera_300_300">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                             </button>
@@ -149,13 +149,13 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="3R9-Vb-2HD" secondAttribute="trailing" id="1mh-uS-lrd"/>
-                            <constraint firstAttribute="centerX" secondItem="0D9-Iv-J3I" secondAttribute="centerX" id="8ha-j6-gZF"/>
                             <constraint firstAttribute="centerX" secondItem="fBE-Uj-Z1I" secondAttribute="centerX" id="BhN-H4-4RA"/>
+                            <constraint firstAttribute="centerX" secondItem="0D9-Iv-J3I" secondAttribute="centerX" id="R0e-OE-fdo"/>
+                            <constraint firstAttribute="centerY" secondItem="0D9-Iv-J3I" secondAttribute="centerY" id="TbP-FX-Aqc"/>
                             <constraint firstItem="Qgw-E4-vKf" firstAttribute="top" secondItem="3R9-Vb-2HD" secondAttribute="bottom" id="ekU-zG-Mqb"/>
                             <constraint firstItem="3R9-Vb-2HD" firstAttribute="leading" secondItem="cIB-eO-lfb" secondAttribute="leading" id="g2q-7H-k4q"/>
                             <constraint firstItem="3R9-Vb-2HD" firstAttribute="top" secondItem="9PR-gp-LcG" secondAttribute="bottom" id="jVh-Cq-c7E"/>
                             <constraint firstAttribute="centerY" secondItem="fBE-Uj-Z1I" secondAttribute="centerY" id="klb-YG-j2e"/>
-                            <constraint firstAttribute="centerY" secondItem="0D9-Iv-J3I" secondAttribute="centerY" constant="-8" id="z87-gc-KkT"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="09G-yV-LMr"/>

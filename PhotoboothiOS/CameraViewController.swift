@@ -35,6 +35,9 @@ UINavigationControllerDelegate, UIImagePickerControllerDelegate /*, UITextViewDe
     var snapTime:Double = 4
     var logoView: UIImageView!
     var captureDevice : AVCaptureDevice?
+    var imageOrientation: UIImageOrientation?
+    // find video connection
+    var videoConnection : AVCaptureConnection?
 
     func startSnap() {
 
@@ -66,25 +69,28 @@ UINavigationControllerDelegate, UIImagePickerControllerDelegate /*, UITextViewDe
                 // we do this on another thread so we don't hang the UI
                 dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) {
                     
-                    // find video connection
-                    var videoConnection : AVCaptureConnection?
+                    
                     for connection in stillOutput.connections {
                         // find a matching input port
                         for port in connection.inputPorts! {
                             // and matching type
                             if port.mediaType == AVMediaTypeVideo {
-                                videoConnection = connection as? AVCaptureConnection
+                                self.videoConnection = connection as? AVCaptureConnection
+                                self.videoConnection?.videoOrientation = AVCaptureVideoOrientation.LandscapeLeft
+                                self.previewLayer?.connection.videoOrientation = AVCaptureVideoOrientation.LandscapeLeft
                                 break
                             }
                         }
-                        if videoConnection != nil {
+                        if self.videoConnection != nil {
                             break // for connection
                         }
                     }
                     
-                    if videoConnection != nil {
+                    if self.videoConnection != nil {
                         // found the video connection, let's get the image
-                        stillOutput.captureStillImageAsynchronouslyFromConnection(videoConnection) {
+                        let a = stillOutput.connectionWithMediaType(AVMediaTypeVideo)
+                        a.videoOrientation = AVCaptureVideoOrientation.LandscapeLeft
+                        stillOutput.captureStillImageAsynchronouslyFromConnection(self.videoConnection) {
                             (imageSampleBuffer:CMSampleBuffer!, _) in
                             
                             let imageData = AVCaptureStillImageOutput.jpegStillImageNSDataRepresentation(imageSampleBuffer)
@@ -101,7 +107,9 @@ UINavigationControllerDelegate, UIImagePickerControllerDelegate /*, UITextViewDe
 
         println("did take photo")
         let image = UIImage(data: imageData)
-        let flippedImage = UIImage(CGImage: image!.CGImage, scale: 1.0, orientation: .LeftMirrored)
+        
+        //gpj
+        let flippedImage = UIImage(CGImage: image!.CGImage, scale: 1.0, orientation: imageOrientation!)
         self.canvasImage.image = flippedImage
         let documentsPath = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0] as! String
         let destinationPath = documentsPath.stringByAppendingPathComponent("photobooth.jpg")
@@ -135,12 +143,10 @@ UINavigationControllerDelegate, UIImagePickerControllerDelegate /*, UITextViewDe
         self.performSegueWithIdentifier("preview", sender: self);
     }
     
-
-    
-
     func setupCam() {
         
         captureSession.sessionPreset = AVCaptureSessionPresetHigh
+        
         let devices = AVCaptureDevice.devices()
         // Loop through all the capture devices on this phone
         for device in devices {
@@ -151,6 +157,7 @@ UINavigationControllerDelegate, UIImagePickerControllerDelegate /*, UITextViewDe
                     captureDevice = device as? AVCaptureDevice
                     if captureDevice != nil {
                         println("Capture device found")
+                        
                         beginSession()
                     }
                 }
@@ -162,7 +169,11 @@ UINavigationControllerDelegate, UIImagePickerControllerDelegate /*, UITextViewDe
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        self.setRotation()
         self.setupCam()
+        
+        // gpj
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "setRotation", name: UIDeviceOrientationDidChangeNotification, object: nil)
         
         // Setup Navigation controller / remove uiBorderbottom to blue
         self.navigationController?.navigationBar.barTintColor = UIColor.whiteColor()
@@ -192,6 +203,7 @@ UINavigationControllerDelegate, UIImagePickerControllerDelegate /*, UITextViewDe
         logoView.frame.origin.x = 10
         logoView.frame.origin.y = 8
         navbar.titleView = logoView
+        
         
         // Add a tap gesture to the navigation bar image to send the user to settings
         let recognizer = UITapGestureRecognizer(target: self, action: "showSettings")
@@ -235,9 +247,9 @@ UINavigationControllerDelegate, UIImagePickerControllerDelegate /*, UITextViewDe
         
         var err : NSError? = nil
         if captureSession.running == false {
+            
             captureSession.addInput(AVCaptureDeviceInput(device: captureDevice, error: &err))
         }
-        
         
         if err != nil {
             println("error: \(err?.localizedDescription)")
@@ -245,18 +257,40 @@ UINavigationControllerDelegate, UIImagePickerControllerDelegate /*, UITextViewDe
         
         previewLayer = AVCaptureVideoPreviewLayer(session: captureSession)
         
+        // gpj
+        previewLayer?.connection.videoOrientation = AVCaptureVideoOrientation.LandscapeLeft
+        
         let bounds = self.canvasImage.layer.contentsRect
         previewLayer?.videoGravity = AVLayerVideoGravityResizeAspectFill
         previewLayer?.bounds = bounds
         previewLayer?.position = CGPointMake(CGRectGetMidX(bounds), CGRectGetMidY(bounds))
         self.view.layer.addSublayer(previewLayer)
         self.view.bringSubviewToFront(countdown)
+        
+        // gpj
+        self.view.bringSubviewToFront(cameraButton)
         var tap = UITapGestureRecognizer(target:self, action:Selector("startSnap"))
         self.view.addGestureRecognizer(tap)
         previewLayer?.frame = self.view.layer.frame
         captureSession.startRunning()
     }
 
+    // gpj
+    func setRotation() {
+        if(UIDeviceOrientationIsLandscape(UIDevice.currentDevice().orientation)) {
+            println("landscape")
+            previewLayer?.connection.videoOrientation = AVCaptureVideoOrientation.LandscapeLeft
+            imageOrientation = UIImageOrientation.UpMirrored
+        }
+        
+        if(UIDeviceOrientationIsPortrait(UIDevice.currentDevice().orientation)) {
+            println("Portrait")
+            previewLayer?.connection.videoOrientation = AVCaptureVideoOrientation.Portrait
+            imageOrientation = UIImageOrientation.LeftMirrored
+        }
+        
+    }
+    
     func showSettings() {
         
         dispatch_async(dispatch_get_main_queue(), {
