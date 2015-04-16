@@ -15,7 +15,6 @@
 		8B5EFF09195F064400B354F9 /* TweetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B5EFF05195F064400B354F9 /* TweetViewController.swift */; };
 		8B5EFF0A195F064400B354F9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8B5EFF06195F064400B354F9 /* Main.storyboard */; };
 		8BCB9329194B2E1200A998EA /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8BCB9328194B2E1200A998EA /* Images.xcassets */; };
-		CA67CF951AD860BB007AD74D /* ContainerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA67CF941AD860BB007AD74D /* ContainerController.swift */; };
 		CAEF8CC61ADC3D9300E80156 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAEF8CC51ADC3D9300E80156 /* SettingsViewController.swift */; };
 		CAF1D6BC1AD75EA8005CCD89 /* TwitterKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CAF1D6B91AD75EA8005CCD89 /* TwitterKit.framework */; };
 		CAF1D6BD1AD75EA8005CCD89 /* TwitterKitResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = CAF1D6BA1AD75EA8005CCD89 /* TwitterKitResources.bundle */; };
@@ -54,7 +53,6 @@
 		8B9F50EE1944A5AB00894629 /* PhotoboothiOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = PhotoboothiOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8B9F51131944A61D00894629 /* PhotoboothMac.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = PhotoboothMac.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8BCB9328194B2E1200A998EA /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		CA67CF941AD860BB007AD74D /* ContainerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContainerController.swift; sourceTree = "<group>"; };
 		CAEF8CC51ADC3D9300E80156 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		CAF1D6B91AD75EA8005CCD89 /* TwitterKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TwitterKit.framework; sourceTree = SOURCE_ROOT; };
 		CAF1D6BA1AD75EA8005CCD89 /* TwitterKitResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = TwitterKitResources.bundle; path = TwitterKit.framework/Versions/A/Resources/TwitterKitResources.bundle; sourceTree = SOURCE_ROOT; };
@@ -111,7 +109,6 @@
 				7F599B821ADE11FF0020955F /* CameraViewController.swift */,
 				7F2AA9EB1ADE495500E809E1 /* PreviewViewController.swift */,
 				8B5EFF05195F064400B354F9 /* TweetViewController.swift */,
-				CA67CF941AD860BB007AD74D /* ContainerController.swift */,
 				CAEF8CC51ADC3D9300E80156 /* SettingsViewController.swift */,
 				8B5EFF06195F064400B354F9 /* Main.storyboard */,
 				8BCB9328194B2E1200A998EA /* Images.xcassets */,
@@ -273,7 +270,7 @@
 				TargetAttributes = {
 					8B300C1E1944AA1A00993175 = {
 						CreatedOnToolsVersion = 6.0;
-						DevelopmentTeam = 53AF9EMAN4;
+						DevelopmentTeam = XD75XYY267;
 					};
 					8B300C461944AECB00993175 = {
 						CreatedOnToolsVersion = 6.0;
@@ -376,7 +373,6 @@
 			files = (
 				8B5EFF08195F064400B354F9 /* AuthViewController.swift in Sources */,
 				7F599B871ADE22C40020955F /* UIColorExtension.swift in Sources */,
-				CA67CF951AD860BB007AD74D /* ContainerController.swift in Sources */,
 				8B5EFF07195F064400B354F9 /* AppDelegate.swift in Sources */,
 				8B5EFF09195F064400B354F9 /* TweetViewController.swift in Sources */,
 				CAEF8CC61ADC3D9300E80156 /* SettingsViewController.swift in Sources */,
@@ -445,7 +441,7 @@
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = "$(SRCROOT)/PhotoboothiOS/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				METAL_ENABLE_DEBUG_INFO = YES;
 				PRODUCT_NAME = PhotoboothDemoiOS;
@@ -466,7 +462,7 @@
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = "$(SRCROOT)/PhotoboothiOS/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				METAL_ENABLE_DEBUG_INFO = NO;
 				PRODUCT_NAME = PhotoboothDemoiOS;
