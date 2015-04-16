@@ -36,11 +36,16 @@ UINavigationControllerDelegate, UIImagePickerControllerDelegate /*, UITextViewDe
     var logoView: UIImageView!
     var captureDevice : AVCaptureDevice?
     var imageOrientation: UIImageOrientation?
-    // find video connection
-    var videoConnection : AVCaptureConnection?
+    var videoConnection : AVCaptureConnection? // find video connection
+    var takingPhoto = false
 
     func startSnap() {
 
+        if self.takingPhoto {
+            return
+        }
+        
+        self.takingPhoto = true
         self.countdown.alpha = 0.6
 
         let aSelector : Selector = "updateTime"
@@ -122,6 +127,8 @@ UINavigationControllerDelegate, UIImagePickerControllerDelegate /*, UITextViewDe
         
         // after photo, go directly to preview
         preview()
+        
+        self.takingPhoto = false
         
     }
     
