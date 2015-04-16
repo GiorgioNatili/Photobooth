@@ -138,12 +138,19 @@
                             <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3R9-Vb-2HD">
                                 <rect key="frame" x="0.0" y="64" width="320" height="256"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0D9-Iv-J3I" customClass="cameraButton">
-                                <rect key="frame" x="10" y="90" width="300" height="300"/>
+                            <button opaque="NO" alpha="0.59999999999999964" contentMode="scaleAspectFit" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0D9-Iv-J3I" userLabel="Take photo">
+                                <rect key="frame" x="121" y="200" width="80" height="80"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="120" id="MhC-4S-zxw"/>
+                                    <constraint firstAttribute="height" constant="120" id="R35-W0-bEj"/>
+                                </constraints>
                                 <size key="titleShadowOffset" width="1" height="1"/>
                                 <state key="normal" image="camera_300_300">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="touchUpInsideCameraButton:" destination="NXV-X1-aZg" eventType="touchUpInside" id="kac-QS-r6u"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>

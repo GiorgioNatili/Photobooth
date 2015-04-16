@@ -50,6 +50,9 @@ UINavigationControllerDelegate, UIImagePickerControllerDelegate /*, UITextViewDe
     }
     
     func updateTime() {
+        
+        self.cameraButton.hidden = true
+        
         var currentTime = NSDate.timeIntervalSinceReferenceDate()
         var elapsedTime = currentTime - startTime
         var seconds = snapTime - elapsedTime
@@ -68,7 +71,6 @@ UINavigationControllerDelegate, UIImagePickerControllerDelegate /*, UITextViewDe
                 
                 // we do this on another thread so we don't hang the UI
                 dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) {
-                    
                     
                     for connection in stillOutput.connections {
                         // find a matching input port
@@ -115,23 +117,11 @@ UINavigationControllerDelegate, UIImagePickerControllerDelegate /*, UITextViewDe
         let destinationPath = documentsPath.stringByAppendingPathComponent("photobooth.jpg")
         UIImageJPEGRepresentation(flippedImage,1.0).writeToFile(destinationPath, atomically: true)
         self.canvasImage.hidden = false
-        //captureSession.stopRunning()
+        self.cameraButton.hidden = false
         self.view.bringSubviewToFront(canvasImage)
         
-        //store photo
-        
-//        if let recognizers = self.view.gestureRecognizers {
-//            for recognizer in recognizers {
-//                self.view.removeGestureRecognizer(recognizer as! UIGestureRecognizer)
-//            }
-//        }
-
         // after photo, go directly to preview
         preview()
-        
-//        var tap = UITapGestureRecognizer(target:self, action:Selector("preview"))
-//        self.view.addGestureRecognizer(tap)
-        
         
     }
     
@@ -165,8 +155,8 @@ UINavigationControllerDelegate, UIImagePickerControllerDelegate /*, UITextViewDe
         }
     }
     
-
     override func viewDidLoad() {
+        
         super.viewDidLoad()
 
         self.setRotation()
@@ -204,7 +194,6 @@ UINavigationControllerDelegate, UIImagePickerControllerDelegate /*, UITextViewDe
         logoView.frame.origin.y = 8
         navbar.titleView = logoView
         
-        
         // Add a tap gesture to the navigation bar image to send the user to settings
         let recognizer = UITapGestureRecognizer(target: self, action: "showSettings")
         navbar.titleView!.userInteractionEnabled = true
@@ -222,7 +211,6 @@ UINavigationControllerDelegate, UIImagePickerControllerDelegate /*, UITextViewDe
     }
     
     let screenWidth = UIScreen.mainScreen().bounds.size.width
-    
     
     func configureDevice() {
         if let device = captureDevice {
@@ -247,7 +235,6 @@ UINavigationControllerDelegate, UIImagePickerControllerDelegate /*, UITextViewDe
         
         var err : NSError? = nil
         if captureSession.running == false {
-            
             captureSession.addInput(AVCaptureDeviceInput(device: captureDevice, error: &err))
         }
         
@@ -289,6 +276,10 @@ UINavigationControllerDelegate, UIImagePickerControllerDelegate /*, UITextViewDe
             imageOrientation = UIImageOrientation.LeftMirrored
         }
         
+    }
+    
+    @IBAction func touchUpInsideCameraButton(sender: AnyObject) {
+        self.startSnap()
     }
     
     func showSettings() {
