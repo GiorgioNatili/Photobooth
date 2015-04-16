@@ -1,3 +1,4 @@
+import Foundation
 import UIKit
 import MobileCoreServices
 import TwitterKit
@@ -54,6 +55,7 @@ class PreviewViewController: UIViewController, UITextViewDelegate {
             }
             else {
                 println("Sending tweet!")
+                sleep(3)
                 self.showTweets()
             }
         }
@@ -68,6 +70,7 @@ class PreviewViewController: UIViewController, UITextViewDelegate {
     }
   
     func setupNav() {
+        
         // Setup Navigation controller / remove uiBorderbottom to blue
         self.navigationController?.navigationBar.barTintColor = UIColor.whiteColor()
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(), forBarMetrics: UIBarMetrics.Default)
@@ -94,7 +97,7 @@ class PreviewViewController: UIViewController, UITextViewDelegate {
         let recognizer = UITapGestureRecognizer(target: self, action: "showSettings")
         self.navbar.titleView!.userInteractionEnabled = true
         self.navbar.titleView!.addGestureRecognizer(recognizer)
-        self.navigationItem.setHidesBackButton(true, animated: true)
+//        self.navigationItem.setHidesBackButton(true, animated: true)
     }
     
     
