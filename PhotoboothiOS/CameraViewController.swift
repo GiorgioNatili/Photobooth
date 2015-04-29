@@ -19,12 +19,11 @@ import MobileCoreServices
 import TwitterKit
 import AVFoundation
 
-class CameraViewController: UIViewController,
+class CameraViewController: BoothViewController,
 UINavigationControllerDelegate, UIImagePickerControllerDelegate /*, UITextViewDelegate */ {
     
     @IBOutlet weak var cameraButton: UIButton!
     @IBOutlet weak var canvasImage: UIImageView!
-    @IBOutlet weak var navbar: UINavigationItem!
     @IBOutlet weak var countdown: UILabel!
     
     let captureSession = AVCaptureSession()
@@ -33,7 +32,6 @@ UINavigationControllerDelegate, UIImagePickerControllerDelegate /*, UITextViewDe
     var startTime = NSTimeInterval()
     var timer = NSTimer()
     var snapTime:Double = 4
-    var logoView: UIImageView!
     var captureDevice : AVCaptureDevice?
     var imageOrientation: UIImageOrientation?
     var videoConnection : AVCaptureConnection? // find video connection
@@ -166,46 +164,12 @@ UINavigationControllerDelegate, UIImagePickerControllerDelegate /*, UITextViewDe
         
         super.viewDidLoad()
 
+        super.setupNav(false, enableSettings : true)
         self.setRotation()
         self.setupCam()
         
         // gpj
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "setRotation", name: UIDeviceOrientationDidChangeNotification, object: nil)
-        
-        // Setup Navigation controller / remove uiBorderbottom to blue
-        self.navigationController?.navigationBar.barTintColor = UIColor.whiteColor()
-        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), forBarMetrics: UIBarMetrics.Default)
-        self.navigationController?.navigationBar.shadowImage = UIImage()
-        self.navigationController?.navigationBar.translucent = false
-        
-        // Change the border to blue
-        var navHeight = self.navigationController?.navigationBar.frame.height
-        var navWidth = self.navigationController?.navigationBar.frame.width
-        if navWidth == nil {
-            navWidth = 600
-        }
-        if navHeight == nil {
-            navHeight = 30
-        }
-        
-        var navBorder = UIView(frame: CGRectMake(0, navHeight! - 2, navWidth!, 2))
-        navBorder.backgroundColor = UIColor(rgba: "#5EA9DD")
-        self.navigationController?.navigationBar.addSubview(navBorder)
-        
-        // Append image to the navigation bar
-        logoView = UIImageView(frame: CGRectMake(0, 0, 30, 30))
-        logoView.image = UIImage(named: "TwitterLogo")!.imageWithRenderingMode(UIImageRenderingMode.AlwaysTemplate)
-        logoView.tintColor = UIColor(rgba: "#5EA9DD")
-        logoView.contentMode = UIViewContentMode.ScaleAspectFit
-        logoView.frame.origin.x = 10
-        logoView.frame.origin.y = 8
-        navbar.titleView = logoView
-        
-        // Add a tap gesture to the navigation bar image to send the user to settings
-        let recognizer = UITapGestureRecognizer(target: self, action: "showSettings")
-        navbar.titleView!.userInteractionEnabled = true
-        navbar.titleView!.addGestureRecognizer(recognizer)
-        self.navigationItem.setHidesBackButton(true, animated: true)
         
     }
     
