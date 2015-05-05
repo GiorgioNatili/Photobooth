@@ -40,5 +40,6 @@ Credits
 
 The following developers and bloggers have aided greatly in the development of this source. I'm  appreciative of contributions and knowledge sharing.
 
-- [@rchoi](https://twitter.com/rchoi)
+- [@gpj](https://twitter.com/gpj)
 - [@romainhuet](https://twitter.com/romainhuet)
+- [@rchoi](https://twitter.com/rchoi)
