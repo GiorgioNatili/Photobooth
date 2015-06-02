@@ -107,15 +107,15 @@ UINavigationControllerDelegate, UIImagePickerControllerDelegate /*, UITextViewDe
     
     func didTakePhoto(imageData: NSData) {
 
-        println("did take photo")
+        println("did take photo:")
         let image = UIImage(data: imageData)
+//        let flippedImage = UIImage(CGImage: image!.CGImage, scale: 1.0, orientation: imageOrientation!)
+        self.canvasImage.image = image
         
         //gpj
-        let flippedImage = UIImage(CGImage: image!.CGImage, scale: 1.0, orientation: imageOrientation!)
-        self.canvasImage.image = flippedImage
         let documentsPath = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0] as! String
         let destinationPath = documentsPath.stringByAppendingPathComponent("photobooth.jpg")
-        UIImageJPEGRepresentation(flippedImage,1.0).writeToFile(destinationPath, atomically: true)
+        UIImageJPEGRepresentation(image, 1.0).writeToFile(destinationPath, atomically: true)
         self.canvasImage.hidden = false
         self.cameraButton.hidden = false
         self.view.bringSubviewToFront(canvasImage)
