@@ -81,8 +81,6 @@ UINavigationControllerDelegate, UIImagePickerControllerDelegate /*, UITextViewDe
                             // and matching type
                             if port.mediaType == AVMediaTypeVideo {
                                 self.videoConnection = connection as? AVCaptureConnection
-                                self.videoConnection?.videoOrientation = AVCaptureVideoOrientation.LandscapeLeft
-                                self.previewLayer?.connection.videoOrientation = AVCaptureVideoOrientation.LandscapeLeft
                                 break
                             }
                         }
@@ -94,7 +92,6 @@ UINavigationControllerDelegate, UIImagePickerControllerDelegate /*, UITextViewDe
                     if self.videoConnection != nil {
                         // found the video connection, let's get the image
                         let a = stillOutput.connectionWithMediaType(AVMediaTypeVideo)
-                        a.videoOrientation = AVCaptureVideoOrientation.LandscapeLeft
                         stillOutput.captureStillImageAsynchronouslyFromConnection(self.videoConnection) {
                             (imageSampleBuffer:CMSampleBuffer!, _) in
                             
