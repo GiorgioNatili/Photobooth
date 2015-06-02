@@ -15,6 +15,8 @@
 		8B5EFF09195F064400B354F9 /* TweetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B5EFF05195F064400B354F9 /* TweetViewController.swift */; };
 		8B5EFF0A195F064400B354F9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8B5EFF06195F064400B354F9 /* Main.storyboard */; };
 		8BCB9329194B2E1200A998EA /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8BCB9328194B2E1200A998EA /* Images.xcassets */; };
+		CABF1B521AF0B38800728ABD /* BoothViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CABF1B511AF0B38800728ABD /* BoothViewController.swift */; };
+		CAD57C041B026F170084ACA5 /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CAD57C031B026F170084ACA5 /* Crashlytics.framework */; };
 		CAEF8CC61ADC3D9300E80156 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAEF8CC51ADC3D9300E80156 /* SettingsViewController.swift */; };
 		CAF1D6BC1AD75EA8005CCD89 /* TwitterKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CAF1D6B91AD75EA8005CCD89 /* TwitterKit.framework */; };
 		CAF1D6BD1AD75EA8005CCD89 /* TwitterKitResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = CAF1D6BA1AD75EA8005CCD89 /* TwitterKitResources.bundle */; };
@@ -53,6 +55,8 @@
 		8B9F50EE1944A5AB00894629 /* PhotoboothiOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = PhotoboothiOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8B9F51131944A61D00894629 /* PhotoboothMac.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = PhotoboothMac.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8BCB9328194B2E1200A998EA /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		CABF1B511AF0B38800728ABD /* BoothViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoothViewController.swift; sourceTree = "<group>"; };
+		CAD57C031B026F170084ACA5 /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
 		CAEF8CC51ADC3D9300E80156 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		CAF1D6B91AD75EA8005CCD89 /* TwitterKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TwitterKit.framework; sourceTree = SOURCE_ROOT; };
 		CAF1D6BA1AD75EA8005CCD89 /* TwitterKitResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = TwitterKitResources.bundle; path = TwitterKit.framework/Versions/A/Resources/TwitterKitResources.bundle; sourceTree = SOURCE_ROOT; };
@@ -65,6 +69,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CAF1D6BC1AD75EA8005CCD89 /* TwitterKit.framework in Frameworks */,
+				CAD57C041B026F170084ACA5 /* Crashlytics.framework in Frameworks */,
 				CAF1D6BE1AD75EA8005CCD89 /* Fabric.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -105,6 +110,7 @@
 			children = (
 				8B5EFF03195F064400B354F9 /* AppDelegate.swift */,
 				8B5EFF04195F064400B354F9 /* AuthViewController.swift */,
+				CABF1B511AF0B38800728ABD /* BoothViewController.swift */,
 				7F599B861ADE22C40020955F /* UIColorExtension.swift */,
 				7F599B821ADE11FF0020955F /* CameraViewController.swift */,
 				7F2AA9EB1ADE495500E809E1 /* PreviewViewController.swift */,
@@ -116,6 +122,7 @@
 				8B300C211944AA1A00993175 /* Supporting Files */,
 				CAF1D6B91AD75EA8005CCD89 /* TwitterKit.framework */,
 				CAF1D6BB1AD75EA8005CCD89 /* Fabric.framework */,
+				CAD57C031B026F170084ACA5 /* Crashlytics.framework */,
 			);
 			name = Photobooth;
 			path = PhotoboothiOS;
@@ -378,6 +385,7 @@
 				CAEF8CC61ADC3D9300E80156 /* SettingsViewController.swift in Sources */,
 				7F599B831ADE11FF0020955F /* CameraViewController.swift in Sources */,
 				7F2AA9EC1ADE495500E809E1 /* PreviewViewController.swift in Sources */,
+				CABF1B521AF0B38800728ABD /* BoothViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -435,6 +443,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/PhotoboothiOS",
 				);
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
@@ -460,6 +469,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/PhotoboothiOS",
 				);
 				INFOPLIST_FILE = "$(SRCROOT)/PhotoboothiOS/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.1;

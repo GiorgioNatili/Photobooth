@@ -165,7 +165,6 @@ UINavigationControllerDelegate, UIImagePickerControllerDelegate /*, UITextViewDe
         super.viewDidLoad()
 
         super.setupNav(false, enableSettings : true)
-        self.setRotation()
         self.setupCam()
         
         // gpj
@@ -215,8 +214,8 @@ UINavigationControllerDelegate, UIImagePickerControllerDelegate /*, UITextViewDe
         
         previewLayer = AVCaptureVideoPreviewLayer(session: captureSession)
         
-        // gpj
-        previewLayer?.connection.videoOrientation = AVCaptureVideoOrientation.LandscapeLeft
+        // set rotation
+        self.setRotation()
         
         let bounds = self.canvasImage.layer.contentsRect
         previewLayer?.videoGravity = AVLayerVideoGravityResizeAspectFill

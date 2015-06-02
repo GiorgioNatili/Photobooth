@@ -21,7 +21,7 @@ import TwitterKit
 class SettingsViewController: UIViewController, UITextViewDelegate {
 
     struct Settings {
-        static var tweetText = "Hanging out at the @TwitterDev booth during #bitcamp!"
+        static var tweetText = "Estou no #TwitterFlock São Paulo!"
     }
     
     @IBOutlet weak var defaultTextField: UITextView!

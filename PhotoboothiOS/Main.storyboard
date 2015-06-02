@@ -71,7 +71,7 @@
                                         <rect key="frame" x="99" y="27" width="200" height="30"/>
                                         <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <inset key="contentEdgeInsets" minX="12" minY="4" maxX="12" maxY="4"/>
-                                        <state key="normal" title="Send Tweet">
+                                        <state key="normal" title="Tweetar">
                                             <color key="titleColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
@@ -202,10 +202,9 @@
                             <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kll-yT-7gr">
                                 <rect key="frame" x="44" y="28" width="392" height="232"/>
                                 <subviews>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="r1d-Dj-0RV">
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" text="Estou no #TwitterFlock São Paulo!  " textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="r1d-Dj-0RV">
                                         <rect key="frame" x="131" y="0.0" width="253" height="191"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <string key="text">Hanging out at the @TwitterDev booth during #bitcamp!  Look who stopped by to say hi at the @TwitterDev booth!  Tweet tweet from the @TwitterDev booth at #bitcamp.</string>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
