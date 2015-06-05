@@ -23,37 +23,17 @@
 		CAF1D6BE1AD75EA8005CCD89 /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CAF1D6BB1AD75EA8005CCD89 /* Fabric.framework */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		8B300C5B1944AECB00993175 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 8B9F50E51944A5AB00894629 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 8B300C461944AECB00993175;
-			remoteInfo = SwifterDemoMac;
-		};
-		8B300C681944AECC00993175 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 8B9F50E51944A5AB00894629 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 8B300C461944AECB00993175;
-			remoteInfo = SwifterDemoMac;
-		};
-/* End PBXContainerItemProxy section */
-
 /* Begin PBXFileReference section */
 		7F2AA9EB1ADE495500E809E1 /* PreviewViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreviewViewController.swift; sourceTree = "<group>"; };
 		7F599B821ADE11FF0020955F /* CameraViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
 		7F599B861ADE22C40020955F /* UIColorExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
 		8B300C1F1944AA1A00993175 /* PhotoboothDemoiOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PhotoboothDemoiOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8B300C221944AA1A00993175 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		8B300C471944AECB00993175 /* PhotoboothDemoMac.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PhotoboothDemoMac.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		8B300C5A1944AECB00993175 /* PhotoboothDemoMacTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PhotoboothDemoMacTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8B5EFF03195F064400B354F9 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8B5EFF04195F064400B354F9 /* AuthViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthViewController.swift; sourceTree = "<group>"; };
 		8B5EFF05195F064400B354F9 /* TweetViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TweetViewController.swift; sourceTree = "<group>"; };
 		8B5EFF06195F064400B354F9 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		8B9F50EE1944A5AB00894629 /* PhotoboothiOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = PhotoboothiOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		8B9F51131944A61D00894629 /* PhotoboothMac.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = PhotoboothMac.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8BCB9328194B2E1200A998EA /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		CABF1B511AF0B38800728ABD /* BoothViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoothViewController.swift; sourceTree = "<group>"; };
 		CAD57C031B026F170084ACA5 /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
@@ -74,28 +54,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		8B300C441944AECB00993175 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		8B300C571944AECB00993175 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		8B9F50EA1944A5AB00894629 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		8B9F510F1944A61D00894629 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -148,10 +107,7 @@
 			isa = PBXGroup;
 			children = (
 				8B9F50EE1944A5AB00894629 /* PhotoboothiOS.framework */,
-				8B9F51131944A61D00894629 /* PhotoboothMac.framework */,
 				8B300C1F1944AA1A00993175 /* PhotoboothDemoiOS.app */,
-				8B300C471944AECB00993175 /* PhotoboothDemoMac.app */,
-				8B300C5A1944AECB00993175 /* PhotoboothDemoMacTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -160,13 +116,6 @@
 
 /* Begin PBXHeadersBuildPhase section */
 		8B9F50EB1944A5AB00894629 /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		8B9F51101944A61D00894629 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -194,42 +143,6 @@
 			productReference = 8B300C1F1944AA1A00993175 /* PhotoboothDemoiOS.app */;
 			productType = "com.apple.product-type.application";
 		};
-		8B300C461944AECB00993175 /* PhotoboothDemoMac */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 8B300C621944AECB00993175 /* Build configuration list for PBXNativeTarget "PhotoboothDemoMac" */;
-			buildPhases = (
-				8B300C431944AECB00993175 /* Sources */,
-				8B300C441944AECB00993175 /* Frameworks */,
-				8B300C451944AECB00993175 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = PhotoboothDemoMac;
-			productName = SwifterDemoMac;
-			productReference = 8B300C471944AECB00993175 /* PhotoboothDemoMac.app */;
-			productType = "com.apple.product-type.application";
-		};
-		8B300C591944AECB00993175 /* PhotoboothDemoMacTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 8B300C651944AECB00993175 /* Build configuration list for PBXNativeTarget "PhotoboothDemoMacTests" */;
-			buildPhases = (
-				8B300C561944AECB00993175 /* Sources */,
-				8B300C571944AECB00993175 /* Frameworks */,
-				8B300C581944AECB00993175 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				8B300C5C1944AECB00993175 /* PBXTargetDependency */,
-				8B300C691944AECC00993175 /* PBXTargetDependency */,
-			);
-			name = PhotoboothDemoMacTests;
-			productName = SwifterDemoMacTests;
-			productReference = 8B300C5A1944AECB00993175 /* PhotoboothDemoMacTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 		8B9F50ED1944A5AB00894629 /* PhotoboothiOS */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 8B9F51041944A5AB00894629 /* Build configuration list for PBXNativeTarget "PhotoboothiOS" */;
@@ -248,24 +161,6 @@
 			productReference = 8B9F50EE1944A5AB00894629 /* PhotoboothiOS.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		8B9F51121944A61D00894629 /* PhotoboothMac */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 8B9F512A1944A61D00894629 /* Build configuration list for PBXNativeTarget "PhotoboothMac" */;
-			buildPhases = (
-				8B9F510E1944A61D00894629 /* Sources */,
-				8B9F510F1944A61D00894629 /* Frameworks */,
-				8B9F51101944A61D00894629 /* Headers */,
-				8B9F51111944A61D00894629 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = PhotoboothMac;
-			productName = SwifterMac;
-			productReference = 8B9F51131944A61D00894629 /* PhotoboothMac.framework */;
-			productType = "com.apple.product-type.framework";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -279,17 +174,7 @@
 						CreatedOnToolsVersion = 6.0;
 						DevelopmentTeam = XD75XYY267;
 					};
-					8B300C461944AECB00993175 = {
-						CreatedOnToolsVersion = 6.0;
-					};
-					8B300C591944AECB00993175 = {
-						CreatedOnToolsVersion = 6.0;
-						TestTargetID = 8B300C461944AECB00993175;
-					};
 					8B9F50ED1944A5AB00894629 = {
-						CreatedOnToolsVersion = 6.0;
-					};
-					8B9F51121944A61D00894629 = {
 						CreatedOnToolsVersion = 6.0;
 					};
 				};
@@ -309,9 +194,6 @@
 			targets = (
 				8B300C1E1944AA1A00993175 /* PhotoboothDemoiOS */,
 				8B9F50ED1944A5AB00894629 /* PhotoboothiOS */,
-				8B9F51121944A61D00894629 /* PhotoboothMac */,
-				8B300C461944AECB00993175 /* PhotoboothDemoMac */,
-				8B300C591944AECB00993175 /* PhotoboothDemoMacTests */,
 			);
 		};
 /* End PBXProject section */
@@ -327,28 +209,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		8B300C451944AECB00993175 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		8B300C581944AECB00993175 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		8B9F50EC1944A5AB00894629 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		8B9F51111944A61D00894629 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -389,20 +250,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		8B300C431944AECB00993175 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		8B300C561944AECB00993175 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		8B9F50E91944A5AB00894629 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -410,27 +257,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		8B9F510E1944A61D00894629 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		8B300C5C1944AECB00993175 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 8B300C461944AECB00993175 /* PhotoboothDemoMac */;
-			targetProxy = 8B300C5B1944AECB00993175 /* PBXContainerItemProxy */;
-		};
-		8B300C691944AECC00993175 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 8B300C461944AECB00993175 /* PhotoboothDemoMac */;
-			targetProxy = 8B300C681944AECC00993175 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		8B300C381944AA1A00993175 /* Debug */ = {
@@ -477,84 +304,6 @@
 				METAL_ENABLE_DEBUG_INFO = NO;
 				PRODUCT_NAME = PhotoboothDemoiOS;
 				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Release;
-		};
-		8B300C631944AECB00993175 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "-";
-				COMBINE_HIDPI_IMAGES = YES;
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = SwifterDemoMac/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 10.10;
-				METAL_ENABLE_DEBUG_INFO = YES;
-				PRODUCT_NAME = PhotoboothDemoMac;
-				SDKROOT = macosx;
-			};
-			name = Debug;
-		};
-		8B300C641944AECB00993175 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "-";
-				COMBINE_HIDPI_IMAGES = YES;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				INFOPLIST_FILE = SwifterDemoMac/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 10.10;
-				METAL_ENABLE_DEBUG_INFO = NO;
-				PRODUCT_NAME = PhotoboothDemoMac;
-				SDKROOT = macosx;
-			};
-			name = Release;
-		};
-		8B300C661944AECB00993175 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/SwifterDemoMac.app/Contents/MacOS/SwifterDemoMac";
-				COMBINE_HIDPI_IMAGES = YES;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(DEVELOPER_FRAMEWORKS_DIR)",
-					"$(inherited)",
-				);
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = SwifterDemoMacTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 10.10;
-				METAL_ENABLE_DEBUG_INFO = YES;
-				PRODUCT_NAME = PhotoboothDemoMacTests;
-				SDKROOT = macosx;
-				TEST_HOST = "$(BUNDLE_LOADER)";
-			};
-			name = Debug;
-		};
-		8B300C671944AECB00993175 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/SwifterDemoMac.app/Contents/MacOS/SwifterDemoMac";
-				COMBINE_HIDPI_IMAGES = YES;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(DEVELOPER_FRAMEWORKS_DIR)",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = SwifterDemoMacTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 10.10;
-				METAL_ENABLE_DEBUG_INFO = NO;
-				PRODUCT_NAME = PhotoboothDemoMacTests;
-				SDKROOT = macosx;
-				TEST_HOST = "$(BUNDLE_LOADER)";
 			};
 			name = Release;
 		};
@@ -656,6 +405,7 @@
 				PRODUCT_NAME = PhotoboothiOS;
 				SKIP_INSTALL = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = "Swifter/Swifter-Bridging-Header.h";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -672,53 +422,7 @@
 				PRODUCT_NAME = PhotoboothiOS;
 				SKIP_INSTALL = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = "Swifter/Swifter-Bridging-Header.h";
-			};
-			name = Release;
-		};
-		8B9F51261944A61D00894629 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				COMBINE_HIDPI_IMAGES = YES;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				FRAMEWORK_VERSION = A;
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = "$(SRCROOT)/Swifter/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 10.10;
-				METAL_ENABLE_DEBUG_INFO = YES;
-				PRODUCT_NAME = PhotoboothMac;
-				SDKROOT = macosx;
-				SKIP_INSTALL = YES;
-				SWIFT_OBJC_BRIDGING_HEADER = "Swifter/Swifter-Bridging-Header.h";
-			};
-			name = Debug;
-		};
-		8B9F51271944A61D00894629 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				COMBINE_HIDPI_IMAGES = YES;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				FRAMEWORK_VERSION = A;
-				INFOPLIST_FILE = "$(SRCROOT)/Swifter/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 10.10;
-				METAL_ENABLE_DEBUG_INFO = NO;
-				PRODUCT_NAME = PhotoboothMac;
-				SDKROOT = macosx;
-				SKIP_INSTALL = YES;
-				SWIFT_OBJC_BRIDGING_HEADER = "Swifter/Swifter-Bridging-Header.h";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
@@ -730,24 +434,6 @@
 			buildConfigurations = (
 				8B300C381944AA1A00993175 /* Debug */,
 				8B300C391944AA1A00993175 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		8B300C621944AECB00993175 /* Build configuration list for PBXNativeTarget "PhotoboothDemoMac" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				8B300C631944AECB00993175 /* Debug */,
-				8B300C641944AECB00993175 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		8B300C651944AECB00993175 /* Build configuration list for PBXNativeTarget "PhotoboothDemoMacTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				8B300C661944AECB00993175 /* Debug */,
-				8B300C671944AECB00993175 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -766,15 +452,6 @@
 			buildConfigurations = (
 				8B9F51051944A5AB00894629 /* Debug */,
 				8B9F51061944A5AB00894629 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		8B9F512A1944A61D00894629 /* Build configuration list for PBXNativeTarget "PhotoboothMac" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				8B9F51261944A61D00894629 /* Debug */,
-				8B9F51271944A61D00894629 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

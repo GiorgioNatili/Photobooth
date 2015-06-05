@@ -214,10 +214,6 @@ UINavigationControllerDelegate, UIImagePickerControllerDelegate /*, UITextViewDe
         // set rotation
         self.setRotation()
         
-        let bounds = self.canvasImage.layer.contentsRect
-        previewLayer?.videoGravity = AVLayerVideoGravityResizeAspectFill
-        previewLayer?.bounds = bounds
-        previewLayer?.position = CGPointMake(CGRectGetMidX(bounds), CGRectGetMidY(bounds))
         self.view.layer.addSublayer(previewLayer)
         self.view.bringSubviewToFront(countdown)
         
@@ -225,23 +221,37 @@ UINavigationControllerDelegate, UIImagePickerControllerDelegate /*, UITextViewDe
         self.view.bringSubviewToFront(cameraButton)
         var tap = UITapGestureRecognizer(target:self, action:Selector("startSnap"))
         self.view.addGestureRecognizer(tap)
-        previewLayer?.frame = self.view.layer.frame
         captureSession.startRunning()
     }
 
     // gpj
     func setRotation() {
-        if(UIDeviceOrientationIsLandscape(UIDevice.currentDevice().orientation)) {
-            println("landscape")
-            previewLayer?.connection.videoOrientation = AVCaptureVideoOrientation.LandscapeLeft
-            imageOrientation = UIImageOrientation.UpMirrored
-        }
         
-        if(UIDeviceOrientationIsPortrait(UIDevice.currentDevice().orientation)) {
+        let device = UIDevice.currentDevice()
+
+        if (device.orientation == UIDeviceOrientation.LandscapeLeft){
+            println("landscape left")
+            previewLayer?.connection.videoOrientation = AVCaptureVideoOrientation.LandscapeRight
+//            imageOrientation = UIImageOrientation.UpMirrored
+        } else if (device.orientation == UIDeviceOrientation.LandscapeRight){
+            println("landscape right")
+            previewLayer?.connection.videoOrientation = AVCaptureVideoOrientation.LandscapeLeft
+//            imageOrientation = UIImageOrientation.UpMirrored
+        } else if (device.orientation == UIDeviceOrientation.Portrait){
             println("Portrait")
             previewLayer?.connection.videoOrientation = AVCaptureVideoOrientation.Portrait
-            imageOrientation = UIImageOrientation.LeftMirrored
+//            imageOrientation = UIImageOrientation.LeftMirrored
+        } else if (device.orientation == UIDeviceOrientation.PortraitUpsideDown){
+            println("Portrait UD")
+            previewLayer?.connection.videoOrientation = AVCaptureVideoOrientation.PortraitUpsideDown
+//            imageOrientation = UIImageOrientation.LeftMirrored
         }
+        
+        let bounds = self.canvasImage.layer.contentsRect
+        previewLayer?.videoGravity = AVLayerVideoGravityResizeAspectFill
+        previewLayer?.bounds = bounds
+        previewLayer?.position = CGPointMake(CGRectGetMidX(bounds), CGRectGetMidY(bounds))
+        previewLayer?.frame = self.view.layer.frame
         
     }
     

@@ -24,7 +24,7 @@
                   moduleName = "PhotoboothDemoiOS"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/rchoi/workspace/Photobooth/PhotoboothiOS/SettingsViewController.swift"
-                  timestampString = "454945045.889187"
+                  timestampString = "455214910.069506"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "0"
@@ -39,7 +39,7 @@
                   moduleName = "PhotoboothDemoiOS"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/rchoi/workspace/Photobooth/PhotoboothiOS/SettingsViewController.swift"
-                  timestampString = "454945045.89172"
+                  timestampString = "455214910.069783"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "21"
@@ -82,7 +82,7 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "PhotoboothiOS/PreviewViewController.swift"
