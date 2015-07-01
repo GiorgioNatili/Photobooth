@@ -20,7 +20,6 @@
 		CAD57C041B026F170084ACA5 /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CAD57C031B026F170084ACA5 /* Crashlytics.framework */; };
 		CAEF8CC61ADC3D9300E80156 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAEF8CC51ADC3D9300E80156 /* SettingsViewController.swift */; };
 		CAF1D6BC1AD75EA8005CCD89 /* TwitterKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CAF1D6B91AD75EA8005CCD89 /* TwitterKit.framework */; };
-		CAF1D6BD1AD75EA8005CCD89 /* TwitterKitResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = CAF1D6BA1AD75EA8005CCD89 /* TwitterKitResources.bundle */; };
 		CAF1D6BE1AD75EA8005CCD89 /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CAF1D6BB1AD75EA8005CCD89 /* Fabric.framework */; };
 /* End PBXBuildFile section */
 
@@ -41,7 +40,6 @@
 		CAD57C031B026F170084ACA5 /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
 		CAEF8CC51ADC3D9300E80156 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		CAF1D6B91AD75EA8005CCD89 /* TwitterKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TwitterKit.framework; sourceTree = SOURCE_ROOT; };
-		CAF1D6BA1AD75EA8005CCD89 /* TwitterKitResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = TwitterKitResources.bundle; path = TwitterKit.framework/Versions/A/Resources/TwitterKitResources.bundle; sourceTree = SOURCE_ROOT; };
 		CAF1D6BB1AD75EA8005CCD89 /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
@@ -80,7 +78,6 @@
 				CAEF8CC51ADC3D9300E80156 /* SettingsViewController.swift */,
 				8B5EFF06195F064400B354F9 /* Main.storyboard */,
 				8BCB9328194B2E1200A998EA /* Images.xcassets */,
-				CAF1D6BA1AD75EA8005CCD89 /* TwitterKitResources.bundle */,
 				8B300C211944AA1A00993175 /* Supporting Files */,
 			);
 			name = Photobooth;
@@ -208,7 +205,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				8BCB9329194B2E1200A998EA /* Images.xcassets in Resources */,
-				CAF1D6BD1AD75EA8005CCD89 /* TwitterKitResources.bundle in Resources */,
 				8B5EFF0A195F064400B354F9 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
