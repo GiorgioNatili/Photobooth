@@ -109,7 +109,7 @@ UINavigationControllerDelegate, UIImagePickerControllerDelegate /*, UITextViewDe
 
         println("did take photo:")
         let image = UIImage(data: imageData)
-//        let flippedImage = UIImage(CGImage: image!.CGImage, scale: 1.0, orientation: imageOrientation!)
+        let flippedImage = UIImage(CGImage: image!.CGImage, scale: 1.0, orientation: imageOrientation!)
         self.canvasImage.image = image
         
         //gpj
@@ -209,18 +209,19 @@ UINavigationControllerDelegate, UIImagePickerControllerDelegate /*, UITextViewDe
             println("error: \(err?.localizedDescription)")
         }
         
+        // create camera preview
         previewLayer = AVCaptureVideoPreviewLayer(session: captureSession)
-        
-        // set rotation
-        self.setRotation()
-        
         self.view.layer.addSublayer(previewLayer)
         self.view.bringSubviewToFront(countdown)
         
-        // gpj
+        // add camera button
         self.view.bringSubviewToFront(cameraButton)
         var tap = UITapGestureRecognizer(target:self, action:Selector("startSnap"))
         self.view.addGestureRecognizer(tap)
+        
+        // set rotation
+        self.setRotation()
+
         captureSession.startRunning()
     }
 
@@ -232,19 +233,19 @@ UINavigationControllerDelegate, UIImagePickerControllerDelegate /*, UITextViewDe
         if (device.orientation == UIDeviceOrientation.LandscapeLeft){
             println("landscape left")
             previewLayer?.connection.videoOrientation = AVCaptureVideoOrientation.LandscapeRight
-//            imageOrientation = UIImageOrientation.UpMirrored
+            imageOrientation = UIImageOrientation.LeftMirrored
         } else if (device.orientation == UIDeviceOrientation.LandscapeRight){
             println("landscape right")
             previewLayer?.connection.videoOrientation = AVCaptureVideoOrientation.LandscapeLeft
-//            imageOrientation = UIImageOrientation.UpMirrored
+            imageOrientation = UIImageOrientation.LeftMirrored 
         } else if (device.orientation == UIDeviceOrientation.Portrait){
             println("Portrait")
             previewLayer?.connection.videoOrientation = AVCaptureVideoOrientation.Portrait
-//            imageOrientation = UIImageOrientation.LeftMirrored
-        } else if (device.orientation == UIDeviceOrientation.PortraitUpsideDown){
-            println("Portrait UD")
-            previewLayer?.connection.videoOrientation = AVCaptureVideoOrientation.PortraitUpsideDown
-//            imageOrientation = UIImageOrientation.LeftMirrored
+            imageOrientation = UIImageOrientation.LeftMirrored
+//        } else if (device.orientation == UIDeviceOrientation.PortraitUpsideDown){
+//            println("Portrait UD")
+//            previewLayer?.connection.videoOrientation = AVCaptureVideoOrientation.PortraitUpsideDown
+//            imageOrientation = UIImageOrientation.UpMirrored
         }
         
         let bounds = self.canvasImage.layer.contentsRect

@@ -54,6 +54,17 @@
 				<key>KitName</key>
 				<string>Crashlytics</string>
 			</dict>
+			<dict>
+				<key>KitInfo</key>
+				<dict>
+					<key>consumerKey</key>
+					<string>waa9j2RlWnzAG3NCH1FDpCHbZ</string>
+					<key>consumerSecret</key>
+					<string>7PQh3Gks0jVXcfZrwuG3PaDff77zmyqcogC6CXdEybNsg9C66k</string>
+				</dict>
+				<key>KitName</key>
+				<string>Digits</string>
+			</dict>
 		</array>
 	</dict>
 	<key>LSRequiresIPhoneOS</key>
