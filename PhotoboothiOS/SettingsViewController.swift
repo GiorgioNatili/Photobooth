@@ -26,7 +26,7 @@ class SettingsViewController: UIViewController, UITextViewDelegate {
     
     @IBOutlet weak var defaultTextField: UITextView!
     
-    required init(coder aDecoder: NSCoder) {
+    required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
     
@@ -40,7 +40,7 @@ class SettingsViewController: UIViewController, UITextViewDelegate {
     }
     
     func textViewDidChange(textView: UITextView) { //Handle the text changes here
-        print(textView.text); //the textView parameter is the textView where text was changed
+        print(textView.text, terminator: ""); //the textView parameter is the textView where text was changed
         
         SettingsViewController.Settings.tweetText = textView.text
     }
@@ -51,7 +51,7 @@ class SettingsViewController: UIViewController, UITextViewDelegate {
         
         // ensure that presentViewController happens from the main thread/queue
         dispatch_async(dispatch_get_main_queue(), {
-            let controller = self.storyboard!.instantiateViewControllerWithIdentifier("AuthViewController") as! UIViewController
+            let controller = self.storyboard!.instantiateViewControllerWithIdentifier("AuthViewController") 
             self.presentViewController(controller, animated: true, completion: nil)
         });
         

@@ -14,15 +14,15 @@ class PreviewViewController: BoothViewController, UITextViewDelegate {
         super.setupNav(true, enableSettings : false)
         
         // get image from photo
-        let documentsPath = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0] as! String
-        let destinationPath = documentsPath.stringByAppendingPathComponent("photobooth.jpg")
+        let documentsPath = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0] 
+        let destinationPath = (documentsPath as NSString).stringByAppendingPathComponent("photobooth.jpg")
         let image = UIImage(contentsOfFile: destinationPath )
         previewImage.image = image
         
-        var tap = UITapGestureRecognizer(target:self, action:Selector("share"))
+        let tap = UITapGestureRecognizer(target:self, action:Selector("share"))
         self.view.addGestureRecognizer(tap)
         
-        var swipe = UISwipeGestureRecognizer(target: self, action: Selector("reset"))
+        let swipe = UISwipeGestureRecognizer(target: self, action: Selector("reset"))
         self.view.addGestureRecognizer(swipe)
         
         tweetTxt.text = SettingsViewController.Settings.tweetText
@@ -50,19 +50,19 @@ class PreviewViewController: BoothViewController, UITextViewDelegate {
                 self.showCamera()
             }
             else {
-                println("Sending tweet!")
+                print("Sending tweet!")
                 sleep(3)
                 self.showTweets()
             }
         }
         
-        println("share")
+        print("share")
         
     }
     
     func reset(){
         self.showCamera()
-        println("reset")
+        print("reset")
     }
   
     func showCamera() {
@@ -87,7 +87,7 @@ class PreviewViewController: BoothViewController, UITextViewDelegate {
     func showSettings() {
         
         dispatch_async(dispatch_get_main_queue(), {
-            let controller = self.storyboard!.instantiateViewControllerWithIdentifier("SettingsViewController") as! UIViewController
+            let controller = self.storyboard!.instantiateViewControllerWithIdentifier("SettingsViewController") 
             self.showViewController(controller, sender: self)
         });
         

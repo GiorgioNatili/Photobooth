@@ -22,7 +22,7 @@ class BoothViewController : UIViewController {
         // Change the border to blue
         let navHeight = self.navigationController?.navigationBar.frame.height
         let navWidth = self.navigationController?.navigationBar.frame.width
-        var navBorder = UIView(frame: CGRectMake(0, navHeight! - 2, navWidth!, 2))
+        let navBorder = UIView(frame: CGRectMake(0, navHeight! - 2, navWidth!, 2))
         navBorder.backgroundColor = UIColor(rgba: "#5EA9DD")
         self.navigationController?.navigationBar.addSubview(navBorder)
         

@@ -45,7 +45,7 @@ class TweetViewController : TWTRTimelineViewController {
         // kick off actual rendering
         super.viewWillAppear(animated)
         
-        println("TweetViewController.viewWillAppear: \(self.dataSource)")
+        print("TweetViewController.viewWillAppear: \(self.dataSource)")
     }
     
 }

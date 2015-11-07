@@ -56,9 +56,9 @@ UINavigationControllerDelegate, UIImagePickerControllerDelegate /*, UITextViewDe
         
         self.cameraButton.hidden = true
         
-        var currentTime = NSDate.timeIntervalSinceReferenceDate()
+        let currentTime = NSDate.timeIntervalSinceReferenceDate()
         var elapsedTime = currentTime - startTime
-        var seconds = snapTime - elapsedTime
+        let seconds = snapTime - elapsedTime
         if seconds > 0 {
             elapsedTime -= NSTimeInterval(seconds)
             self.countdown.hidden = false
@@ -107,14 +107,14 @@ UINavigationControllerDelegate, UIImagePickerControllerDelegate /*, UITextViewDe
     
     func didTakePhoto(imageData: NSData) {
 
-        println("did take photo:")
+        print("did take photo:")
         let image = UIImage(data: imageData)
         let flippedImage = UIImage(CGImage: image!.CGImage, scale: 1.0, orientation: imageOrientation!)
         self.canvasImage.image = image
         
         //gpj
-        let documentsPath = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0] as! String
-        let destinationPath = documentsPath.stringByAppendingPathComponent("photobooth.jpg")
+        let documentsPath = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0] 
+        let destinationPath = (documentsPath as NSString).stringByAppendingPathComponent("photobooth.jpg")
         UIImageJPEGRepresentation(image, 1.0).writeToFile(destinationPath, atomically: true)
         self.canvasImage.hidden = false
         self.cameraButton.hidden = false
@@ -148,7 +148,7 @@ UINavigationControllerDelegate, UIImagePickerControllerDelegate /*, UITextViewDe
                 if(device.position == AVCaptureDevicePosition.Front) {
                     captureDevice = device as? AVCaptureDevice
                     if captureDevice != nil {
-                        println("Capture device found")
+                        print("Capture device found")
                         
                         beginSession()
                     }
@@ -171,7 +171,7 @@ UINavigationControllerDelegate, UIImagePickerControllerDelegate /*, UITextViewDe
     
     func focusTo(value : Float) {
         if let device = captureDevice {
-            if(device.lockForConfiguration(nil)) {
+            if(device.lockForConfiguration()) {
                 device.unlockForConfiguration()
             }
         }
@@ -181,7 +181,10 @@ UINavigationControllerDelegate, UIImagePickerControllerDelegate /*, UITextViewDe
     
     func configureDevice() {
         if let device = captureDevice {
-            device.lockForConfiguration(nil)
+            do {
+                try device.lockForConfiguration()
+            } catch _ {
+            }
             //device.focusMode = .Locked
             device.unlockForConfiguration()
         }
@@ -200,13 +203,13 @@ UINavigationControllerDelegate, UIImagePickerControllerDelegate /*, UITextViewDe
             captureSession.addOutput(stillImageOutput)
         }
         
-        var err : NSError? = nil
+        let err : NSError? = nil
         if captureSession.running == false {
-            captureSession.addInput(AVCaptureDeviceInput(device: captureDevice, error: &err))
+            captureSession.addInput(AVCaptureDeviceInput(device: captureDevice))
         }
         
         if err != nil {
-            println("error: \(err?.localizedDescription)")
+            print("error: \(err?.localizedDescription)")
         }
         
         // create camera preview
@@ -216,7 +219,7 @@ UINavigationControllerDelegate, UIImagePickerControllerDelegate /*, UITextViewDe
         
         // add camera button
         self.view.bringSubviewToFront(cameraButton)
-        var tap = UITapGestureRecognizer(target:self, action:Selector("startSnap"))
+        let tap = UITapGestureRecognizer(target:self, action:Selector("startSnap"))
         self.view.addGestureRecognizer(tap)
         
         // set rotation
@@ -231,15 +234,15 @@ UINavigationControllerDelegate, UIImagePickerControllerDelegate /*, UITextViewDe
         let device = UIDevice.currentDevice()
 
         if (device.orientation == UIDeviceOrientation.LandscapeLeft){
-            println("landscape left")
+            print("landscape left")
             previewLayer?.connection.videoOrientation = AVCaptureVideoOrientation.LandscapeRight
             imageOrientation = UIImageOrientation.LeftMirrored
         } else if (device.orientation == UIDeviceOrientation.LandscapeRight){
-            println("landscape right")
+            print("landscape right")
             previewLayer?.connection.videoOrientation = AVCaptureVideoOrientation.LandscapeLeft
             imageOrientation = UIImageOrientation.LeftMirrored 
         } else if (device.orientation == UIDeviceOrientation.Portrait){
-            println("Portrait")
+            print("Portrait")
             previewLayer?.connection.videoOrientation = AVCaptureVideoOrientation.Portrait
             imageOrientation = UIImageOrientation.LeftMirrored
 //        } else if (device.orientation == UIDeviceOrientation.PortraitUpsideDown){
@@ -263,7 +266,7 @@ UINavigationControllerDelegate, UIImagePickerControllerDelegate /*, UITextViewDe
     func showSettings() {
         
         dispatch_async(dispatch_get_main_queue(), {
-            let controller = self.storyboard!.instantiateViewControllerWithIdentifier("SettingsViewController") as! UIViewController
+            let controller = self.storyboard!.instantiateViewControllerWithIdentifier("SettingsViewController") 
             self.showViewController(controller, sender: self)
         });
         
