@@ -31,7 +31,8 @@ class TweetViewController : TWTRTimelineViewController {
         super.init(dataSource: dataSource)
     }
     
-    required init(coder aDecoder: NSCoder) {
+    required init?(coder aDecoder: NSCoder) {
+        
         super.init(coder: aDecoder)
     }
     
