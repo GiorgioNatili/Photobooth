@@ -40,12 +40,15 @@ class PreviewViewController: BoothViewController, UITextViewDelegate {
     }
     
     func share(){
+        
         let status = tweetTxt.text
         let uiImage = self.previewImage.image
+        
         let composer = TWTRComposer()
+        
         composer.setText(status)
         composer.setImage(uiImage)
-        composer.showWithCompletion { (result) -> Void in
+        composer.showFromViewController(self) { (result) -> Void in
             if (result == TWTRComposerResult.Cancelled) {
                 self.showCamera()
             }
