@@ -47,7 +47,11 @@ class SettingsViewController: UIViewController, UITextViewDelegate {
     
     @IBAction func logOut(sender: AnyObject) {
         
-        Twitter.sharedInstance().logOut()
+        let sessionStore = Twitter.sharedInstance().sessionStore
+        if let userId = sessionStore.session()?.userID {
+            
+            sessionStore.logOutUserID(userId)
+        }
         
         // ensure that presentViewController happens from the main thread/queue
         dispatch_async(dispatch_get_main_queue(), {
