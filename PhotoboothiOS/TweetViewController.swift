@@ -19,15 +19,29 @@ import TwitterKit
 
 class TweetViewController : TWTRTimelineViewController {
     
+    private var screenName:String?
+    private var client:TWTRAPIClient?
+    
     convenience init() {
-        
-        let client = Twitter.sharedInstance().APIClient
-        let dataSource = TWTRUserTimelineDataSource(screenName: Twitter.sharedInstance().session().userName, APIClient: client)
-        
-        self.init(dataSource: dataSource)
+                
+        if let session = Twitter.sharedInstance().sessionStore.session() {
+            
+            let client = TWTRAPIClient()
+            client.loadUserWithID(session.userID) { (user, error) -> Void in
+                
+                if let user = user {
+                    
+                    self.dataSource = TWTRUserTimelineDataSource(screenName: user.screenName, APIClient: client)
+                    self.screenName = user.screenName
+                    self.client = client
+                    
+                    self.init(dataSource: self.dataSource)
+                }
+            }
+        }
     }
     
-    override required init(dataSource: TWTRTimelineDataSource) {
+    override required init(dataSource: TWTRTimelineDataSource?) {
         super.init(dataSource: dataSource)
     }
     
@@ -38,10 +52,13 @@ class TweetViewController : TWTRTimelineViewController {
     
     override func viewWillAppear(animated: Bool) {
 
-        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-        let screenName = Twitter.sharedInstance().session().userName
-        let client = Twitter.sharedInstance().APIClient
-        self.dataSource = TWTRUserTimelineDataSource(screenName: screenName, APIClient: client)
+      //  let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+     //   let screenName = Twitter.sharedInstance().session().userName
+     //   let client = Twitter.sharedInstance().APIClient
+        
+       // TODO clean this forced unwrap
+        
+        self.dataSource = TWTRUserTimelineDataSource(screenName: screenName!, APIClient: client!)
         
         // kick off actual rendering
         super.viewWillAppear(animated)
