@@ -179,15 +179,15 @@ UINavigationControllerDelegate, UIImagePickerControllerDelegate /*, UITextViewDe
     }
     
     func focusTo(value : Float) {
-        if let device = captureDevice {
-            if(device.lockForConfiguration()) {
-                device.unlockForConfiguration()
-            }
+        if let device = captureDevice, _ = try? device.lockForConfiguration() {
+            
+            device.unlockForConfiguration()
         }
     }
     
     let screenWidth = UIScreen.mainScreen().bounds.size.width
     
+    // TODO: clean this
     func configureDevice() {
         if let device = captureDevice {
             do {
@@ -212,19 +212,25 @@ UINavigationControllerDelegate, UIImagePickerControllerDelegate /*, UITextViewDe
             captureSession.addOutput(stillImageOutput)
         }
         
-        let err : NSError? = nil
-        if captureSession.running == false {
-            captureSession.addInput(AVCaptureDeviceInput(device: captureDevice))
-        }
-        
-        if err != nil {
-            print("error: \(err?.localizedDescription)")
+        do {
+            
+            try captureSession.addInput(AVCaptureDeviceInput(device: captureDevice))
+        } catch let error as NSError{
+            
+            print("error: \(error.localizedDescription)")
         }
         
         // create camera preview
         previewLayer = AVCaptureVideoPreviewLayer(session: captureSession)
-        self.view.layer.addSublayer(previewLayer)
+        
+        if let preview = previewLayer  {
+            
+            self.view.layer.addSublayer(preview)
+        }
+        
+        // TODO: check if it's part of the camera preview layer
         self.view.bringSubviewToFront(countdown)
+
         
         // add camera button
         self.view.bringSubviewToFront(cameraButton)
