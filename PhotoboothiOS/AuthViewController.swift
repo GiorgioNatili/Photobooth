@@ -28,19 +28,18 @@ class AuthViewController: UIViewController {
         
         super.viewDidLoad()
         
-        let logInButton = TWTRLogInButton(logInCompletion: {
-            (session: TWTRSession!, error: NSError!) in
-
-            let twitter = Twitter.sharedInstance()
-            
-            let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-                       
-            self.showPhotoView()
-            
+        let logInButton = TWTRLogInButton(logInCompletion: { session, error in
+            if (session != nil) {
+                
+                self.showPhotoView()
+            } else {
+                print("error: \(error!.localizedDescription)");
+            }
         })
         
         logInButton.center = self.view.center
         self.view.addSubview(logInButton)
+        
     }
     
     func showPhotoView() {
