@@ -19,9 +19,7 @@ import TwitterKit
 
 class TweetViewController : TWTRTimelineViewController {
     
-    private var screenName:String!
-    private var client:TWTRAPIClient!
-    
+    // MARK: overrides
     convenience init() {
         
         self.init(dataSource: nil)
@@ -34,9 +32,7 @@ class TweetViewController : TWTRTimelineViewController {
                 if let user = user {
                     
                     self.dataSource = TWTRUserTimelineDataSource(screenName: user.screenName, APIClient: client)
-                    self.screenName = user.screenName
-                    self.client = client
-
+                    self.tableView.reloadData()
                 }
             }
         }
@@ -52,19 +48,9 @@ class TweetViewController : TWTRTimelineViewController {
     }
     
     override func viewWillAppear(animated: Bool) {
-
-      //  let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-     //   let screenName = Twitter.sharedInstance().session().userName
-     //   let client = Twitter.sharedInstance().APIClient
-        
-       // TODO clean this forced unwrap
-        
-       // self.dataSource = TWTRUserTimelineDataSource(screenName: screenName!, APIClient: client!)
         
         // kick off actual rendering
         super.viewWillAppear(animated)
-        
-        print("TweetViewController.viewWillAppear: \(self.dataSource)")
     }
     
 }
