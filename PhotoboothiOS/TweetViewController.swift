@@ -19,34 +19,35 @@ import TwitterKit
 
 class TweetViewController : TWTRTimelineViewController {
     
-    private var screenName:String?
-    private var client:TWTRAPIClient?
+    private var screenName:String!
+    private var client:TWTRAPIClient!
     
     convenience init() {
-                
+        
+        self.init(dataSource: nil)
+        
         if let session = Twitter.sharedInstance().sessionStore.session() {
             
             let client = TWTRAPIClient()
-            client.loadUserWithID(session.userID) { (user, error) -> Void in
+            client.loadUserWithID(session.userID) { (user, error) in
                 
                 if let user = user {
                     
                     self.dataSource = TWTRUserTimelineDataSource(screenName: user.screenName, APIClient: client)
                     self.screenName = user.screenName
                     self.client = client
-                    
-                    self.init(dataSource: self.dataSource)
+
                 }
             }
         }
+        
     }
     
-    override required init(dataSource: TWTRTimelineDataSource?) {
+    override init (dataSource: TWTRTimelineDataSource?) {
         super.init(dataSource: dataSource)
     }
     
-    required init?(coder aDecoder: NSCoder) {
-        
+    required init? (coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
     
@@ -58,7 +59,7 @@ class TweetViewController : TWTRTimelineViewController {
         
        // TODO clean this forced unwrap
         
-        self.dataSource = TWTRUserTimelineDataSource(screenName: screenName!, APIClient: client!)
+       // self.dataSource = TWTRUserTimelineDataSource(screenName: screenName!, APIClient: client!)
         
         // kick off actual rendering
         super.viewWillAppear(animated)
