@@ -5,9 +5,11 @@ import TwitterKit
 
 class PreviewViewController: BoothViewController, UITextViewDelegate {
     
+    // MARK: UI elements outlets
     @IBOutlet weak var previewImage: UIImageView!
     @IBOutlet weak var tweetTxt: UITextView!
     
+    // MARK: overrides
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -35,10 +37,13 @@ class PreviewViewController: BoothViewController, UITextViewDelegate {
         super.viewDidAppear(animated)
        
     }
+    
+    // MARK: user gestures handlers
     @IBAction func didTouchTweetButton(sender: AnyObject) {
         self.share()
     }
     
+    // MARK: selectors
     func share(){
         
         let status = tweetTxt.text
@@ -49,10 +54,11 @@ class PreviewViewController: BoothViewController, UITextViewDelegate {
         composer.setText(status)
         composer.setImage(uiImage)
         composer.showFromViewController(self) { (result) -> Void in
+            
             if (result == TWTRComposerResult.Cancelled) {
+                
                 self.showCamera()
-            }
-            else {
+            } else {
                 print("Sending tweet!")
                 sleep(3)
                 self.showTweets()
@@ -68,6 +74,7 @@ class PreviewViewController: BoothViewController, UITextViewDelegate {
         print("reset")
     }
   
+    // MARK: private methods
     func showCamera() {
         
         self.navigationController?.popViewControllerAnimated(true)
