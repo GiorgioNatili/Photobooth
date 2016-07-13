@@ -20,14 +20,17 @@ import TwitterKit
 
 class AuthViewController: UIViewController {
     
+    // MARK: initializers
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
     
+    // MARK: overrides
     override func viewDidLoad() {
         
         super.viewDidLoad()
         
+        // TODO: check why the session is not recognized as nil
         let logInButton = TWTRLogInButton(logInCompletion: { session, error in
             if (session != nil) {
                 
@@ -36,12 +39,35 @@ class AuthViewController: UIViewController {
                 print("error: \(error!.localizedDescription)");
             }
         })
-        
-        logInButton.center = self.view.center
+       
         self.view.addSubview(logInButton)
+        logInButton.translatesAutoresizingMaskIntoConstraints = false
         
+        var constraint =
+        NSLayoutConstraint(item: logInButton,
+            attribute: NSLayoutAttribute.CenterY,
+            relatedBy: NSLayoutRelation.Equal,
+            toItem: self.view,
+            attribute: NSLayoutAttribute.CenterY,
+            multiplier: 1.0,
+            constant: 0)
+        
+        self.view.addConstraint(constraint)
+
+        constraint =
+        NSLayoutConstraint(item: logInButton,
+            attribute: NSLayoutAttribute.CenterX,
+            relatedBy: NSLayoutRelation.Equal,
+            toItem: self.view,
+            attribute: NSLayoutAttribute.CenterX,
+            multiplier: 1.0,
+            constant: 0)
+        
+        self.view.addConstraint(constraint)
+
     }
     
+    // MARK: private methods
     func showPhotoView() {
         
         let failureHandler: ((NSError) -> Void) = {
@@ -58,8 +84,10 @@ class AuthViewController: UIViewController {
     }
 
     func alertWithTitle(title: String, message: String) {
+        
         let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.Alert)
         alert.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))
+        
         self.presentViewController(alert, animated: true, completion: nil)
     }
 
