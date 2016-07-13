@@ -34,16 +34,16 @@
 	<key>Fabric</key>
 	<dict>
 		<key>APIKey</key>
-		<string></string>
+		<string>855ea733b36d53c7adb3be1ec898b56b43b34335</string>
 		<key>Kits</key>
 		<array>
 			<dict>
 				<key>KitInfo</key>
 				<dict>
 					<key>consumerKey</key>
-					<string></string>
+					<string>Te2q0n1QcSjPVxDbaj47YZjxS</string>
 					<key>consumerSecret</key>
-					<string></string>
+					<string>G0fCCcOiHGTsbEfpkBU0YmQgSnEbkcHq53nSGz2ztWkaY028l1</string>
 				</dict>
 				<key>KitName</key>
 				<string>Twitter</string>
@@ -69,6 +69,8 @@
 	</dict>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>UILaunchStoryboardName</key>
+	<string>Main</string>
 	<key>UIMainStoryboardFile</key>
 	<string>Main</string>
 	<key>UIRequiredDeviceCapabilities</key>
@@ -80,6 +82,7 @@
 		<string>UIInterfaceOrientationPortrait</string>
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
+		<string>UIInterfaceOrientationPortraitUpsideDown</string>
 	</array>
 </dict>
 </plist>
