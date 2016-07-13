@@ -5,6 +5,9 @@ import TwitterKit
 
 class PreviewViewController: BoothViewController, UITextViewDelegate {
     
+    // MARK: members
+    private var orientation:UIImageOrientation!
+    
     // MARK: UI elements outlets
     @IBOutlet weak var previewImage: UIImageView!
     @IBOutlet weak var tweetTxt: UITextView!
@@ -18,9 +21,10 @@ class PreviewViewController: BoothViewController, UITextViewDelegate {
         // get image from photo
         let documentsPath = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0] 
         let destinationPath = (documentsPath as NSString).stringByAppendingPathComponent("photobooth.jpg")
-        let image = UIImage(contentsOfFile: destinationPath )
-        previewImage.image = image
         
+        let image = UIImage(contentsOfFile: destinationPath)
+        previewImage.image = UIImage(CGImage: image!.CGImage!, scale: 1.0, orientation: orientation)
+
         let tap = UITapGestureRecognizer(target:self, action:Selector("share"))
         self.view.addGestureRecognizer(tap)
         
@@ -73,8 +77,22 @@ class PreviewViewController: BoothViewController, UITextViewDelegate {
         self.showCamera()
         print("reset")
     }
+    
+    // MARK: accessors
+    var imageOrientation: UIImageOrientation {
+        
+        set(newImageOrientation) {
+            
+            orientation = newImageOrientation
+        }
+        
+        get{
+            
+            return orientation
+        }
+    }
   
-    // MARK: private methods
+    // MARK: internal methods
     func showCamera() {
         
         self.navigationController?.popViewControllerAnimated(true)

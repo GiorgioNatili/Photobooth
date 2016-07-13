@@ -135,9 +135,13 @@ UINavigationControllerDelegate, UIImagePickerControllerDelegate /*, UITextViewDe
         
         if let image = UIImage(data: imageData) {
         
-            _ = UIImage(CGImage: image.CGImage!, scale: 1.0, orientation: imageOrientation!)
-           // TODO: verify this
-            self.canvasImage.image = image
+            if let orientation = imageOrientation {
+                
+                self.canvasImage.image = UIImage(CGImage: image.CGImage!, scale: 1.0, orientation: orientation)
+            } else {
+                
+                self.canvasImage.image = image
+            }
             
             //gpj
             let documentsPath = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0]
@@ -166,6 +170,7 @@ UINavigationControllerDelegate, UIImagePickerControllerDelegate /*, UITextViewDe
             //self.captureSession.stopRunning()
             self.canvasImage.hidden = true
         }
+        
         self.performSegueWithIdentifier("preview", sender: self);
     }
     
@@ -275,12 +280,12 @@ UINavigationControllerDelegate, UIImagePickerControllerDelegate /*, UITextViewDe
         if (device.orientation == UIDeviceOrientation.LandscapeLeft){
             print("landscape left")
             previewLayer?.connection.videoOrientation = AVCaptureVideoOrientation.LandscapeRight
-            imageOrientation = UIImageOrientation.LeftMirrored
+            imageOrientation = UIImageOrientation.DownMirrored
             
         } else if (device.orientation == UIDeviceOrientation.LandscapeRight){
             print("landscape right")
             previewLayer?.connection.videoOrientation = AVCaptureVideoOrientation.LandscapeLeft
-            imageOrientation = UIImageOrientation.LeftMirrored
+            imageOrientation = UIImageOrientation.UpMirrored
             
         } else if (device.orientation == UIDeviceOrientation.Portrait){
             print("Portrait")
@@ -290,6 +295,7 @@ UINavigationControllerDelegate, UIImagePickerControllerDelegate /*, UITextViewDe
         } else if (device.orientation == UIDeviceOrientation.PortraitUpsideDown){
             print("Portrait UD")
             previewLayer?.connection.videoOrientation = AVCaptureVideoOrientation.PortraitUpsideDown
+            imageOrientation = UIImageOrientation.RightMirrored
             
         }
     }
@@ -302,6 +308,16 @@ UINavigationControllerDelegate, UIImagePickerControllerDelegate /*, UITextViewDe
         previewLayer?.videoGravity = AVLayerVideoGravityResizeAspectFill;
         previewLayer?.bounds = bounds;
         previewLayer?.position = CGPointMake(CGRectGetMidX(bounds), CGRectGetMidY(bounds));
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
+
+        if segue.identifier == "preview" {
+            
+            let vc = segue.destinationViewController as! PreviewViewController
+            vc.imageOrientation = imageOrientation!
+        }
+        
     }
     
     
