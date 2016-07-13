@@ -314,6 +314,10 @@ UINavigationControllerDelegate, UIImagePickerControllerDelegate /*, UITextViewDe
 
         if segue.identifier == "preview" {
             
+            guard imageOrientation != nil else {
+                
+                return
+            }
             let vc = segue.destinationViewController as! PreviewViewController
             vc.imageOrientation = imageOrientation!
         }
