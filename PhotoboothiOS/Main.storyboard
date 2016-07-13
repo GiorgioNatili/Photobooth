@@ -223,6 +223,9 @@ c/c @YOUR_HANDLE
                                     <constraint firstItem="r1d-Dj-0RV" firstAttribute="top" secondItem="kll-yT-7gr" secondAttribute="top" constant="-8" id="Q7H-6f-Dhe"/>
                                 </constraints>
                             </view>
+                            <imageView userInteractionEnabled="NO" contentMode="bottomRight" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="settings" translatesAutoresizingMaskIntoConstraints="NO" id="lE8-KS-pMe">
+                                <rect key="frame" x="42" y="223" width="282" height="257"/>
+                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K8t-U4-KQg">
                                 <rect key="frame" x="118" y="450" width="84" height="22"/>
                                 <state key="normal" title="Log out" image="logout">
@@ -236,14 +239,20 @@ c/c @YOUR_HANDLE
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="lE8-KS-pMe" firstAttribute="trailing" secondItem="t7M-Aa-VwJ" secondAttribute="trailingMargin" constant="20" id="6bh-oY-Sth"/>
+                            <constraint firstItem="K8t-U4-KQg" firstAttribute="top" secondItem="lE8-KS-pMe" secondAttribute="bottom" constant="-30" id="8k7-cc-1cF"/>
+                            <constraint firstItem="lE8-KS-pMe" firstAttribute="leading" secondItem="t7M-Aa-VwJ" secondAttribute="leadingMargin" constant="26" id="BvI-N3-79M"/>
                             <constraint firstItem="K8t-U4-KQg" firstAttribute="centerX" secondItem="t7M-Aa-VwJ" secondAttribute="centerX" id="D2e-Ub-Eaa"/>
                             <constraint firstItem="kll-yT-7gr" firstAttribute="centerX" secondItem="t7M-Aa-VwJ" secondAttribute="centerX" id="FUr-pl-AAE"/>
+                            <constraint firstItem="K8t-U4-KQg" firstAttribute="top" secondItem="lE8-KS-pMe" secondAttribute="bottom" constant="-30" id="IRF-yZ-0XG"/>
                             <constraint firstItem="heQ-2B-0mH" firstAttribute="top" secondItem="K8t-U4-KQg" secondAttribute="bottom" constant="8" id="OFh-nf-wi3"/>
                             <constraint firstItem="kll-yT-7gr" firstAttribute="top" secondItem="tfk-vC-nK7" secondAttribute="bottom" constant="10" id="Tjk-kn-Ozb"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="lE8-KS-pMe" secondAttribute="trailing" constant="-20" id="ZOt-gy-y9j"/>
                             <constraint firstAttribute="trailingMargin" secondItem="kll-yT-7gr" secondAttribute="trailing" constant="10" id="cGi-RO-DQp"/>
                             <constraint firstAttribute="trailingMargin" secondItem="r1d-Dj-0RV" secondAttribute="trailing" constant="10" id="hdW-4b-dUN"/>
                             <constraint firstAttribute="bottom" secondItem="kll-yT-7gr" secondAttribute="bottom" constant="215" id="nVK-5l-Bef"/>
                             <constraint firstItem="MVC-aS-hOT" firstAttribute="top" secondItem="tfk-vC-nK7" secondAttribute="bottom" constant="10" id="och-Sm-wdX"/>
+                            <constraint firstItem="heQ-2B-0mH" firstAttribute="top" secondItem="lE8-KS-pMe" secondAttribute="bottom" id="vLv-Uu-anU"/>
                             <constraint firstItem="kll-yT-7gr" firstAttribute="leading" secondItem="t7M-Aa-VwJ" secondAttribute="leadingMargin" constant="10" id="vSU-FP-cBy"/>
                             <constraint firstItem="MVC-aS-hOT" firstAttribute="leading" secondItem="t7M-Aa-VwJ" secondAttribute="leadingMargin" constant="18" id="zwQ-lw-p2b"/>
                         </constraints>
@@ -260,6 +269,7 @@ c/c @YOUR_HANDLE
     <resources>
         <image name="camera" width="150" height="125"/>
         <image name="logout" width="22" height="22"/>
+        <image name="settings" width="548" height="257"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
