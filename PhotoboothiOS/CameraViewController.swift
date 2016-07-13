@@ -73,9 +73,7 @@ UINavigationControllerDelegate, UIImagePickerControllerDelegate /*, UITextViewDe
             
             guard (self.stillImageOutput != nil) else {
                 
-                // TODO: remove self.preview() after testing
-                showMessage("Please connect to a device", okaction: { _ in
-                    self.preview()}, completion: { _ in })
+                showMessage("Please connect to a device", okaction: { _ in }, completion: { _ in })
                 return
             }
             
@@ -200,6 +198,8 @@ UINavigationControllerDelegate, UIImagePickerControllerDelegate /*, UITextViewDe
         
         super.viewDidLoad()
 
+        self.cameraButton.imageView?.contentMode = UIViewContentMode.ScaleAspectFit
+        
         super.setupNav(false, enableSettings : true)
         self.setupCam()
         
