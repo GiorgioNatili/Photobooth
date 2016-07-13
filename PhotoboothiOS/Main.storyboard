@@ -17,7 +17,21 @@
                     <view key="view" contentMode="scaleToFill" id="trU-nC-MKf">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" alpha="0.40000000000000002" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="authenticate" translatesAutoresizingMaskIntoConstraints="NO" id="cg6-VV-evv">
+                                <rect key="frame" x="-4" y="0.0" width="328" height="480"/>
+                                <accessibility key="accessibilityConfiguration">
+                                    <accessibilityTraits key="traits" image="YES" notEnabled="YES"/>
+                                </accessibility>
+                            </imageView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Gxp-jg-Zdh" firstAttribute="top" secondItem="cg6-VV-evv" secondAttribute="bottom" id="3NU-KO-2mY"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="cg6-VV-evv" secondAttribute="trailing" constant="-20" id="NnH-av-FVz"/>
+                            <constraint firstItem="cg6-VV-evv" firstAttribute="leading" secondItem="trU-nC-MKf" secondAttribute="leadingMargin" constant="-20" id="UK5-e8-AGv"/>
+                            <constraint firstItem="cg6-VV-evv" firstAttribute="top" secondItem="RCv-DK-9a7" secondAttribute="bottom" constant="-20" id="WTL-Lo-lgz"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LdL-ES-p0u" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -267,6 +281,7 @@ c/c @YOUR_HANDLE
         </scene>
     </scenes>
     <resources>
+        <image name="authenticate" width="1024" height="768"/>
         <image name="camera" width="150" height="125"/>
         <image name="logout" width="22" height="22"/>
         <image name="settings" width="548" height="257"/>
