@@ -298,7 +298,7 @@ UINavigationControllerDelegate, UIImagePickerControllerDelegate /*, UITextViewDe
         
         super.viewDidLayoutSubviews()
         
-        let bounds=view.layer.bounds;
+        let bounds = view.layer.bounds;
         previewLayer?.videoGravity = AVLayerVideoGravityResizeAspectFill;
         previewLayer?.bounds = bounds;
         previewLayer?.position = CGPointMake(CGRectGetMidX(bounds), CGRectGetMidY(bounds));
