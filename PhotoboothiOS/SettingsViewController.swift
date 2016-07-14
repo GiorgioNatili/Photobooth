@@ -21,7 +21,7 @@ import TwitterKit
 class SettingsViewController: BoothViewController, UITextViewDelegate {
 
     struct Settings {
-        static var tweetText = "Estou no #TwitterFlock São Paulo!"
+        static var tweetText = ""
     }
     
     @IBOutlet weak var defaultTextField: UITextView!
@@ -37,9 +37,22 @@ class SettingsViewController: BoothViewController, UITextViewDelegate {
         navigationBarTitle = "Settings"
         
         self.defaultTextField.delegate = self
+        
+        let sessionStore = Twitter.sharedInstance().sessionStore
+        
+        if let session = sessionStore.session() as? TWTRSession {
+            
+            var tweet = defaultTextField.text
+            tweet = tweet.stringByReplacingOccurrencesOfString("YOUR_HANDLE", withString:session.userName)
+            
+            defaultTextField.text = tweet
+        }
+        
+        Settings.tweetText = defaultTextField.text
     }
-
+    
     override func viewDidAppear(animated: Bool) {
+        
         super.viewDidAppear(animated)
     }
     

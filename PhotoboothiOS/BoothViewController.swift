@@ -69,8 +69,8 @@ class BoothViewController : UIViewController {
                 
                 let logout: UIButton = UIButton(type: UIButtonType.Custom)
                 
-                logout.setImage(image, forState: UIControlState.Normal)
-                logout.frame = CGRectMake(-40, 0, 30, 30)
+                logout.setBackgroundImage(image, forState: UIControlState.Normal)
+                logout.frame = CGRectMake(0, 0, 20, 20)
                 
                 logout.addTarget(self, action: "logOut", forControlEvents: UIControlEvents.TouchUpInside)
 

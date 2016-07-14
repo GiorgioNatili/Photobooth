@@ -33,7 +33,7 @@ class AuthViewController: UIViewController {
         // TODO: check why the session is not recognized as nil
         let logInButton = TWTRLogInButton(logInCompletion: { session, error in
             if (session != nil) {
-                
+
                 self.showPhotoView()
             } else {
                 
