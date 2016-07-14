@@ -190,7 +190,7 @@
             </objects>
             <point key="canvasLocation" x="-3395" y="-1631"/>
         </scene>
-        <!--Settings View Controller-->
+        <!--Title-->
         <scene sceneID="sCv-MR-FFW">
             <objects>
                 <viewController storyboardIdentifier="SettingsViewController" id="LUg-LH-mCQ" customClass="SettingsViewController" customModule="PhotoboothDemoiOS" customModuleProvider="target" sceneMemberID="viewController">
@@ -240,26 +240,12 @@ c/c @YOUR_HANDLE
                             <imageView userInteractionEnabled="NO" contentMode="bottomRight" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="settings" translatesAutoresizingMaskIntoConstraints="NO" id="lE8-KS-pMe">
                                 <rect key="frame" x="42" y="223" width="282" height="257"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K8t-U4-KQg">
-                                <rect key="frame" x="118" y="450" width="84" height="22"/>
-                                <state key="normal" title="Log out" image="logout">
-                                    <color key="titleColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="logOut:" destination="LUg-LH-mCQ" eventType="touchUpInside" id="DYF-A2-CIa"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="lE8-KS-pMe" firstAttribute="trailing" secondItem="t7M-Aa-VwJ" secondAttribute="trailingMargin" constant="20" id="6bh-oY-Sth"/>
-                            <constraint firstItem="K8t-U4-KQg" firstAttribute="top" secondItem="lE8-KS-pMe" secondAttribute="bottom" constant="-30" id="8k7-cc-1cF"/>
                             <constraint firstItem="lE8-KS-pMe" firstAttribute="leading" secondItem="t7M-Aa-VwJ" secondAttribute="leadingMargin" constant="26" id="BvI-N3-79M"/>
-                            <constraint firstItem="K8t-U4-KQg" firstAttribute="centerX" secondItem="t7M-Aa-VwJ" secondAttribute="centerX" id="D2e-Ub-Eaa"/>
                             <constraint firstItem="kll-yT-7gr" firstAttribute="centerX" secondItem="t7M-Aa-VwJ" secondAttribute="centerX" id="FUr-pl-AAE"/>
-                            <constraint firstItem="K8t-U4-KQg" firstAttribute="top" secondItem="lE8-KS-pMe" secondAttribute="bottom" constant="-30" id="IRF-yZ-0XG"/>
-                            <constraint firstItem="heQ-2B-0mH" firstAttribute="top" secondItem="K8t-U4-KQg" secondAttribute="bottom" constant="8" id="OFh-nf-wi3"/>
                             <constraint firstItem="kll-yT-7gr" firstAttribute="top" secondItem="tfk-vC-nK7" secondAttribute="bottom" constant="10" id="Tjk-kn-Ozb"/>
                             <constraint firstAttribute="trailingMargin" secondItem="lE8-KS-pMe" secondAttribute="trailing" constant="-20" id="ZOt-gy-y9j"/>
                             <constraint firstAttribute="trailingMargin" secondItem="kll-yT-7gr" secondAttribute="trailing" constant="10" id="cGi-RO-DQp"/>
@@ -271,8 +257,10 @@ c/c @YOUR_HANDLE
                             <constraint firstItem="MVC-aS-hOT" firstAttribute="leading" secondItem="t7M-Aa-VwJ" secondAttribute="leadingMargin" constant="18" id="zwQ-lw-p2b"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="Title" id="C88-Mj-ZeO"/>
                     <connections>
                         <outlet property="defaultTextField" destination="r1d-Dj-0RV" id="ZXx-4c-Uu3"/>
+                        <outlet property="navbar" destination="C88-Mj-ZeO" id="y4E-3k-M5k"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pY7-ao-slC" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -283,7 +271,6 @@ c/c @YOUR_HANDLE
     <resources>
         <image name="authenticate" width="1024" height="768"/>
         <image name="camera" width="150" height="125"/>
-        <image name="logout" width="22" height="22"/>
         <image name="settings" width="548" height="257"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
@@ -292,7 +279,7 @@ c/c @YOUR_HANDLE
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="hRs-QT-NAg"/>
+        <segue reference="fP3-AK-ufO"/>
         <segue reference="Pqd-mN-euh"/>
     </inferredMetricsTieBreakers>
 </document>

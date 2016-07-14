@@ -18,7 +18,7 @@ import UIKit
 import MobileCoreServices
 import TwitterKit
 
-class SettingsViewController: UIViewController, UITextViewDelegate {
+class SettingsViewController: BoothViewController, UITextViewDelegate {
 
     struct Settings {
         static var tweetText = "Estou no #TwitterFlock São Paulo!"
@@ -32,6 +32,10 @@ class SettingsViewController: UIViewController, UITextViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        super.setupNav(true, enableSettings: false, enableLogout: true)
+        navigationBarTitle = "Settings"
+        
         self.defaultTextField.delegate = self
     }
 
@@ -45,7 +49,7 @@ class SettingsViewController: UIViewController, UITextViewDelegate {
         SettingsViewController.Settings.tweetText = textView.text
     }
     
-    @IBAction func logOut(sender: AnyObject) {
+    func logOut() {
         
         let sessionStore = Twitter.sharedInstance().sessionStore
         if let userId = sessionStore.session()?.userID {

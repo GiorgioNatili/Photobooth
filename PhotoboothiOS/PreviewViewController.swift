@@ -63,6 +63,7 @@ class PreviewViewController: BoothViewController, UITextViewDelegate {
                 
                 self.showCamera()
             } else {
+                
                 print("Sending tweet!")
                 sleep(3)
                 self.showTweets()
@@ -70,10 +71,10 @@ class PreviewViewController: BoothViewController, UITextViewDelegate {
         }
         
         print("share")
-        
     }
     
     func reset(){
+        
         self.showCamera()
         print("reset")
     }
@@ -96,9 +97,7 @@ class PreviewViewController: BoothViewController, UITextViewDelegate {
     func showCamera() {
         
         self.navigationController?.popViewControllerAnimated(true)
-
-        //        self.performSegueWithIdentifier("camera", sender: self);
-
+        self.performSegueWithIdentifier("camera", sender: self);
     }
     
     func showTweets(){
