@@ -36,6 +36,8 @@ class AuthViewController: UIViewController {
                 
                 self.showPhotoView()
             } else {
+                
+                self.alertWithTitle("Error", message: error!.localizedDescription)
                 print("error: \(error!.localizedDescription)");
             }
         })
@@ -70,13 +72,9 @@ class AuthViewController: UIViewController {
     // MARK: private methods
     func showPhotoView() {
         
-        let failureHandler: ((NSError) -> Void) = {
-            error in
-            self.alertWithTitle("Error", message: error.localizedDescription)
-        }
-        
         // ensure that presentViewController happens from the main thread/queue
         dispatch_async(dispatch_get_main_queue(), {
+            
             let controller = self.storyboard!.instantiateViewControllerWithIdentifier("NavigationController") as! UINavigationController
             self.presentViewController(controller, animated: true, completion: nil)
         });
