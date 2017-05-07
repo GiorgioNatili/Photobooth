@@ -59,14 +59,23 @@ UINavigationControllerDelegate, UIImagePickerControllerDelegate /*, UITextViewDe
         let currentTime = NSDate.timeIntervalSinceReferenceDate()
         var elapsedTime = currentTime - startTime
         let seconds = snapTime - elapsedTime
+        
         if seconds > 0 {
+            
             elapsedTime -= NSTimeInterval(seconds)
             self.countdown.hidden = false
             self.countdown.text = "\(Int(seconds+1))"
             
         } else {
+            
             self.countdown.hidden = true
             timer.invalidate()
+            
+            guard (self.stillImageOutput != nil) else {
+                
+                showMessage("Please connect to a device", okaction: { _ in }, completion: { _ in })
+                return
+            }
             
             // wow we are ready to save some photos
             // setup still OutPut to save
@@ -90,8 +99,9 @@ UINavigationControllerDelegate, UIImagePickerControllerDelegate /*, UITextViewDe
                     }
                     
                     if self.videoConnection != nil {
+                        
                         // found the video connection, let's get the image
-                        let a = stillOutput.connectionWithMediaType(AVMediaTypeVideo)
+                        let _ = stillOutput.connectionWithMediaType(AVMediaTypeVideo)
                         stillOutput.captureStillImageAsynchronouslyFromConnection(self.videoConnection) {
                             (imageSampleBuffer:CMSampleBuffer!, _) in
                             
@@ -105,23 +115,49 @@ UINavigationControllerDelegate, UIImagePickerControllerDelegate /*, UITextViewDe
         }
     }
     
+    
+    func showMessage(message:String, okaction:(action:UIAlertAction) -> Void,
+                                     completion:()->Void) {
+        
+        let alertController = UIAlertController(title: "Default Style", message: message, preferredStyle: .Alert)
+        
+        let OKAction = UIAlertAction(title: "OK", style: .Default, handler: okaction)
+        alertController.addAction(OKAction)
+        
+        self.presentViewController(alertController, animated: true, completion: completion)
+    }
+    
     func didTakePhoto(imageData: NSData) {
 
         print("did take photo:")
-        let image = UIImage(data: imageData)
-        let flippedImage = UIImage(CGImage: image!.CGImage, scale: 1.0, orientation: imageOrientation!)
-        self.canvasImage.image = image
         
-        //gpj
-        let documentsPath = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0] 
-        let destinationPath = (documentsPath as NSString).stringByAppendingPathComponent("photobooth.jpg")
-        UIImageJPEGRepresentation(image, 1.0).writeToFile(destinationPath, atomically: true)
-        self.canvasImage.hidden = false
-        self.cameraButton.hidden = false
-        self.view.bringSubviewToFront(canvasImage)
+        if let image = UIImage(data: imageData) {
         
-        // after photo, go directly to preview
-        preview()
+            if let orientation = imageOrientation {
+                
+                self.canvasImage.image = UIImage(CGImage: image.CGImage!, scale: 1.0, orientation: orientation)
+            } else {
+                
+                self.canvasImage.image = image
+            }
+            
+            //gpj
+            let documentsPath = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0]
+            let destinationPath = (documentsPath as NSString).stringByAppendingPathComponent("photobooth.jpg")
+            
+            if let rawData = UIImageJPEGRepresentation(image, 1.0) {
+                
+                rawData.writeToFile(destinationPath, atomically: true)
+            }
+            
+            self.canvasImage.hidden = false
+            self.cameraButton.hidden = false
+            self.view.bringSubviewToFront(canvasImage)
+            
+            // after photo, go directly to preview
+            preview()
+            
+        }
         
         self.takingPhoto = false
         
@@ -132,6 +168,7 @@ UINavigationControllerDelegate, UIImagePickerControllerDelegate /*, UITextViewDe
             //self.captureSession.stopRunning()
             self.canvasImage.hidden = true
         }
+        
         self.performSegueWithIdentifier("preview", sender: self);
     }
     
@@ -161,6 +198,8 @@ UINavigationControllerDelegate, UIImagePickerControllerDelegate /*, UITextViewDe
         
         super.viewDidLoad()
 
+        self.cameraButton.imageView?.contentMode = UIViewContentMode.ScaleAspectFit
+        
         super.setupNav(false, enableSettings : true)
         self.setupCam()
         
@@ -170,15 +209,15 @@ UINavigationControllerDelegate, UIImagePickerControllerDelegate /*, UITextViewDe
     }
     
     func focusTo(value : Float) {
-        if let device = captureDevice {
-            if(device.lockForConfiguration()) {
-                device.unlockForConfiguration()
-            }
+        if let device = captureDevice, _ = try? device.lockForConfiguration() {
+            
+            device.unlockForConfiguration()
         }
     }
     
     let screenWidth = UIScreen.mainScreen().bounds.size.width
     
+    // TODO: clean this
     func configureDevice() {
         if let device = captureDevice {
             do {
@@ -203,18 +242,23 @@ UINavigationControllerDelegate, UIImagePickerControllerDelegate /*, UITextViewDe
             captureSession.addOutput(stillImageOutput)
         }
         
-        let err : NSError? = nil
-        if captureSession.running == false {
-            captureSession.addInput(AVCaptureDeviceInput(device: captureDevice))
-        }
-        
-        if err != nil {
-            print("error: \(err?.localizedDescription)")
+        do {
+            
+            try captureSession.addInput(AVCaptureDeviceInput(device: captureDevice))
+        } catch let error as NSError{
+            
+            print("error: \(error.localizedDescription)")
         }
         
         // create camera preview
         previewLayer = AVCaptureVideoPreviewLayer(session: captureSession)
-        self.view.layer.addSublayer(previewLayer)
+        
+        if let preview = previewLayer  {
+            
+            self.view.layer.addSublayer(preview)
+        }
+        
+        // prepare for the countdown
         self.view.bringSubviewToFront(countdown)
         
         // add camera button
@@ -236,28 +280,50 @@ UINavigationControllerDelegate, UIImagePickerControllerDelegate /*, UITextViewDe
         if (device.orientation == UIDeviceOrientation.LandscapeLeft){
             print("landscape left")
             previewLayer?.connection.videoOrientation = AVCaptureVideoOrientation.LandscapeRight
-            imageOrientation = UIImageOrientation.LeftMirrored
+            imageOrientation = UIImageOrientation.DownMirrored
+            
         } else if (device.orientation == UIDeviceOrientation.LandscapeRight){
             print("landscape right")
             previewLayer?.connection.videoOrientation = AVCaptureVideoOrientation.LandscapeLeft
-            imageOrientation = UIImageOrientation.LeftMirrored 
+            imageOrientation = UIImageOrientation.UpMirrored
+            
         } else if (device.orientation == UIDeviceOrientation.Portrait){
             print("Portrait")
             previewLayer?.connection.videoOrientation = AVCaptureVideoOrientation.Portrait
             imageOrientation = UIImageOrientation.LeftMirrored
-//        } else if (device.orientation == UIDeviceOrientation.PortraitUpsideDown){
-//            println("Portrait UD")
-//            previewLayer?.connection.videoOrientation = AVCaptureVideoOrientation.PortraitUpsideDown
-//            imageOrientation = UIImageOrientation.UpMirrored
+            
+        } else if (device.orientation == UIDeviceOrientation.PortraitUpsideDown){
+            print("Portrait UD")
+            previewLayer?.connection.videoOrientation = AVCaptureVideoOrientation.PortraitUpsideDown
+            imageOrientation = UIImageOrientation.RightMirrored
+            
+        }
+    }
+    
+    override func viewDidLayoutSubviews() {
+        
+        super.viewDidLayoutSubviews()
+        
+        let bounds = view.layer.bounds;
+        previewLayer?.videoGravity = AVLayerVideoGravityResizeAspectFill;
+        previewLayer?.bounds = bounds;
+        previewLayer?.position = CGPointMake(CGRectGetMidX(bounds), CGRectGetMidY(bounds));
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
+
+        if segue.identifier == "preview" {
+            
+            guard imageOrientation != nil else {
+                
+                return
+            }
+            let vc = segue.destinationViewController as! PreviewViewController
+            vc.imageOrientation = imageOrientation!
         }
         
-        let bounds = self.canvasImage.layer.contentsRect
-        previewLayer?.videoGravity = AVLayerVideoGravityResizeAspectFill
-        previewLayer?.bounds = bounds
-        previewLayer?.position = CGPointMake(CGRectGetMidX(bounds), CGRectGetMidY(bounds))
-        previewLayer?.frame = self.view.layer.frame
-        
     }
+    
     
     @IBAction func touchUpInsideCameraButton(sender: AnyObject) {
         self.startSnap()

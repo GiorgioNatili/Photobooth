@@ -18,10 +18,10 @@ import UIKit
 import MobileCoreServices
 import TwitterKit
 
-class SettingsViewController: UIViewController, UITextViewDelegate {
+class SettingsViewController: BoothViewController, UITextViewDelegate {
 
     struct Settings {
-        static var tweetText = "Estou no #TwitterFlock São Paulo!"
+        static var tweetText = ""
     }
     
     @IBOutlet weak var defaultTextField: UITextView!
@@ -32,10 +32,27 @@ class SettingsViewController: UIViewController, UITextViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        super.setupNav(true, enableSettings: false, enableLogout: true)
+        navigationBarTitle = "Settings"
+        
         self.defaultTextField.delegate = self
+        
+        let sessionStore = Twitter.sharedInstance().sessionStore
+        
+        if let session = sessionStore.session() as? TWTRSession {
+            
+            var tweet = defaultTextField.text
+            tweet = tweet.stringByReplacingOccurrencesOfString("YOUR_HANDLE", withString:session.userName)
+            
+            defaultTextField.text = tweet
+        }
+        
+        Settings.tweetText = defaultTextField.text
     }
-
+    
     override func viewDidAppear(animated: Bool) {
+        
         super.viewDidAppear(animated)
     }
     
@@ -45,9 +62,13 @@ class SettingsViewController: UIViewController, UITextViewDelegate {
         SettingsViewController.Settings.tweetText = textView.text
     }
     
-    @IBAction func logOut(sender: AnyObject) {
+    func logOut() {
         
-        Twitter.sharedInstance().logOut()
+        let sessionStore = Twitter.sharedInstance().sessionStore
+        if let userId = sessionStore.session()?.userID {
+            
+            sessionStore.logOutUserID(userId)
+        }
         
         // ensure that presentViewController happens from the main thread/queue
         dispatch_async(dispatch_get_main_queue(), {

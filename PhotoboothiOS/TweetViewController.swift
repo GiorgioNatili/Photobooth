@@ -19,33 +19,38 @@ import TwitterKit
 
 class TweetViewController : TWTRTimelineViewController {
     
+    // MARK: overrides
     convenience init() {
         
-        let client = Twitter.sharedInstance().APIClient
-        let dataSource = TWTRUserTimelineDataSource(screenName: Twitter.sharedInstance().session().userName, APIClient: client)
+        self.init(dataSource: nil)
         
-        self.init(dataSource: dataSource)
+        if let session = Twitter.sharedInstance().sessionStore.session() {
+            
+            let client = TWTRAPIClient()
+            client.loadUserWithID(session.userID) { (user, error) in
+                
+                if let user = user {
+                    
+                    self.dataSource = TWTRUserTimelineDataSource(screenName: user.screenName, APIClient: client)
+                    self.tableView.reloadData()
+                }
+            }
+        }
+        
     }
     
-    override required init(dataSource: TWTRTimelineDataSource) {
+    override init (dataSource: TWTRTimelineDataSource?) {
         super.init(dataSource: dataSource)
     }
     
-    required init(coder aDecoder: NSCoder) {
+    required init? (coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
     
     override func viewWillAppear(animated: Bool) {
-
-        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-        let screenName = Twitter.sharedInstance().session().userName
-        let client = Twitter.sharedInstance().APIClient
-        self.dataSource = TWTRUserTimelineDataSource(screenName: screenName, APIClient: client)
         
         // kick off actual rendering
         super.viewWillAppear(animated)
-        
-        print("TweetViewController.viewWillAppear: \(self.dataSource)")
     }
     
 }

@@ -5,9 +5,14 @@ import TwitterKit
 
 class PreviewViewController: BoothViewController, UITextViewDelegate {
     
+    // MARK: members
+    private var orientation:UIImageOrientation!
+    
+    // MARK: UI elements outlets
     @IBOutlet weak var previewImage: UIImageView!
     @IBOutlet weak var tweetTxt: UITextView!
     
+    // MARK: overrides
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -16,9 +21,10 @@ class PreviewViewController: BoothViewController, UITextViewDelegate {
         // get image from photo
         let documentsPath = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0] 
         let destinationPath = (documentsPath as NSString).stringByAppendingPathComponent("photobooth.jpg")
-        let image = UIImage(contentsOfFile: destinationPath )
-        previewImage.image = image
         
+        let image = UIImage(contentsOfFile: destinationPath)
+        previewImage.image = UIImage(CGImage: image!.CGImage!, scale: 1.0, orientation: orientation)
+
         let tap = UITapGestureRecognizer(target:self, action:Selector("share"))
         self.view.addGestureRecognizer(tap)
         
@@ -35,21 +41,29 @@ class PreviewViewController: BoothViewController, UITextViewDelegate {
         super.viewDidAppear(animated)
        
     }
+    
+    // MARK: user gestures handlers
     @IBAction func didTouchTweetButton(sender: AnyObject) {
         self.share()
     }
     
+    // MARK: selectors
     func share(){
+        
         let status = tweetTxt.text
         let uiImage = self.previewImage.image
+        
         let composer = TWTRComposer()
+        
         composer.setText(status)
         composer.setImage(uiImage)
-        composer.showWithCompletion { (result) -> Void in
+        composer.showFromViewController(self) { (result) -> Void in
+            
             if (result == TWTRComposerResult.Cancelled) {
+                
                 self.showCamera()
-            }
-            else {
+            } else {
+                
                 print("Sending tweet!")
                 sleep(3)
                 self.showTweets()
@@ -57,20 +71,33 @@ class PreviewViewController: BoothViewController, UITextViewDelegate {
         }
         
         print("share")
-        
     }
     
     func reset(){
+        
         self.showCamera()
         print("reset")
     }
+    
+    // MARK: accessors
+    var imageOrientation: UIImageOrientation {
+        
+        set(newImageOrientation) {
+            
+            orientation = newImageOrientation
+        }
+        
+        get{
+            
+            return orientation
+        }
+    }
   
+    // MARK: internal methods
     func showCamera() {
         
         self.navigationController?.popViewControllerAnimated(true)
-
-        //        self.performSegueWithIdentifier("camera", sender: self);
-
+        self.performSegueWithIdentifier("camera", sender: self);
     }
     
     func showTweets(){

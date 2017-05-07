@@ -30,9 +30,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
 
         assert(NSBundle.mainBundle().objectForInfoDictionaryKey("Fabric") != nil, "Welcome to Photobooth. Please remember to onboard using the Fabric Mac app. Check the instructions in the README file.")
+        
         Fabric.with([Twitter(), Crashlytics()]).debug = true
         
-        if Twitter.sharedInstance().session() == nil {
+        let store = Twitter.sharedInstance().sessionStore
+       
+        if store.existingUserSessions().count == 0 {
+            
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             let authViewController: AnyObject! = storyboard.instantiateViewControllerWithIdentifier("AuthViewController")
             self.window?.rootViewController = authViewController as? UIViewController

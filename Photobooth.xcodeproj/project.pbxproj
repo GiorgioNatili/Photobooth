@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		59B015B11D341B2000DD82FE /* TwitterKitResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 59B015B01D341B2000DD82FE /* TwitterKitResources.bundle */; };
+		59EC71A91D36561000DF424A /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59EC71A81D36561000DF424A /* UIImage+Extension.swift */; };
 		7F2AA9EC1ADE495500E809E1 /* PreviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F2AA9EB1ADE495500E809E1 /* PreviewViewController.swift */; };
 		7F599B831ADE11FF0020955F /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F599B821ADE11FF0020955F /* CameraViewController.swift */; };
 		7F599B871ADE22C40020955F /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F599B861ADE22C40020955F /* UIColorExtension.swift */; };
@@ -24,6 +26,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		59B015B01D341B2000DD82FE /* TwitterKitResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = TwitterKitResources.bundle; path = TwitterKit.framework/Versions/A/Resources/TwitterKitResources.bundle; sourceTree = SOURCE_ROOT; };
+		59EC71A81D36561000DF424A /* UIImage+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
 		7F2AA9EB1ADE495500E809E1 /* PreviewViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreviewViewController.swift; sourceTree = "<group>"; };
 		7F599B821ADE11FF0020955F /* CameraViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
 		7F599B861ADE22C40020955F /* UIColorExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
@@ -79,6 +83,7 @@
 				8B5EFF06195F064400B354F9 /* Main.storyboard */,
 				8BCB9328194B2E1200A998EA /* Images.xcassets */,
 				8B300C211944AA1A00993175 /* Supporting Files */,
+				59EC71A81D36561000DF424A /* UIImage+Extension.swift */,
 			);
 			name = Photobooth;
 			path = PhotoboothiOS;
@@ -87,6 +92,7 @@
 		8B300C211944AA1A00993175 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				59B015B01D341B2000DD82FE /* TwitterKitResources.bundle */,
 				CAD57C031B026F170084ACA5 /* Crashlytics.framework */,
 				CAF1D6BB1AD75EA8005CCD89 /* Fabric.framework */,
 				CAF1D6B91AD75EA8005CCD89 /* TwitterKit.framework */,
@@ -175,7 +181,7 @@
 				TargetAttributes = {
 					8B300C1E1944AA1A00993175 = {
 						CreatedOnToolsVersion = 6.0;
-						DevelopmentTeam = XD75XYY267;
+						DevelopmentTeam = D34NY92TC4;
 					};
 					8B9F50ED1944A5AB00894629 = {
 						CreatedOnToolsVersion = 6.0;
@@ -206,6 +212,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				59B015B11D341B2000DD82FE /* TwitterKitResources.bundle in Resources */,
 				8BCB9329194B2E1200A998EA /* Images.xcassets in Resources */,
 				8B5EFF0A195F064400B354F9 /* Main.storyboard in Resources */,
 			);
@@ -232,7 +239,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "./Fabric.framework/run e25f12ebcd18f645af83d9627a5c28edf281af1d f2695c8656524bed4f4b9b72bbd1624b70d49a126a0c4e8d28bee591dffc0410";
+			shellScript = "./Fabric.framework/run 855ea733b36d53c7adb3be1ec898b56b43b34335 e94e816d8d79e3b1d67221e07aed016b9d785737a187e4718db5615693f316bc";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -244,6 +251,7 @@
 				8B5EFF08195F064400B354F9 /* AuthViewController.swift in Sources */,
 				7F599B871ADE22C40020955F /* UIColorExtension.swift in Sources */,
 				8B5EFF07195F064400B354F9 /* AppDelegate.swift in Sources */,
+				59EC71A91D36561000DF424A /* UIImage+Extension.swift in Sources */,
 				8B5EFF09195F064400B354F9 /* TweetViewController.swift in Sources */,
 				CAEF8CC61ADC3D9300E80156 /* SettingsViewController.swift in Sources */,
 				7F599B831ADE11FF0020955F /* CameraViewController.swift in Sources */,
@@ -279,7 +287,7 @@
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = "$(SRCROOT)/PhotoboothiOS/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				METAL_ENABLE_DEBUG_INFO = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.twitterdev.$(PRODUCT_NAME:rfc1034identifier)";
@@ -302,7 +310,7 @@
 					"$(PROJECT_DIR)/PhotoboothiOS",
 				);
 				INFOPLIST_FILE = "$(SRCROOT)/PhotoboothiOS/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				METAL_ENABLE_DEBUG_INFO = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.twitterdev.$(PRODUCT_NAME:rfc1034identifier)";
